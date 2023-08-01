@@ -1,0 +1,1751 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "OTTO1500",
+        "Components": {
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 17438684357415445773
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 9980564227113216045
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 14571991941043169806
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 9206994979617663838,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[8739165407290]": {
+            "Id": "Entity_[8739165407290]",
+            "Name": "base_link",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 14662523358242825837,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.2232999950647354
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.7071067690849304,
+                            0.7071067690849304
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                1.2899999618530273,
+                                1.8300000429153442,
+                                0.3653999865055084
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 4331718796141764313
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 12190656968087655611
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 6606716925136641125,
+                    "Child Entity Order": [
+                        "Entity_[8790705014842]",
+                        "Entity_[8747755341882]",
+                        "Entity_[8773525145658]",
+                        "Entity_[8743460374586]",
+                        "Entity_[8782115080250]",
+                        "Entity_[8764935211066]",
+                        "Entity_[8756345276474]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16629686599330404981
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9206798489954343557
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 12380419391824309160
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13029029600243629807
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 17189241160157503667,
+                    "Configuration": {
+                        "entityId": "",
+                        "Compute Mass": false,
+                        "Mass": 327.0,
+                        "Compute COM": false,
+                        "Compute inertia": false,
+                        "Inertia tensor": [
+                            49.84000015258789,
+                            0.0,
+                            0.0,
+                            0.0,
+                            136.60000610351563,
+                            0.0,
+                            0.0,
+                            0.0,
+                            95.75
+                        ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 1630227050869441780
+                },
+                "InputConfigurationComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 6628854753900307644,
+                    "m_template": {
+                        "$type": "InputConfigurationComponent",
+                        "Input Event Bindings": {
+                            "assetId": {
+                                "guid": "{7D2DCE6D-3A85-5781-9EBB-3CA0D979919D}"
+                            },
+                            "assetHint": "prefabs/otto1500/scripts/otto1500robot_inputs.inputbindings"
+                        }
+                    }
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 7296437522080334795,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "base_link"
+                    }
+                },
+                "ROS2OdometrySensorComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 12726504194462468269,
+                    "m_template": {
+                        "$type": "ROS2OdometrySensorComponent",
+                        "SensorConfiguration": {
+                            "Frequency (HZ)": 100.0,
+                            "Publishers": {
+                                "nav_msgs::msg::Odometry": {
+                                    "Type": "nav_msgs::msg::Odometry",
+                                    "Topic": "odom"
+                                }
+                            }
+                        }
+                    }
+                },
+                "ROS2RobotControlComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 17507407077915241059,
+                    "m_template": {
+                        "$type": "ROS2RobotControlComponent",
+                        "SubscriberConfiguration": {
+                            "Topic": "cmd_vel"
+                        }
+                    }
+                },
+                "SkidSteeringControlComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 18125850524846553967,
+                    "m_template": {
+                        "$type": "SkidSteeringControlComponent"
+                    }
+                },
+                "SkidSteeringModelComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 8604042625825989272,
+                    "m_template": {
+                        "$type": "SkidSteeringModelComponent",
+                        "VehicleConfiguration": {
+                            "AxlesConfigurations": [
+                                {
+                                    "AxleWheels": [
+                                        "Entity_[8790705014842]",
+                                        "Entity_[8782115080250]"
+                                    ],
+                                    "WheelRadius": 0.1469999998807907,
+                                    "IsSteering": true,
+                                    "IsDrive": true
+                                },
+                                {
+                                    "AxleWheels": [
+                                        "Entity_[8747755341882]",
+                                        "Entity_[8764935211066]"
+                                    ],
+                                    "WheelRadius": 0.09000000357627869
+                                },
+                                {
+                                    "AxleWheels": [
+                                        "Entity_[8773525145658]",
+                                        "Entity_[8756345276474]"
+                                    ],
+                                    "WheelRadius": 0.09000000357627869
+                                }
+                            ],
+                            "Track": 0.0,
+                            "Wheelbase": 0.8999999761581421
+                        },
+                        "DriveModel": {
+                            "Limits": {
+                                "AngularLimit": 1.5,
+                                "LinearAcceleration": 2.0,
+                                "AngularAcceleration": 1.5
+                            }
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8918714938734002168,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        },
+        "Entity_[8743460374586]": {
+            "Id": "Entity_[8743460374586]",
+            "Name": "base_link_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 4311759043330655255,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{E5F41FF9-3859-57DA-8CD2-5062F5FC027D}",
+                                    "subId": 280463597
+                                },
+                                "assetHint": "assets/importer/otto1500.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 445615011812485262
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5722325042538299814
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 15962003614363132950
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 2902675853826138755
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17563961350235147842
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 6692363625451027689,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 179301002
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{F08349A0-1943-550C-B385-715DB7D41B78}"
+                                            },
+                                            "assetHint": "assets/importer/otto1500_otto_1500.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 330901576
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{09CE650F-3EC2-54B5-AA3B-CF8F3AC52D0B}"
+                                            },
+                                            "assetHint": "assets/importer/otto1500_otto_1500_lights.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9340959933785560838
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 7212228410788579436
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14229164944775725935
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 1699406324458450520,
+                    "Parent Entity": "Entity_[8739165407290]",
+                    "Transform Data": {
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8747755341882]": {
+            "Id": "Entity_[8747755341882]",
+            "Name": "wheel_FR",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 789241769314630834,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.5,
+                            0.5,
+                            -0.5,
+                            0.5
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object",
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{73E4C883-CDAE-5722-A955-6DCF5E43D5D4}",
+                                            "subId": 1
+                                        },
+                                        "assetHint": "prefabs/otto1500/materials/no_friction.physicsmaterial"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "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",
+                                "Type": 1
+                            },
+                            "Subdivision": 120,
+                            "Height": 0.061434000730514526,
+                            "Radius": 0.09000000357627869
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 14870427049612995745
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 3285907679398343569
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17818749811989655910,
+                    "Child Entity Order": [
+                        "Entity_[8752050309178]"
+                    ]
+                },
+                "EditorHingeJointComponent": {
+                    "$type": "EditorHingeJointComponent",
+                    "Id": 1674808635908736772,
+                    "Configuration": {
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ],
+                        "Parent Entity": "Entity_[8739165407290]",
+                        "Child Entity": "Entity_[8747755341882]"
+                    },
+                    "Angular Limit": {
+                        "Standard Limit Configuration": {
+                            "Is Limited": false
+                        },
+                        "Positive Limit": 360.0,
+                        "Negative Limit": -360.0
+                    }
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 12030643623959479674
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 11129779348651419264
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4096899032725503167
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 8428246940403978935
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 12181280671567552866,
+                    "Configuration": {
+                        "entityId": "",
+                        "Compute Mass": false,
+                        "Mass": 5.0,
+                        "Compute COM": false,
+                        "Inertia tensor": [
+                            0.011626898311078548,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.02011815644800663,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.011636199429631233
+                        ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12406385513744432834
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 9793209382445626552,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "wheel_FR",
+                        "Joint Name": "wheel_FR_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12354636052647078928,
+                    "Parent Entity": "Entity_[8739165407290]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.6011750102043152,
+                            -0.47581198811531067,
+                            0.09000000357627869
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8752050309178]": {
+            "Id": "Entity_[8752050309178]",
+            "Name": "wheel_FR_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 6011839347953129902,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{F36E9431-0FBB-50F8-BE01-F8170BB2EA88}",
+                                    "subId": 278812582
+                                },
+                                "assetHint": "assets/urdfimporter/2361167171_otto1500.urdf/otto1500_wheel_front.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1223053161439729985
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15998618013592834471
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 1309669578849078430
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 5275263754920697461
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2919214146258225591
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 2481762583760106854,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2084814471
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 5137845382498654960
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1416004512712331288
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 6027640933405568662
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 16450703884806580105,
+                    "Parent Entity": "Entity_[8747755341882]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -0.09000000357627869
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8756345276474]": {
+            "Id": "Entity_[8756345276474]",
+            "Name": "wheel_RR",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 3746899355765133699,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.5,
+                            0.5,
+                            -0.5,
+                            0.5
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object",
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{73E4C883-CDAE-5722-A955-6DCF5E43D5D4}",
+                                            "subId": 1
+                                        },
+                                        "assetHint": "prefabs/otto1500/materials/no_friction.physicsmaterial"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "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",
+                                "Type": 1
+                            },
+                            "Subdivision": 120,
+                            "Height": 0.061434000730514526,
+                            "Radius": 0.09000000357627869
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9046428109000061340
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 3208955527791522547
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17708782720245336768,
+                    "Child Entity Order": [
+                        "Entity_[8760640243770]"
+                    ]
+                },
+                "EditorHingeJointComponent": {
+                    "$type": "EditorHingeJointComponent",
+                    "Id": 13524790652802716995,
+                    "Configuration": {
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ],
+                        "Parent Entity": "Entity_[8739165407290]",
+                        "Child Entity": "Entity_[8756345276474]"
+                    },
+                    "Angular Limit": {
+                        "Standard Limit Configuration": {
+                            "Is Limited": false
+                        },
+                        "Positive Limit": 360.0,
+                        "Negative Limit": -360.0
+                    }
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3984545440553440314
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 5476967722550208338
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 8925712200308249015
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5821802058614085817
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 16174553981536800353,
+                    "Configuration": {
+                        "entityId": "",
+                        "Compute Mass": false,
+                        "Mass": 5.0,
+                        "Compute COM": false,
+                        "Inertia tensor": [
+                            0.011626898311078548,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.02011815644800663,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.011636199429631233
+                        ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 307495725090639863
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 2561289669469946502,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "wheel_RR",
+                        "Joint Name": "wheel_RR_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 869082867568203243,
+                    "Parent Entity": "Entity_[8739165407290]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.6011750102043152,
+                            -0.47581198811531067,
+                            0.09000000357627869
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8760640243770]": {
+            "Id": "Entity_[8760640243770]",
+            "Name": "wheel_RR_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 18366127065801350769,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{68BAECD4-1BF6-5EE1-9E0B-6B341E2DA753}",
+                                    "subId": 279436843
+                                },
+                                "assetHint": "assets/urdfimporter/2361167171_otto1500.urdf/otto1500_wheel_back.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 2802271055029978709
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11870033039061047663
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8412212093964186050
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 15599149815314811704
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6944414592888224936
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 13790170555233537300,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2084814471
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 12587616461608438465
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16550591130910440725
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 6288329926327420305
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6188379045624836519,
+                    "Parent Entity": "Entity_[8756345276474]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -0.09000000357627869
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8764935211066]": {
+            "Id": "Entity_[8764935211066]",
+            "Name": "wheel_FL",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 12463879581617173709,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.5,
+                            0.5,
+                            -0.5,
+                            0.5
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object",
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{73E4C883-CDAE-5722-A955-6DCF5E43D5D4}",
+                                            "subId": 1
+                                        },
+                                        "assetHint": "prefabs/otto1500/materials/no_friction.physicsmaterial"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "TlhTAUNWWE0OAAAAAAAAAElDRQFDTEhMCQAAAEAAAABkAAAAJgAAAMgAAADMSrS9OKL7PABKmTzcE6y9OaL7vNYbBD18Yqi9OKL7PHrwFT2Wxkg9OKL7PHKVmj3YGwQ9OKL7PNsTrD188BU9OKL7vHxiqD0ASpk8OKL7PMxKtD0ASpk8OKL7vMxKtD3MSrQ9OqL7PAZKmbzMSrQ9OKL7vARKmbzbE6w9OqL7vNYbBL18Yqg9OKL7PHzwFb1xlZo9N6L7PJrGSD18Yqg9OKL7vH7wFT3aE6w9OKL7PNobBD1ylZo9OKL7vJbGSL1xlZq9OKL7PJrGSL1xlZq9OKL7vJrGSL17Yqi9OKL7vIDwFb3aE6y9OaL7PNwbBL3LSrS9OKL7vAxKmbzLSrS9OKL7PAxKmbxylZq9N6L7vJTGSD1ylZq9OKL7PJTGSD3LSrQ9OKL7vAhKmTzLSrQ9OKL7PAhKmTwGSpk8OqL7PMxKtL188BU9OKL7PHxiqL188BU9OaL7vHxiqL0ESpk8OKL7vMxKtL0AAAAAOKL7vOxRuL0AAAAAOKL7POxRuL2Uxki9OKL7vHOVmr17VYK9OKL7vH5Vgr17VYK9OKL7PH5Vgr2Uxki9OKL7PHOVmr3VGwS9NqL7PNsTrL3UGwS9OKL7vNsTrL0LSpm8OqL7vMtKtD0AAACyOKL7vOxRuD0AAACyOKL7POxRuD0LSpm8N6L7PMtKtD2A8BW9N6L7PHxiqD2A8BW9OKL7vHxiqD04HpU9OaL7PGKuWL18VYI9OKL7vHxVgr18VYI9OKL7PHxVgr1irlg9OqL7PDcelb1hrlg9N6L7vDcelb1grlg9OKL7vDcelT17VYI9OKL7vH1Vgj17VYI9OKL7PH1Vgj3sUbg9N6L7PAAAADLsUbg9OaL7vAAAADI2HpU9OKL7vGOuWD1krli9OKL7vDYelT2Zxki9N6L7PHGVmj19VYK9OKL7PHtVgj19VYK9OKL7vHtVgj38DLa9OaL7vACsZjzsUbi9OaL7PAAAgLLsUbi9N6L7vAAAgLL8SZm8OKL7PMxKtL34q2a8OKL7vPwMtr0C5bsyAACAPxAXnzQ9ovu8AAAgHFB3c79NMMU7wTaePoCvt70gAAMKZHDoPhUuxTvxF2Q/f6+3vSMAAyC8vJg+iUvhu11WdD+7gre9JgAEJFtWdD8TS+E7wryYvruCt70qAAQB8hdkP9wuxTtdcOg+fq+3vS4AAxLyF2Q/cC7Fu11w6L5+r7e9MQADAvzFYr/5SeE7KIvtvrqCt700AAQNXFZ0v3BL4bvAvJi+vIK3vTgABA76xWK/M0nhuy6L7T67gre9PAAEC1xWdD+cSuG7uLyYPrqCt71AAAQTfjeePgAAAABweHO/b0+3vUQABCr8EtY968nZsfyYfr9uT7e9SAAEJyIbIb8AAAAADPNGv3BPt71MAAQxaHHovgAAAAAEGWS/cE+3vVAABAUwE9a9AAAAAP2Yfj9wT7e9VAAEGnA3nr4AAAAAc3hzP29Pt71YAAQa1bJdP38txTu5/v++fa+3vVwAAxbdIEU/AAAAAENUI7/Xg7e9XwAEOUJCJj8AAAAA8qlCv3jAt71jAAQ39v//PpE4ArPas12/b0+3vWcABDg9VCM/AAAAAOEgRT/Xg7e9awAEIcv+/z6YLsW70rJdP36vt71vAAMj/Zh+P+bJ2bH3Eta9b0+3vXIABDvQsl0/pi7Fu9D+/z5+r7e9dgADEN4gRT8AAAAAQVQjP9eDt715AAQhwgH7vgAAAAASIF8/2IO3vX0ABBtBVCO/AAAAAN4gRT/Xg7e9gQAEL8dFd7+CLsW7OoOEPn+vt72FAAMIx+F+vwAAAADHMr8914O3vYgABDT+EtY9AAAAAP2Yfj9vT7e9jAAEPwjzRr8AAAAAJhshv25Pt72QAAQ2/Zh+vwAAAAAzE9a9b0+3vZQABBgM80a/AAAAACIbIT9uT7e9mAAELP2Yfj8AAAAAMxPWPW9Pt72cAAQU4Q6KviZ0jLKLhHa/2IO3vaAABAbXMr+9AAAAAMbhfr/Wg7e9pAAEJ8ocz7MAAIC/Dy7Ksj6i+7yoACAIGTQICywuLxsaHz4kIyIQExU8AAIXOTgqKSgGBAMzDA4AAQIDBAUFBAYHCAkKCwwNDg8LChAREhMUFRMSFhcCARgZDg0aGxwdGh0eHyAhIiMgIyQlJicoKSYpKissCw8PLS4sLy4tMC8wHBsxMjMDMQMFCQg0NTYNDAwzMjY3Kyo4ODk6NzsBAAA8PTsGKCcHERAiIRUUPTwXFjo5GRg1ND8lJD4+Hx4/Px4dHDAtDwoJNRgNNjIxBQcnJis3OhYBOz0UEhEhICUAIgAXAAQAEQASABMAFAALAAwAJAAjAA4ADQAfAAcACAAgAB0AAQAJACEAGwAaABAADwAeAAMAAgAVABkABQAKARwBCQIDAhYDHgMlBBcEJQQGBRgFCgYRBiUHHwclBwgIIAglCSEJJQoiCiULFAslCwwMJQwkDSUNHw0ODiMOJQ8lDx4PEBAaECUREhIlEhMTJRMUFCUVJRUZFRYWJRciFyUYJRgZGSUaJRobGyEbJRwlHB0dIB0lHiUfJSAlISUiJSMlIyQkJQABHAEJHAABCQACFQACAwIDFgADHgMeJQAEFwQXJQQGJQAEBgAFGAUKGAAFCgYREgAHHwcfJQcIJQAHCAggJQAIIAkhJQAJIQoiJQAKIgALDAALFAsUJQsMJQwkJQAMJA0OJQ0fJQANHwANDgAOIw4jJQ8QJQ8eJQAPHgAPEAAQGhAaJQAREhITJQASEwATFBMUJRUWJRUZJQAVGQAXIhciJRgZJRobJQAaGwAbIRshJRwdJQAdIB0gJQAjJCMkJQAAAADsUbi9OqL7vOxRuL3sUbg9OqL7POxRuD3Fkcs6cF5yNqJIpi2aIP+uokimLcSv0TZTUEGtmiD/rlNQQa3qj3I2QKsEN7G/jy9gHU82AACAP0lDRQFTVVBNAAAAAElDRQFHQVVTAAAAABAAAAAABgAALS0PDwoKCTU1GA0NNjYyMi0tDw8KCgk1NRgNDTY2MjItLQ8PCgoJNTUYDQ02NjIyLS0PDwoKCTU1GA0NNjYyMi0tDw8KCgk1NRgNDTY2MjItLQ8PCgoJNTUYDQ02NjIyLS0PDwoKCTU1GA0NNjYyMi0tDw8KCgk1NRgNDTY2MjIuLiwsCwsINDQZDg4MDDMzLi4sLAsLCDQ0GQ4ODAwzMy4uLCwLCwg0NBkODgwMMzMuLiwsCwsINDQZDg4MDDMzLi4sLAsLCDQ0GQ4ODAwzMy4uLCwLCwg0NBkODgwMMzMuLiwsCwsINDQZDg4MDDMzLi4sLAsLCDQ0GQ4ODAwzMyEhERESEhQ9PTsBARYWOjohIREREhIUPT07AQEWFjo6ISERERISFD09OwEBFhY6OiEhERESEhQ9PTsBARYWOjohIREREhIUPT07AQEWFjo6ISERERISFD09OwEBFhY6OiEhERESEhQ9PTsBARYWOjohIREREhIUPT07AQEWFjo6IiIQEBMTFTw8AAICFxc5OSIiEBATExU8PAACAhcXOTkiIhAQExMVPDwAAgIXFzk5IiIQEBMTFTw8AAICFxc5OSIiEBATExU8PAACAhcXOTkiIhAQExMVPDwAAgIXFzk5IiIQEBMTFTw8AAICFxc5OSIiEBATExU8PAACAhcXOTkiIiMjJCQ+Hx8aGxsvLy4uIiIiIyMkPh8fGhsbLy8uLhAiIiIjJD4fHxobLy8uLCwQECIiIyMkPhobGy8uLCwsExAQECIjJD4aGy8uLCwLCxMTExAQIiM+Gi8uLAsLCwsVFRUTExAiJBsuLAsLCAgIPDw8FRUVEyIuCwgICDQ0NDw8PAAAAAI5Mw4ZGRk0NDQAAAACAhc5KgQzDA4OGRkZAgICFxc5OCkGAzMMDA4ODgICFxc5OCopBgQDMwwMDA4XFzk5ODgqKQYEAwMzMwwMFzk5OTgqKSgoBgQDMzMzDDk5OTgqKikoKAYEAwMzMzM5OTg4KiopKCgGBAQDAzMzISEgICUlPx4eHRwcMDAtLSEhISAgJT8eHh0cHDAwLS0RISEhICUlPx4dHDAwLS0PEREhISAgJT8dHBwwLS0PDxISEREhICU/HRwwLQ8PDwoSEhIRESEgPx0wLQ8PCgoKFBQUEhIRISUcLQ8KCgkJCT09PRQUFBIhLQoJCQk1NTU9PTs7OzsBOjINGBgYNTU1OzsBAQEWOisFMjYNDRgYGAEBARYWOjcmBzEyNg0NDQ0BFhYWOjcrJgcFMTI2Ng0NFhY6OjcrKyYHBQUxMjY2NhY6Ojc3KyYnJwcFMTEyNjY6Ojc3KysmJycHBQUxMTIyOjo3NysrJicnBwUFMTEyMjo6Ojo6Ojo6OTk5OTk5OTk6Ojo6Ojo6Ojk5OTk5OTk5Nzc3Nzc3Nzc4ODg4ODg4ODc3Nzc3Nzc3ODg4ODg4ODgrKysrKysrKyoqKioqKioqKysrKysrKysqKioqKioqKiYmJiYmJiYmKSkpKSkpKSknJycnJycnJygoKCgoKCgoJycnJycnJycoKCgoKCgoKAcHBwcHBwcHBgYGBgYGBgYFBQUFBQUFBQQEBAQEBAQEBQUFBQUFBQUEBAQEBAQEBDExMTExMTExAwMDAwMDAwMxMTExMTExMQMDAwMDAwMDMjIyMjIyMjIzMzMzMzMzMzIyMjIyMjIyMzMzMzMzMzMhISEhISEhISIiIiIiIiIiISEhISEhISEiIiIiIiIiIiAgICAgICAgIyMjIyMjIyMgICAgICAgICMjIyMjIyMjJSUlJSUlJSUkJCQkJCQkJCUlJSUlJSUlJCQkJCQkJCQ/Pz8/Pz8/Pz4+Pj4+Pj4+Hh4eHh4eHh4fHx8fHx8fHx4eHh4eHh4eHx8fHx8fHx8dHR0dHR0dHRoaGhoaGhoaHBwcHBwcHBwbGxsbGxsbGxwcHBwcHBwcGxsbGxsbGxswMDAwMDAwMC8vLy8vLy8vMDAwMDAwMDAvLy8vLy8vLy0tLS0tLS0tLi4uLi4uLi4tLS0tLS0tLS4uLi4uLi4uOTkXFwICADw8FRMTEBAiIjk5FxcCAgA8PBUTExAQIiI5ORcXAgIAPDwVExMQECIiOTkXFwICADw8FRMTEBAiIjk5FxcCAgA8PBUTExAQIiI5ORcXAgIAPDwVExMQECIiOTkXFwICADw8FRMTEBAiIjk5FxcCAgA8PBUTExAQIiI6OhYWAQE7PT0UEhIRESEhOjoWFgEBOz09FBISEREhITo6FhYBATs9PRQSEhERISE6OhYWAQE7PT0UEhIRESEhOjoWFgEBOz09FBISEREhITo6FhYBATs9PRQSEhERISE6OhYWAQE7PT0UEhIRESEhOjoWFgEBOz09FBISEREhITMzDAwODhk0NAgLCywsLi4zMwwMDg4ZNDQICwssLC4uMzMMDA4OGTQ0CAsLLCwuLjMzDAwODhk0NAgLCywsLi4zMwwMDg4ZNDQICwssLC4uMzMMDA4OGTQ0CAsLLCwuLjMzDAwODhk0NAgLCywsLi4zMwwMDg4ZNDQICwssLC4uMjI2Ng0NGDU1CQoKDw8tLTIyNjYNDRg1NQkKCg8PLS0yMjY2DQ0YNTUJCgoPDy0tMjI2Ng0NGDU1CQoKDw8tLTIyNjYNDRg1NQkKCg8PLS0yMjY2DQ0YNTUJCgoPDy0tMjI2Ng0NGDU1CQoKDw8tLTIyNjYNDRg1NQkKCg8PLS0yMjExBQUHJycmKys3Nzo6MjIxMQUFBycnJisrNzc6OjY2MjExBQcnJyYrNzc6OhY2NjYyMQUFByYrKzc6OhYWDQ02NjIxBQcmKzc6FhYWAQ0NDQ02MjEHJjc6FhYBAQEYGBgNDTYyBSs6FgEBATs7NTU1GBgYDTI6ATs7Ozs9PTU1NQkJCQotIRIUFBQ9PT0JCQkKCg8tHCUhERISFBQUCgoKDw8tMB0/ICERERISEgoPDw8tMBwdPyUgIREREhIPDy0tMBwcHT8lICAhIRERDy0tMDAcHR4/JSUgISEhES0tMDAcHB0eHj8lICAhISEtLTAwHBwdHh4/JSUgICEhMzMDAwQEBigoKSoqODg5OTMzMwMDBAYoKCkqKjg5OTkMMzMzAwQGKCgpKjg5OTkXDAwzMwMDBAYpKjg4OTkXFw4MDAwzAwQGKSo4ORcXAgIODg4MDDMDBik4ORcXAgICGRkZDg4MMwQqORcCAgAAADQ0NBkZGQ4zOQIAAAA8PDw0NDQICAgLLiITFRUVPDw8CAgICwssLhskIhATExUVFQsLCwssLi8aPiMiEBATExMLCywsLi8bGj4kIyIQEBATLCwsLi8bGxo+JCMjIiIQECwsLi8vGxofHz4kIyIiIhAuLi8vGxsaHx8+JCMjIiIiLi4vLxsbGh8fPiQkIyMiIi4uLi4uLi4uLS0tLS0tLS0uLi4uLi4uLi0tLS0tLS0tLy8vLy8vLy8wMDAwMDAwMC8vLy8vLy8vMDAwMDAwMDAbGxsbGxsbGxwcHBwcHBwcGxsbGxsbGxscHBwcHBwcHBoaGhoaGhoaHR0dHR0dHR0fHx8fHx8fHx4eHh4eHh4eHx8fHx8fHx8eHh4eHh4eHj4+Pj4+Pj4+Pz8/Pz8/Pz8kJCQkJCQkJCUlJSUlJSUlJCQkJCQkJCQlJSUlJSUlJSMjIyMjIyMjICAgICAgICAjIyMjIyMjIyAgICAgICAgIiIiIiIiIiIhISEhISEhISIiIiIiIiIiISEhISEhISEzMzMzMzMzMzIyMjIyMjIyMzMzMzMzMzMyMjIyMjIyMgMDAwMDAwMDMTExMTExMTEDAwMDAwMDAzExMTExMTExBAQEBAQEBAQFBQUFBQUFBQQEBAQEBAQEBQUFBQUFBQUGBgYGBgYGBgcHBwcHBwcHKCgoKCgoKCgnJycnJycnJygoKCgoKCgoJycnJycnJycpKSkpKSkpKSYmJiYmJiYmKioqKioqKiorKysrKysrKyoqKioqKioqKysrKysrKys4ODg4ODg4ODc3Nzc3Nzc3ODg4ODg4ODg3Nzc3Nzc3Nzk5OTk5OTk5Ojo6Ojo6Ojo5OTk5OTk5OTo6Ojo6Ojo6SUNFAVZBTEUCAAAAQAAAAMgAAAAEAAAABAQDBAMEAwMDAwMEBAQDBAMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIBOzwCFjsAFwEAMzEFBAMFBgMxBwQEBygFJwYLCTQKNQgLDwksDwoIDg02Mw4YNgwZDQwLLC0KExEiEiEQExQRFRIQFT0SPBQTFzoBORYCGTUNNBgOHx0bGhwvHTAbGh4cHz8dPh4aISUjIhEgECEjIiAkIyU+ID8kJyspKAcmBicpKCYqKSs4JjcqLg8LLjAPLy0sGzAuLxwtMgUDMzYxDDIDCDUZCRg0DTIMKzo4Kjc5ODoXNxY5AT0AAD0VOxQ8JD8fJR4+AACAvz2i+zyYObQ940eRPONHkTw=",
+                                "Type": 1
+                            },
+                            "Subdivision": 120,
+                            "Height": 0.061434000730514526,
+                            "Radius": 0.09000000357627869
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 2789767067744392033
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 8347289793741207214
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 1016004884326878310,
+                    "Child Entity Order": [
+                        "Entity_[8769230178362]"
+                    ]
+                },
+                "EditorHingeJointComponent": {
+                    "$type": "EditorHingeJointComponent",
+                    "Id": 16134462184721955052,
+                    "Configuration": {
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ],
+                        "Parent Entity": "Entity_[8739165407290]",
+                        "Child Entity": "Entity_[8764935211066]"
+                    },
+                    "Angular Limit": {
+                        "Standard Limit Configuration": {
+                            "Is Limited": false
+                        },
+                        "Positive Limit": 360.0,
+                        "Negative Limit": -360.0
+                    }
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 15300215243738378731
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 8175134685841417739
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15405765694189155285
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17786365493636463200
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 11320460297871260119,
+                    "Configuration": {
+                        "entityId": "",
+                        "Compute Mass": false,
+                        "Mass": 5.0,
+                        "Compute COM": false,
+                        "Inertia tensor": [
+                            0.011626898311078548,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.02011815644800663,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.011636199429631233
+                        ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 16563759715242088279
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 11662268946895025641,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "wheel_FL",
+                        "Joint Name": "wheel_FL_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 13306957756921910027,
+                    "Parent Entity": "Entity_[8739165407290]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.6011750102043152,
+                            0.47581198811531067,
+                            0.09000000357627869
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8769230178362]": {
+            "Id": "Entity_[8769230178362]",
+            "Name": "wheel_FL_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 11965717112119436272,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{F36E9431-0FBB-50F8-BE01-F8170BB2EA88}",
+                                    "subId": 278812582
+                                },
+                                "assetHint": "assets/urdfimporter/2361167171_otto1500.urdf/otto1500_wheel_front.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9360348436087410714
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 9615912851392462777
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17032757522422168591
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7091548349120781642
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15606493038508549489
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 1432492184002597624,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2084814471
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6001334911644382522
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17199848967269371118
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 15374225716901849996
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 11051909684725574917,
+                    "Parent Entity": "Entity_[8764935211066]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -0.09000000357627869
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8773525145658]": {
+            "Id": "Entity_[8773525145658]",
+            "Name": "wheel_RL",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 7833817069415273235,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.5,
+                            0.5,
+                            -0.5,
+                            0.5
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object",
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{73E4C883-CDAE-5722-A955-6DCF5E43D5D4}",
+                                            "subId": 1
+                                        },
+                                        "assetHint": "prefabs/otto1500/materials/no_friction.physicsmaterial"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "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",
+                                "Type": 1
+                            },
+                            "Subdivision": 120,
+                            "Height": 0.061434000730514526,
+                            "Radius": 0.09000000357627869
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 17612571762025524555
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 1045523058586286832
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 1528160964456524576,
+                    "Child Entity Order": [
+                        "Entity_[8777820112954]"
+                    ]
+                },
+                "EditorHingeJointComponent": {
+                    "$type": "EditorHingeJointComponent",
+                    "Id": 14024729318644246469,
+                    "Configuration": {
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ],
+                        "Parent Entity": "Entity_[8739165407290]",
+                        "Child Entity": "Entity_[8773525145658]"
+                    },
+                    "Angular Limit": {
+                        "Standard Limit Configuration": {
+                            "Is Limited": false
+                        },
+                        "Positive Limit": 360.0,
+                        "Negative Limit": -360.0
+                    }
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7733272241419092420
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15825749865846899479
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 10129293245734674937
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3425789203656729997
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 12278263782398790616,
+                    "Configuration": {
+                        "entityId": "",
+                        "Compute Mass": false,
+                        "Mass": 5.0,
+                        "Compute COM": false,
+                        "Inertia tensor": [
+                            0.011626898311078548,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.02011815644800663,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.011636199429631233
+                        ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7220362706811695865
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 3452707744535187371,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "wheel_RL",
+                        "Joint Name": "wheel_RL_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8990348763137253604,
+                    "Parent Entity": "Entity_[8739165407290]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.6011750102043152,
+                            0.47581198811531067,
+                            0.09000000357627869
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8777820112954]": {
+            "Id": "Entity_[8777820112954]",
+            "Name": "wheel_RL_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 3693792307370220750,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{68BAECD4-1BF6-5EE1-9E0B-6B341E2DA753}",
+                                    "subId": 279436843
+                                },
+                                "assetHint": "assets/urdfimporter/2361167171_otto1500.urdf/otto1500_wheel_back.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1762882250896913259
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17295026983476344696
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 15645989938255650769
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9527666449989582848
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6015892322450438865
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 13087941149258781414,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2084814471
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 14791787697227550168
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 7953664555427299512
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 10073168120785443489
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9080682948710037794,
+                    "Parent Entity": "Entity_[8773525145658]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -0.09000000357627869
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8782115080250]": {
+            "Id": "Entity_[8782115080250]",
+            "Name": "wheel_CR",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 11781352297186048972,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.5,
+                            0.5,
+                            -0.5,
+                            0.5
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object",
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{C2FAAC05-C626-5249-9E32-B55FC5B62C8B}",
+                                            "subId": 1
+                                        },
+                                        "assetHint": "prefabs/otto1500/materials/robot_tire.physicsmaterial"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "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XSdZWWBcXEZGQzMkKjxAJ1lZCgpSUmBgXEZDLytAJwoKUFANUVFRUVFSYENACg0NDQ0ODh0dHR0dGRxJVl41NDQ0NDQZGRkcHDpJAhdWBwZeXjU1HBw7OzpJTQESalYHBwYGXjs7OmVJTQJsEhdqVlUHBgY6OmVJSE8CbBIXbmlWVQcHZWVJSE1PAWwSFW5qaVZVVWVJSE1PAgFsExUXbmppVlVJSEhNTwIBbBMSF25qaWlWRGNjMjEwIyJmKSgtPj8/QUREYzIxMEciZiktLT4/QUFFRURjMjFHI2YoLT4/QSYmWkVFRGMxMCNmKD4/QSYmJVtaWkVEMjAjZi0+QSYlJQlhW1taRUQyIyk+QSYlCQkIU1NhYVtaRDAoQSUJCAgMDFRUVFRUU2FEQQgMCwsLCwsfHxoaGhobSldfNjc3Nzc3GhgYGxs5SgMWVwQFX182NhsbODg5SkwAEWtXBAQFBV84ODlkSkwDbRAWa1dYBAUFOTlkSktOA20QFm9oV1gEBGRkSktMTgBtEBFva2hXWFhkSktMTgMAbRARFm9raFdYSktLTE4DAG0QERZva2hoV0pKSkpKSkpKSUlJSUlJSUlLS0tLS0tLS0hISEhISEhIS0tLS0tLS0tISEhISEhISExMTExMTExMTU1NTU1NTU1OTk5OTk5OTk9PT09PT09PAwMDAwMDAwMCAgICAgICAgAAAAAAAAAAAQEBAQEBAQFtbW1tbW1tbWxsbGxsbGxsEBAQEBAQEBATExMTExMTExEREREREREREhISEhISEhIWFhYWFhYWFhcXFxcXFxcXb29vb29vb29ubm5ubm5ubmtra2tra2trampqampqampoaGhoaGhoaGlpaWlpaWlpaGhoaGhoaGhpaWlpaWlpaVdXV1dXV1dXVlZWVlZWVlZERERERERERENDQ0NDQ0NDY2NjY2NjY2NiYmJiYmJiYmNjY2NjY2NjYmJiYmJiYmIyMjIyMjIyMjMzMzMzMzMzMTExMTExMTEuLi4uLi4uLjAwMDAwMDAwLy8vLy8vLy8jIyMjIyMjIyQkJCQkJCQkIiIiIiIiIiIgICAgICAgIGZmZmZmZmZmZ2dnZ2dnZ2cpKSkpKSkpKSoqKioqKioqKCgoKCgoKCgrKysrKysrKy0tLS0tLS0tLCwsLCwsLCw+Pj4+Pj4+Pjw8PDw8PDw8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",
+                                "Type": 1
+                            },
+                            "Subdivision": 120,
+                            "Height": 0.10000000149011612,
+                            "Radius": 0.1469999998807907
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 14384326412919213478
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 13618518608503006464
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8893416803426239555,
+                    "Child Entity Order": [
+                        "Entity_[8786410047546]"
+                    ]
+                },
+                "EditorHingeJointComponent": {
+                    "$type": "EditorHingeJointComponent",
+                    "Id": 1899632001538378800,
+                    "Configuration": {
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ],
+                        "Parent Entity": "Entity_[8739165407290]",
+                        "Child Entity": "Entity_[8782115080250]"
+                    },
+                    "Angular Limit": {
+                        "Standard Limit Configuration": {
+                            "Is Limited": false
+                        },
+                        "Positive Limit": 360.0,
+                        "Negative Limit": -360.0
+                    },
+                    "Motor": {
+                        "UseMotor": true,
+                        "ForceLimit": 1000.0
+                    }
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 15164630089874233216
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15033029942475482551
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 8092525049742298752
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 18064441924997537517
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 4178691197070857289,
+                    "Configuration": {
+                        "entityId": "",
+                        "Compute Mass": false,
+                        "Mass": 5.0,
+                        "Compute COM": false,
+                        "Inertia tensor": [
+                            0.031113870441913605,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.05390339344739914,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.0311225987970829
+                        ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11422778245403284831
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 2578354402321455591,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "wheel_CR",
+                        "Joint Name": "wheel_CR_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 13677349924228428850,
+                    "Parent Entity": "Entity_[8739165407290]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            -0.47581198811531067,
+                            0.1469999998807907
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8786410047546]": {
+            "Id": "Entity_[8786410047546]",
+            "Name": "wheel_CR_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 1785354738442823605,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{4294F702-5FCE-5C6A-9FE5-8125292ECB62}",
+                                    "subId": 277864421
+                                },
+                                "assetHint": "assets/urdfimporter/2361167171_otto1500.urdf/otto1500_wheel_center.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 11275425573287248354
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 548741551214126245
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 7986723923233239024
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 5187340114968763235
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18160942352075900545
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 11183333047012605557,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2084814471
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 8892225495335832756
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3490937396415193498
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 16542604616246857538
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 1967528822213061708,
+                    "Parent Entity": "Entity_[8782115080250]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -0.1469999998807907
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8790705014842]": {
+            "Id": "Entity_[8790705014842]",
+            "Name": "wheel_CL",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 2334225913520925141,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.5,
+                            0.5,
+                            -0.5,
+                            0.5
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object",
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{C2FAAC05-C626-5249-9E32-B55FC5B62C8B}",
+                                            "subId": 1
+                                        },
+                                        "assetHint": "prefabs/otto1500/materials/robot_tire.physicsmaterial"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "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XSdZWWBcXEZGQzMkKjxAJ1lZCgpSUmBgXEZDLytAJwoKUFANUVFRUVFSYENACg0NDQ0ODh0dHR0dGRxJVl41NDQ0NDQZGRkcHDpJAhdWBwZeXjU1HBw7OzpJTQESalYHBwYGXjs7OmVJTQJsEhdqVlUHBgY6OmVJSE8CbBIXbmlWVQcHZWVJSE1PAWwSFW5qaVZVVWVJSE1PAgFsExUXbmppVlVJSEhNTwIBbBMSF25qaWlWRGNjMjEwIyJmKSgtPj8/QUREYzIxMEciZiktLT4/QUFFRURjMjFHI2YoLT4/QSYmWkVFRGMxMCNmKD4/QSYmJVtaWkVEMjAjZi0+QSYlJQlhW1taRUQyIyk+QSYlCQkIU1NhYVtaRDAoQSUJCAgMDFRUVFRUU2FEQQgMCwsLCwsfHxoaGhobSldfNjc3Nzc3GhgYGxs5SgMWVwQFX182NhsbODg5SkwAEWtXBAQFBV84ODlkSkwDbRAWa1dYBAUFOTlkSktOA20QFm9oV1gEBGRkSktMTgBtEBFva2hXWFhkSktMTgMAbRARFm9raFdYSktLTE4DAG0QERZva2hoV0pKSkpKSkpKSUlJSUlJSUlLS0tLS0tLS0hISEhISEhIS0tLS0tLS0tISEhISEhISExMTExMTExMTU1NTU1NTU1OTk5OTk5OTk9PT09PT09PAwMDAwMDAwMCAgICAgICAgAAAAAAAAAAAQEBAQEBAQFtbW1tbW1tbWxsbGxsbGxsEBAQEBAQEBATExMTExMTExEREREREREREhISEhISEhIWFhYWFhYWFhcXFxcXFxcXb29vb29vb29ubm5ubm5ubmtra2tra2trampqampqampoaGhoaGhoaGlpaWlpaWlpaGhoaGhoaGhpaWlpaWlpaVdXV1dXV1dXVlZWVlZWVlZERERERERERENDQ0NDQ0NDY2NjY2NjY2NiYmJiYmJiYmNjY2NjY2NjYmJiYmJiYmIyMjIyMjIyMjMzMzMzMzMzMTExMTExMTEuLi4uLi4uLjAwMDAwMDAwLy8vLy8vLy8jIyMjIyMjIyQkJCQkJCQkIiIiIiIiIiIgICAgICAgIGZmZmZmZmZmZ2dnZ2dnZ2cpKSkpKSkpKSoqKioqKioqKCgoKCgoKCgrKysrKysrKy0tLS0tLS0tLCwsLCwsLCw+Pj4+Pj4+Pjw8PDw8PDw8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",
+                                "Type": 1
+                            },
+                            "Subdivision": 120,
+                            "Height": 0.10000000149011612,
+                            "Radius": 0.1469999998807907
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 13709992062323386783
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7668531361092459640
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 4465961420916349941,
+                    "Child Entity Order": [
+                        "Entity_[8794999982138]"
+                    ]
+                },
+                "EditorHingeJointComponent": {
+                    "$type": "EditorHingeJointComponent",
+                    "Id": 807528266198321310,
+                    "Configuration": {
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ],
+                        "Parent Entity": "Entity_[8739165407290]",
+                        "Child Entity": "Entity_[8790705014842]"
+                    },
+                    "Angular Limit": {
+                        "Standard Limit Configuration": {
+                            "Is Limited": false
+                        },
+                        "Positive Limit": 360.0,
+                        "Negative Limit": -360.0
+                    },
+                    "Motor": {
+                        "UseMotor": true,
+                        "ForceLimit": 1000.0
+                    }
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 10624657166371848970
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 14684334524081363790
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 12714170464001014235
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13341338517211992023
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 10565194189639321566,
+                    "Configuration": {
+                        "entityId": "",
+                        "Compute Mass": false,
+                        "Mass": 5.0,
+                        "Compute COM": false,
+                        "Inertia tensor": [
+                            0.031113870441913605,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.05390339344739914,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.0311225987970829
+                        ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8494148913410433426
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 14564938189284869283,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "wheel_CL",
+                        "Joint Name": "wheel_CL_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 14796911759008809259,
+                    "Parent Entity": "Entity_[8739165407290]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.47581198811531067,
+                            0.1469999998807907
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[8794999982138]": {
+            "Id": "Entity_[8794999982138]",
+            "Name": "wheel_CL_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 13141370542184692516
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9751979795698758933
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 16301448113398302376
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17894961486634258937
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4200729851888396809
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 481697454089612979
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 1101364398384094551,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 11042408628467825922
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 6320349053257511083
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7930276500095078069
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 16926987796250716456,
+                    "Parent Entity": "Entity_[8790705014842]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -0.1469999998807907
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
