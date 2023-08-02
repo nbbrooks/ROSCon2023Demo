@@ -56,7 +56,7 @@
                             "Configuration": [
                                 1.2899999618530273,
                                 1.8300000429153442,
-                                0.3653999865055084
+                                0.25
                             ]
                         }
                     }
@@ -1777,7 +1777,7 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
@@ -1787,7 +1787,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.14146363735198975
+                    "value": -0.14146363735198977
                 },
                 {
                     "op": "replace",

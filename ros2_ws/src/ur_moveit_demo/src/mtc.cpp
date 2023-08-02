@@ -648,8 +648,8 @@ int main(int argc, char** argv)
 
     // planning_scene_interface.applyCollisionObject(
     //     CreateBoxCollision("table", TableDimension, Eigen::Vector3d{ 0, 0, -TableDimension.z() / 2.0 }));
-    planning_scene_interface.applyCollisionObject(
-        CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, -.5, -0.2 }));
+//    planning_scene_interface.applyCollisionObject(
+//        CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, -.5, -0.2 }));
     std::this_thread::sleep_for(std::chrono::seconds(1));
     // find pallet pose
     auto palletPose = getPalletLocation(objectPoses);
