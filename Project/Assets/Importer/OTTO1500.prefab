@@ -79,7 +79,8 @@
                         "Entity_[8743460374586]",
                         "Entity_[8782115080250]",
                         "Entity_[8764935211066]",
-                        "Entity_[8756345276474]"
+                        "Entity_[8756345276474]",
+                        "Instance_[11243819941507]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -531,7 +532,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
-                                            }
+                                            },
+                                            "assetHint": "assets/urdfimporter/2361167171_otto1500.urdf/otto1500_wheel_defaultmaterial.azmaterial"
                                         }
                                     }
                                 }
@@ -768,7 +770,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
-                                            }
+                                            },
+                                            "assetHint": "assets/urdfimporter/2361167171_otto1500.urdf/otto1500_wheel_defaultmaterial.azmaterial"
                                         }
                                     }
                                 }
@@ -1005,7 +1008,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
-                                            }
+                                            },
+                                            "assetHint": "assets/urdfimporter/2361167171_otto1500.urdf/otto1500_wheel_defaultmaterial.azmaterial"
                                         }
                                     }
                                 }
@@ -1242,7 +1246,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
-                                            }
+                                            },
+                                            "assetHint": "assets/urdfimporter/2361167171_otto1500.urdf/otto1500_wheel_defaultmaterial.azmaterial"
                                         }
                                     }
                                 }
@@ -1483,7 +1488,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
-                                            }
+                                            },
+                                            "assetHint": "assets/urdfimporter/2361167171_otto1500.urdf/otto1500_wheel_defaultmaterial.azmaterial"
                                         }
                                     }
                                 }
@@ -1709,7 +1715,8 @@
                                     "MaterialAsset": {
                                         "assetId": {
                                             "guid": "{A2A37CFA-9205-5506-BD5B-91B6409961D0}"
-                                        }
+                                        },
+                                        "assetHint": "assets/urdfimporter/2361167171_otto1500.urdf/otto1500_wheel_defaultmaterial.azmaterial"
                                     }
                                 }
                             }
@@ -1746,6 +1753,48 @@
                     }
                 }
             }
+        }
+    },
+    "Instances": {
+        "Instance_[11243819941507]": {
+            "Source": "Assets/Factory/EuroPallet.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/1",
+                    "value": -0.00029151514172554016
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.05575583875179291
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 9.80550479888916
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
+                    "value": 14.414012908935547
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[8739165407290]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.14146363735198975
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.47158002853393555
+                }
+            ]
         }
     }
 }

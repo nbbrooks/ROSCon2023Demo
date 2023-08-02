@@ -235,12 +235,14 @@ void MTCTaskNode::doTask(mtc::Task& task)
     } catch (mtc::InitStageException& e)
     {
         RCLCPP_ERROR_STREAM(LOGGER, e);
+        std::abort();
         return;
     }
 
     if (!task_.plan(5))
     {
         RCLCPP_ERROR_STREAM(LOGGER, "Task planning failed");
+        std::abort();
         return;
     }
     task_.introspection().publishSolution(*task_.solutions().front());
@@ -250,6 +252,7 @@ void MTCTaskNode::doTask(mtc::Task& task)
     if (result.val != moveit_msgs::msg::MoveItErrorCodes::SUCCESS)
     {
         RCLCPP_ERROR_STREAM(LOGGER, "Task execution failed");
+        std::abort();
         return;
     }
 

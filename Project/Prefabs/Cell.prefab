@@ -2283,20 +2283,22 @@
             "Id": "Entity_[381699218267928]",
             "Name": "PalletLine",
             "Components": {
-                "ConveyorBeltComponent": {
-                    "$type": "GenericComponentWrapper",
-                    "Id": 6805746321987950048,
-                    "m_template": {
-                        "$type": "ConveyorBeltComponent",
-                        "Configuration": {
-                            "BeltEntityId": "",
-                            "Speed": 0.0
-                        }
-                    }
-                },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 5251021685342533484
+                    "Id": 5251021685342533484,
+                    "DisabledComponents": {
+                        "ConveyorBeltComponent": {
+                            "$type": "GenericComponentWrapper",
+                            "Id": 6805746321987950048,
+                            "m_template": {
+                                "$type": "ConveyorBeltComponent",
+                                "Configuration": {
+                                    "BeltEntityId": "",
+                                    "Speed": 0.0
+                                }
+                            }
+                        }
+                    }
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
@@ -4729,14 +4731,14 @@
                                 "Parent Entity": "Entity_[2844844128358]",
                                 "Transform Data": {
                                     "Translate": [
-                                        -0.9999997615814208,
-                                        0.0,
+                                        -0.8136382102966309,
+                                        -2.384185791015625e-7,
                                         1.0
                                     ],
                                     "Rotate": [
                                         180.0,
                                         0.0,
-                                        -90.0
+                                        -89.99994659423828
                                     ],
                                     "Scale": [
                                         1.0,
