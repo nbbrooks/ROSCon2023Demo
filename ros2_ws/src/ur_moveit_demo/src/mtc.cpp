@@ -108,19 +108,10 @@ geometry_msgs::msg::Pose getPalletLocation(const std::map<std::string, geometry_
 }
 
 std::optional<geometry_msgs::msg::Pose> getClosestBox(
-    const std::map<std::string, geometry_msgs::msg::Pose>& objectPoses, Eigen::Vector3d origin = Eigen::Vector3d::Zero())
+    const std::vector<std::pair<std::string, geometry_msgs::msg::Pose>>& objectPoses, Eigen::Vector3d origin = Eigen::Vector3d::Zero())
 {
-    auto it = std::lower_bound(
-        objectPoses.begin(),
-        objectPoses.end(),
-        BoxNamePrefix,
-        [](const auto& lhs, const auto& rhs)
-        {
-            return lhs.first < rhs;
-        });
-
     std::map<float, geometry_msgs::msg::Pose> box_locations;
-
+    auto it = objectPoses.begin();
     if (it == objectPoses.end())
     {
         std::cerr << "Box not found" << std::endl;
@@ -130,10 +121,10 @@ std::optional<geometry_msgs::msg::Pose> getClosestBox(
     {
         if (it->first.find(BoxNamePrefix) == std::string::npos)
         {
-            break;
+            continue;
         }
         Eigen::Vector3d box_location{ it->second.position.x, it->second.position.y, it->second.position.z };
-        float distance = (box_location - origin).norm();
+        float distance = std::abs(origin.x() -  box_location.x());
         box_locations[distance] = it->second;
     }
     return std::optional<geometry_msgs::msg::Pose>(box_locations.begin()->second);
@@ -258,13 +249,6 @@ void MTCTaskNode::doTask(mtc::Task& task)
 
     return;
 }
-
-// mtc::Task MTCTaskNode::setSceneTask(tf2_ros::Buffer &tf_buffer_, geometry_msgs::msg::Pose &palletPose) {
-//     mtc::Task task;
-//     task.stages()->setName("Set scene");
-//     task.loadRobotModel(node_);
-
-// }
 
 mtc::Task MTCTaskNode::createTaskGrab(const geometry_msgs::msg::Pose& boxPose)
 {
@@ -486,7 +470,7 @@ mtc::Task MTCTaskNode::createTaskDrop(
     {
         auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative pallet", cartesian_planner);
         relativeMove->setGroup("ur_manipulator");
-        relativeMove->setMinMaxDistance(0.0, 1.0f);
+        relativeMove->setMinMaxDistance(0.0, 0.5f);
         relativeMove->setIKFrame("gripper_link");
 
         // Set hand forward direction
@@ -548,8 +532,51 @@ void UpdateObjectPoses(
     }
 }
 
+void UpdateObjectPoses(
+    std::vector<std::pair<std::string, geometry_msgs::msg::Pose>>& objectPoses,
+    tf2_ros::Buffer& tf_buffer,
+    const std::string& targetFrame,
+    vision_msgs::msg::Detection3DArray::SharedPtr msg,
+    std::vector<std::string> interestingObjectsPrefixes)
+{
+    for (auto& detection : msg->detections)
+    {
+        const std::string name{ detection.id };
+        bool interesting = false;
+        for (const auto& interestingObject : interestingObjectsPrefixes)
+        {
+            if (name.find(interestingObject) != std::string::npos)
+            {
+                interesting = true;
+                break;
+            }
+        }
+        if (!interesting || detection.results.empty())
+        {
+            continue;
+        }
+        geometry_msgs::msg::PoseStamped pose;
+        pose.header = detection.header;
+        pose.pose = detection.results[0].pose.pose;
+        geometry_msgs::msg::TransformStamped transform;
+        try
+        {
+            transform = tf_buffer.lookupTransform(targetFrame, pose.header.frame_id, tf2::TimePointZero, tf2::Duration(0));
+        } catch (tf2::TransformException& ex)
+        {
+            std::cerr << ex.what() << std::endl;
+            return;
+        }
+        geometry_msgs::msg::PoseStamped transformedPose;
+        tf2::doTransform(pose, transformedPose, transform);
+        objectPoses.emplace_back(detection.id,  transformedPose.pose);
+    }
+}
+
 int main(int argc, char** argv)
 {
+    std::mutex locationsMutex;
+    std::optional<geometry_msgs::msg::Pose> closestBox;
     std::map<std::string, geometry_msgs::msg::Pose> objectPoses;
 
     rclcpp::init(argc, argv);
@@ -613,40 +640,17 @@ int main(int argc, char** argv)
         [&](vision_msgs::msg::Detection3DArray::SharedPtr msg)
         {
             UpdateObjectPoses(objectPoses, tf_buffer_, "world", msg, { BoxNamePrefix });
+            std::vector<std::pair<std::string, geometry_msgs::msg::Pose>> poses;
+            UpdateObjectPoses(poses, tf_buffer_, "world", msg, { BoxNamePrefix });
+            std::lock_guard<std::mutex> lock(locationsMutex);
+            closestBox = getClosestBox(poses);
         });
-
-    //    auto timer = rclcpp::create_timer(node, node->get_clock(), std::chrono::milliseconds (200), [&]() {
-    //        for (auto& pose : objectPoses)
-    //        {
-    //          if (pose.first.rfind(PalletNamePrefix) == 0 ) {
-    //            moveit_visual_tools.publishCuboid(pose.second, PalletDimensions.x(),
-    //                                              PalletDimensions.y(),
-    //                                              PalletDimensions.z(),
-    //                                              rviz_visual_tools::BROWN);
-    //
-    //          }
-    //          else if (pose.first.rfind(BoxNamePrefix) == 0 ) {
-    //            moveit_visual_tools.publishSphere(pose.second, rviz_visual_tools::BLUE, 0.1 );
-    //          }
-    //
-    //        }
-    //
-    //        auto maybebox=  getClosestBox(objectPoses);
-    //        if (maybebox) {
-    //          moveit_visual_tools.publishCuboid(*maybebox, BoxDimension.x(),
-    //                                            BoxDimension.y(),
-    //                                            BoxDimension.z(),
-    //                                            rviz_visual_tools::Colors::PURPLE);
-    //        }
-    //        moveit_visual_tools.trigger();
-    //    });
 
     // planning_scene_interface.applyCollisionObject(
     //     CreateBoxCollision("table", TableDimension, Eigen::Vector3d{ 0, 0, -TableDimension.z() / 2.0 }));
     planning_scene_interface.applyCollisionObject(
         CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, -.5, -0.2 }));
     std::this_thread::sleep_for(std::chrono::seconds(1));
-
     // find pallet pose
     auto palletPose = getPalletLocation(objectPoses);
 
@@ -672,29 +676,43 @@ int main(int argc, char** argv)
 
     for (auto const& address : Pattern)
     {
-        auto boxPose = getClosestBox(objectPoses);
-        // Todo check if nearest box is in the reach.
-        if (!boxPose)
+        std::optional<geometry_msgs::msg::Pose> myClosestBox;
+        {
+            std::lock_guard<std::mutex> lock(locationsMutex);
+            myClosestBox = closestBox;
+            closestBox.reset();
+        }
+        if (!myClosestBox)
         {
             RCLCPP_ERROR(node->get_logger(), "No box found");
             return 1;
         }
-        moveit_visual_tools.publishCuboid(*boxPose, BoxDimension.x(), BoxDimension.y(), BoxDimension.z(), rviz_visual_tools::BROWN);
-        moveit_visual_tools.trigger();
-        planning_scene_interface.applyCollisionObject(CreateBoxCollision(PickedBoxName, BoxDimension, fromMsg(boxPose->position)));
+//        moveit_visual_tools.publishCuboid(*boxPose, BoxDimension.x(), BoxDimension.y(), BoxDimension.z(), rviz_visual_tools::BROWN);
+//        moveit_visual_tools.trigger();
+        planning_scene_interface.applyCollisionObject(CreateBoxCollision(PickedBoxName, BoxDimension, fromMsg(myClosestBox->position)));
         // moveit_visual_tools.prompt("  ");
-        mtc::Task taskGrab = mtc_task_node->createTaskGrab(*boxPose);
+        mtc::Task taskGrab = mtc_task_node->createTaskGrab(*myClosestBox);
         mtc_task_node->doTask(taskGrab);
         // moveit_visual_tools.prompt("  ");
         SendGripperGrip(client_ptr);
         move_group_interface.attachObject(PickedBoxName, "gripper_link");
         // moveit_visual_tools.prompt("  ");
-        auto taskDrop = mtc_task_node->createTaskDrop(address, PickedBoxName, /*tf_buffer_,*/ palletPose, *boxPose);
+        auto taskDrop = mtc_task_node->createTaskDrop(address, PickedBoxName, /*tf_buffer_,*/ palletPose, *myClosestBox);
         mtc_task_node->doTask(taskDrop);
         // moveit_visual_tools.prompt("  ");
         SendGripperrelease(client_ptr);
         move_group_interface.detachObject(PickedBoxName);
     }
+    geometry_msgs::msg::Pose park;
+    park.orientation.x = -0.5;
+    park.orientation.y = 0.5;
+    park.orientation.z = -0.5;
+    park.orientation.w = -0.5;
+    park.position.x = 0.5;
+    park.position.y = 0;
+    park.position.z = 0.5;
+    mtc::Task taskGrab = mtc_task_node->createTaskGrab(park);
+    mtc_task_node->doTask(taskGrab);
     rclcpp::shutdown();
     spin_thread->join();
     spinner.join();
