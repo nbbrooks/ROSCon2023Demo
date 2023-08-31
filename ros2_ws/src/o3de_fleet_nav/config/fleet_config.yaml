@@ -14,9 +14,9 @@ fleet:
       y: -2.5
       z: 0.2
 
-  # - robot_name: otto
-  #   robot_namespace: otto_3
-  #   position: 
-  #     x: 1.0
-  #     y: -2.5
-  #     z: 0.2
+  - robot_name: otto
+    robot_namespace: otto_3
+    position: 
+      x: 1.0
+      y: -2.5
+      z: 0.2
