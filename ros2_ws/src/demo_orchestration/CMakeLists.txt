@@ -19,7 +19,7 @@ find_package (Eigen3 3.3 REQUIRED)
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 
 add_executable(demo_orchestration src/demo_orchestration.cpp)
-add_executable(interpolate_test src/follow_path.cpp)
+add_executable(path_follower src/follow_path.cpp)
 
 target_include_directories(demo_orchestration PUBLIC
 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -36,7 +36,7 @@ ament_target_dependencies(
   )
 
 ament_target_dependencies(
-    interpolate_test
+    path_follower
     ur_moveit_demo_msg
     "rclcpp"
     "tf2_msgs"
@@ -45,7 +45,7 @@ ament_target_dependencies(
     "nav2_msgs"
     "tf2_eigen"
 )
-target_link_libraries (interpolate_test Eigen3::Eigen)
+target_link_libraries (path_follower Eigen3::Eigen)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -59,7 +59,7 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(TARGETS demo_orchestration
+install(TARGETS demo_orchestration path_follower
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

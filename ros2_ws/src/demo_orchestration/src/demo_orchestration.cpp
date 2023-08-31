@@ -8,6 +8,7 @@
 #include <nav2_msgs/action/detail/navigate_through_poses__struct.hpp>
 #include <nav2_msgs/action/navigate_through_poses.hpp>
 #include <nav2_msgs/action/navigate_to_pose.hpp>
+#include <nav_msgs/msg/detail/path__struct.hpp>
 #include <nav_msgs/msg/path.hpp>
 #include <rclcpp/node.hpp>
 #include <rclcpp/publisher.hpp>
@@ -18,6 +19,7 @@
 #include <tf2_ros/buffer.h>
 #include <tf2_ros/transform_listener.h>
 #include <thread>
+#include <ur_moveit_demo_msg/action/detail/follow_path__struct.hpp>
 #include <vector>
 
 #include "ur_moveit_demo_msg/action/mtc.hpp"
@@ -27,6 +29,10 @@ int num_of_boxes;
 enum AMRState
 {
     MovingToPickup,
+    Approach,
+    MovingApproach,
+    Departure,
+    MoveingDeparture,
     MovingToDrop,
     MovingToPark,
     Drop,
@@ -41,6 +47,94 @@ enum MoveItState
     AfterLoad,
     BeforeLoad,
 };
+
+class FollowPathActionClient
+{
+public:
+    using FollowPathAction = ur_moveit_demo_msg::action::FollowPath;
+    using GoalHandleFollowPath = rclcpp_action::ClientGoalHandle<FollowPathAction>;
+
+    FollowPathActionClient(rclcpp::Node::SharedPtr node, std::string ns)
+        : node_(node)
+    {
+        this->client_ptr_ = rclcpp_action::create_client<FollowPathAction>(node_, "/" + ns + "/follow_path");
+    }
+
+    void send_goal(float speed, bool reverse, std::vector<geometry_msgs::msg::PoseStamped> poses, std::function<void()> callback)
+    {
+        using namespace std::placeholders;
+
+        if (!this->client_ptr_->wait_for_action_server())
+        {
+            RCLCPP_ERROR(node_->get_logger(), "Action server not available after waiting");
+            rclcpp::shutdown();
+        }
+
+        auto goal_msg = FollowPathAction::Goal();
+        goal_msg.speed = speed;
+        goal_msg.reverse = reverse;
+        goal_msg.poses = poses;
+
+        RCLCPP_INFO(node_->get_logger(), "Sending goal");
+
+        auto send_goal_options = rclcpp_action::Client<FollowPathAction>::SendGoalOptions();
+        send_goal_options.goal_response_callback = std::bind(&FollowPathActionClient::goal_response_callback, this, _1);
+        send_goal_options.feedback_callback = std::bind(&FollowPathActionClient::feedback_callback, this, _1, _2);
+        send_goal_options.result_callback = std::bind(&FollowPathActionClient::result_callback, this, _1);
+        this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
+
+        m_resultCallback = callback;
+    }
+
+private:
+    rclcpp_action::Client<FollowPathAction>::SharedPtr client_ptr_;
+    rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::Node::SharedPtr node_;
+
+    std::function<void()> m_resultCallback;
+
+    void goal_response_callback(std::shared_ptr<rclcpp_action::ClientGoalHandle<ur_moveit_demo_msg::action::FollowPath>> future)
+    {
+        auto goal_handle = future.get();
+        if (!goal_handle)
+        {
+            RCLCPP_ERROR(node_->get_logger(), "Goal was rejected by server");
+        }
+        else
+        {
+            RCLCPP_INFO(node_->get_logger(), "Goal accepted by server, waiting for result");
+        }
+    }
+
+    void feedback_callback(GoalHandleFollowPath::SharedPtr, const std::shared_ptr<const FollowPathAction::Feedback> feedback)
+    {
+    }
+
+    void result_callback(const GoalHandleFollowPath::WrappedResult& result)
+    {
+        m_resultCallback();
+        switch (result.code)
+        {
+        case rclcpp_action::ResultCode::SUCCEEDED:
+            break;
+        case rclcpp_action::ResultCode::ABORTED:
+            RCLCPP_ERROR(node_->get_logger(), "Goal was aborted");
+            return;
+        case rclcpp_action::ResultCode::CANCELED:
+            RCLCPP_ERROR(node_->get_logger(), "Goal was canceled");
+            return;
+        default:
+            RCLCPP_ERROR(node_->get_logger(), "Unknown result code");
+            return;
+        }
+        std::stringstream ss;
+        ss << "Result received: ";
+
+        ss << result.result->success << " ";
+
+        RCLCPP_INFO(node_->get_logger(), ss.str().c_str());
+    }
+}; // class MTCActionClient
 
 class MTCActionClient
 {
@@ -236,6 +330,7 @@ struct AMRController
 {
     AMRState state;
     std::shared_ptr<Nav2ActionClient> client;
+    std::shared_ptr<FollowPathActionClient> followPathClient;
     std::string amrNamespace;
 };
 
@@ -259,6 +354,7 @@ public:
             m_amrControllers.push_back({
                 AMRState::Park,
                 std::make_shared<Nav2ActionClient>(node, amrNamespace),
+                std::make_shared<FollowPathActionClient>(node, amrNamespace),
                 amrNamespace,
             });
         }
@@ -304,6 +400,14 @@ public:
                 m_dropPath = path;
             });
 
+        auto approachSubscriber = node->create_subscription<nav_msgs::msg::Path>(
+            "/approachPath",
+            qos,
+            [&](nav_msgs::msg::Path path)
+            {
+                m_approachPath = path;
+            });
+
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 
@@ -327,6 +431,15 @@ public:
                                 m_amrController.client->send_goal(
                                     m_parkPath,
                                     std::bind(&StationOrchestrator::notifyAMR, this, AMRState::Park, m_amrController.amrNamespace));
+                            }
+                            if (m_amrController.state == AMRState::Approach)
+                            {
+                                m_amrController.state = AMRState::MovingApproach;
+                                m_amrController.followPathClient->send_goal(
+                                    0.1,
+                                    false,
+                                    m_approachPath.poses,
+                                    std::bind(&StationOrchestrator::notifyAMR, this, AMRState::Pickup, m_amrController.amrNamespace));
                             }
                         }
                         if (m_moveItController.state == MoveItState::BeforeLoad)
@@ -372,7 +485,7 @@ public:
                                     m_moveItController.state = MoveItState::BeforeLoad;
                                     m_amrController.client->send_goal(
                                         m_pickupPath,
-                                        std::bind(&StationOrchestrator::notifyAMR, this, AMRState::Pickup, m_amrController.amrNamespace));
+                                        std::bind(&StationOrchestrator::notifyAMR, this, AMRState::Approach, m_amrController.amrNamespace));
                                     break;
                                 }
                             }
@@ -416,6 +529,7 @@ private:
     nav_msgs::msg::Path m_pickupPath;
     nav_msgs::msg::Path m_dropPath;
     nav_msgs::msg::Path m_parkPath;
+    nav_msgs::msg::Path m_approachPath;
 
     std::mutex m_lock;
     std::mutex m_notifyLock;

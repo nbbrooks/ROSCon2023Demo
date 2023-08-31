@@ -13,8 +13,22 @@ def launch_setup(context, *args, **kwargs):
     amr_namespaces = LaunchConfiguration("amr_namespaces")
     num_of_boxes = LaunchConfiguration("number_of_boxes")
 
+    nodes_to_start = []
+
+    for x in amr_namespaces.perform(context).strip('][').split(', '):
+        nodes_to_start.append(Node(
+            name="pathFollower",
+            package="demo_orchestration",
+            executable="path_follower",
+            output="screen",
+            parameters=[
+                {"use_sim_time": True},
+                {"ns": x},
+            ],
+        ))
+
     orchestration = Node(
-        name="orchestrationName",
+        name="orchestration",
         package="demo_orchestration",
         executable="demo_orchestration",
         output="screen",
@@ -26,7 +40,7 @@ def launch_setup(context, *args, **kwargs):
         ],
     )
 
-    nodes_to_start = [orchestration]
+    nodes_to_start.append(orchestration)
 
 
     return nodes_to_start
@@ -47,7 +61,8 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "amr_namespaces",
-            default_value='""',
+            default_value=[],
+            
             description="Namespace for the amr, useful for running multiple instances.",
         )
     )

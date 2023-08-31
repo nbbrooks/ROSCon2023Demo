@@ -1,13 +1,13 @@
-#include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/path.hpp"
+#include "rclcpp/rclcpp.hpp"
 
 #include <Eigen/Dense>
-#include <tf2_eigen/tf2_eigen.hpp>
-#include <geometry_msgs/msg/twist.hpp>
 #include <cassert>
+#include <geometry_msgs/msg/twist.hpp>
+#include <rclcpp_action/create_server.hpp>
+#include <tf2_eigen/tf2_eigen.hpp>
 #include <tf2_ros/transform_listener.h>
 #include <ur_moveit_demo_msg/action/follow_path.hpp>
-#include <rclcpp_action/create_server.hpp>
 
 //! Interpolate between multiple poses
 //! @param p 0-1 value of interpolation
@@ -18,16 +18,16 @@ Eigen::Affine3d interpolatePath(double p, const std::vector<Eigen::Affine3d>& po
     const double indexUnormalized = poses.size() * p;
     int indexLower = floor(indexUnormalized);
     int indexUpper = ceil(indexUnormalized);
-    indexLower = std::min(std::max(0, indexLower),int(poses.size()-1));
-    indexUpper = std::min(std::max(0, indexUpper),int(poses.size()-1));
+    indexLower = std::min(std::max(0, indexLower), int(poses.size() - 1));
+    indexUpper = std::min(std::max(0, indexUpper), int(poses.size() - 1));
     if (indexLower == indexUpper)
     {
         return poses[indexLower];
     }
-    auto & poseLower = poses[indexLower];
-    auto & poseUpper = poses[indexUpper];
+    auto& poseLower = poses[indexLower];
+    auto& poseUpper = poses[indexUpper];
     const double fraction = indexUnormalized - indexLower;
-    assert(fraction>= 0.0 && fraction <= 1.0);
+    assert(fraction >= 0.0 && fraction <= 1.0);
 
     Eigen::Affine3d poseInterpolated = Eigen::Affine3d::Identity();
     poseInterpolated.translation() = poseLower.translation() + fraction * (poseUpper.translation() - poseLower.translation());
@@ -52,7 +52,7 @@ double getPathLength(const std::vector<Eigen::Affine3d>& poses)
     double length = 0.0;
     for (size_t i = 1; i < poses.size(); ++i)
     {
-        length += (poses[i].translation() - poses[i-1].translation()).norm();
+        length += (poses[i].translation() - poses[i - 1].translation()).norm();
     }
     return length;
 }
@@ -64,26 +64,28 @@ public:
     using FlwPthGoal = rclcpp_action::ServerGoalHandle<FlwPthAction>;
 
     FollowPathActionServer(rclcpp::Node::SharedPtr node, std::string ns)
-            : node_(node)
-            , ns_(ns)
-            ,tf_buffer_(node->get_clock()),tf_listener_(tf_buffer_)
+        : node_(node)
+        , ns_(ns)
+        , tf_buffer_(node->get_clock())
+        , tf_listener_(tf_buffer_)
     {
         using namespace std::placeholders;
 
-        goal_publisher_ = node_->create_publisher<geometry_msgs::msg::PoseStamped>( ns+"/follow_path_goal_pose", 1);
-        timer_ = node_->create_wall_timer(std::chrono::milliseconds(int(1000 * LoopTimeSec)), std::bind(&FollowPathActionServer::timer_callback, this));
+        goal_publisher_ = node_->create_publisher<geometry_msgs::msg::PoseStamped>(ns + "/follow_path_goal_pose", 1);
+        timer_ = node_->create_wall_timer(
+            std::chrono::milliseconds(int(1000 * LoopTimeSec)), std::bind(&FollowPathActionServer::timer_callback, this));
         timer_->cancel();
-        cmd_publisher_ = node_->create_publisher<geometry_msgs::msg::Twist>(ns+"/cmd_vel", 1);
+        cmd_publisher_ = node_->create_publisher<geometry_msgs::msg::Twist>(ns + "/cmd_vel", 1);
 
         this->action_server_ = rclcpp_action::create_server<FlwPthAction>(
-                node->get_node_base_interface(),
-                node->get_node_clock_interface(),
-                node->get_node_logging_interface(),
-                node->get_node_waitables_interface(),
-                ns+"/follow_path",
-                std::bind(&FollowPathActionServer::handle_goal, this, _1, _2),
-                std::bind(&FollowPathActionServer::handle_cancel, this, _1),
-                std::bind(&FollowPathActionServer::handle_accepted, this, _1));
+            node->get_node_base_interface(),
+            node->get_node_clock_interface(),
+            node->get_node_logging_interface(),
+            node->get_node_waitables_interface(),
+            ns + "/follow_path",
+            std::bind(&FollowPathActionServer::handle_goal, this, _1, _2),
+            std::bind(&FollowPathActionServer::handle_cancel, this, _1),
+            std::bind(&FollowPathActionServer::handle_accepted, this, _1));
     }
 
 private:
@@ -118,32 +120,34 @@ private:
         return rclcpp_action::CancelResponse::ACCEPT;
     }
 
-    void handle_accepted(const std::shared_ptr<FlwPthGoal> goal_handle) {
+    void handle_accepted(const std::shared_ptr<FlwPthGoal> goal_handle)
+    {
         using namespace std::placeholders;
         goal_handle_ = goal_handle;
         desired_linear_velocity_ = goal_handle->get_goal()->speed;
         reverse_ = goal_handle->get_goal()->reverse;
         poses_.clear();
 
-        for (auto &pose : goal_handle->get_goal()->poses)
+        for (auto& pose : goal_handle->get_goal()->poses)
         {
             Eigen::Affine3d poseEigen;
             tf2::fromMsg(pose.pose, poseEigen);
             poses_.push_back(poseEigen);
-
-
         }
         path_length_ = getPathLength(poses_);
         path_elapsed_ = 0;
         timer_->reset();
-        RCLCPP_INFO(node_->get_logger(), "Received tack to follow, number of goals %d, length %f", goal_handle->get_goal()->poses.size(), path_elapsed_);
-
+        RCLCPP_INFO(
+            node_->get_logger(),
+            "Received tack to follow, number of goals %d, length %f",
+            goal_handle->get_goal()->poses.size(),
+            path_elapsed_);
     }
 
     void timer_callback()
     {
         double DesiredLinearVelocity = desired_linear_velocity_;
-        const double MaxBearingError = M_PI_2*0.2; //!< For larger bearing deviation we stop linear motion
+        const double MaxBearingError = M_PI_2 * 0.2; //!< For larger bearing deviation we stop linear motion
         const double CrossTrackGain = 2.5; //!< How much to correct angular velocity for cross track error (distance to track)
         const double AlongTrackGain = 0.35; //!< How much to correct linear velocity for along track error (distance along track)
         const double BearingGain = 1.5; //!< How much to correct angular velocity for bearing error (angle to track)
@@ -152,7 +156,7 @@ private:
             geometry_msgs::msg::Twist cmd;
             cmd_publisher_->publish(cmd);
             timer_->cancel();
-            auto result = std::make_shared<FlwPthAction::Result >();
+            auto result = std::make_shared<FlwPthAction::Result>();
             result->success = true;
             goal_handle_->succeed(result);
             return;
@@ -165,14 +169,13 @@ private:
         poseMsg.header.frame_id = "map";
         poseMsg.header.stamp = node_->now();
         goal_publisher_->publish(poseMsg);
-        geometry_msgs::msg::TransformStamped transformStamped =
-                tf_buffer_.lookupTransform("map", ns_+"/base_link", tf2::TimePointZero);
+        geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_.lookupTransform("map", ns_ + "/base_link", tf2::TimePointZero);
         Eigen::Affine3d poseBaseLink = tf2::transformToEigen(transformStamped.transform);
 
         const Eigen::Vector3d robotLocationInGoalSpace = idealGoal.inverse() * poseBaseLink.translation();
 
-        const double crossTrackError = - robotLocationInGoalSpace.y();
-        const double alongTrackError = - robotLocationInGoalSpace.x();
+        const double crossTrackError = -robotLocationInGoalSpace.y();
+        const double alongTrackError = -robotLocationInGoalSpace.x();
 
         const Eigen::Vector3d tangentGoal = idealGoal.rotation().col(0); // get X axis of goal frame
         const Eigen::Vector3d tangentRobot = poseBaseLink.rotation().col(0); // get X axis of robot frame
@@ -193,18 +196,18 @@ private:
         feedback->progress = p;
         goal_handle_->publish_feedback(feedback);
 
-        if (p>=1.0)
+        if (p >= 1.0)
         {
             cmd.linear.x = 0.0;
             cmd.angular.z = 0.0;
             timer_->cancel();
-            auto result = std::make_shared<FlwPthAction::Result >();
+            auto result = std::make_shared<FlwPthAction::Result>();
             result->success = true;
             goal_handle_->succeed(result);
         }
         cmd_publisher_->publish(cmd);
 
-        path_elapsed_+=LoopTimeSec;
+        path_elapsed_ += LoopTimeSec;
     }
 };
 
@@ -219,6 +222,10 @@ int main(int argc, char** argv)
 
     auto parameter = node->get_parameter("ns");
     auto ns = parameter.as_string();
+
+    RCLCPP_INFO(
+            node->get_logger(), "Starting path follower"
+    );
 
     auto action_server = std::make_shared<FollowPathActionServer>(node, ns);
 
