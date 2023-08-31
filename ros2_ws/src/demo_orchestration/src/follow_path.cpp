@@ -3,6 +3,7 @@
 
 #include <Eigen/Dense>
 #include <cassert>
+#include <cmath>
 #include <geometry_msgs/msg/twist.hpp>
 #include <rclcpp_action/create_server.hpp>
 #include <tf2_eigen/tf2_eigen.hpp>
@@ -102,7 +103,7 @@ private:
 
     std::shared_ptr<FlwPthGoal> goal_handle_;
     double desired_linear_velocity_ = 0;
-    double reverse_ = false;
+    bool reverse_ = false;
     double path_length_ = 0;
     double path_elapsed_ = 0;
     rclcpp::TimerBase::SharedPtr timer_;
@@ -172,6 +173,12 @@ private:
         geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_.lookupTransform("map", ns_ + "/base_link", tf2::TimePointZero);
         Eigen::Affine3d poseBaseLink = tf2::transformToEigen(transformStamped.transform);
 
+        if (reverse_)
+        {
+            poseBaseLink = poseBaseLink * Eigen::AngleAxis<double>(M_PI, Eigen::Vector3d(0.0, 0.0, 1.0));
+            ;
+        }
+
         const Eigen::Vector3d robotLocationInGoalSpace = idealGoal.inverse() * poseBaseLink.translation();
 
         const double crossTrackError = -robotLocationInGoalSpace.y();
@@ -191,6 +198,10 @@ private:
         }
 
         cmd.linear.x = requestedLinearVelocity;
+        if (reverse_)
+        {
+            cmd.linear.x *= -1;
+        }
 
         auto feedback = std::make_shared<FlwPthAction::Feedback>();
         feedback->progress = p;
@@ -223,9 +234,7 @@ int main(int argc, char** argv)
     auto parameter = node->get_parameter("ns");
     auto ns = parameter.as_string();
 
-    RCLCPP_INFO(
-            node->get_logger(), "Starting path follower"
-    );
+    RCLCPP_INFO(node->get_logger(), "Starting path follower");
 
     auto action_server = std::make_shared<FollowPathActionServer>(node, ns);
 
