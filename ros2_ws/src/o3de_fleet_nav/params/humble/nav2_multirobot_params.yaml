@@ -275,7 +275,7 @@ controller_server:
       lookahead_time: 1.5
       rotate_to_heading_angular_vel: 1.8
       transform_tolerance: 0.1
-      use_velocity_scaled_lookahead_dist: true
+      use_velocity_scaled_lookahead_dist: false
       min_approach_linear_velocity: 0.05
       approach_velocity_scaling_dist: 2.
       use_collision_detection: true
@@ -384,13 +384,13 @@ planner_server:
       # plugin: "nav2_navfn_planner/NavfnPlanner"
       # plugin: nav2_smac_planner/SmacPlanner2D
       plugin: nav2_smac_planner/SmacPlannerLattice
-      tolerance: 0.1
+      tolerance: 0.5
       # use_astar: false
       allow_unknown: true
       rotation_penalty: 20.0
       allow_reverse_expansion: true
-      reverse_penalty: 2.0
-      non_straight_penalty: 10.0
+      reverse_penalty: 7.0
+      non_straight_penalty: 50.0
       # use_final_approach_orientation: true
 
 smoother_server:
@@ -407,9 +407,9 @@ smoother_server:
       keep_start_orientation: true  # whether to prevent the start orientation from being smoothed
       keep_goal_orientation: true   # whether to prevent the gpal orientation from being smoothed
       minimum_turning_radius: 0.26  # minimum turning radius the robot can perform. Can be set to 0.0 (or w_curve can be set to 0.0 with the same effect) for diff-drive/holonomic robots
-      w_curve: 20.0                 # weight to enforce minimum_turning_radius
-      w_dist: 1.0                   # weight to bind path to original as optional replacement for cost weight
-      w_smooth: 2000000.0           # weight to maximize smoothness of path
+      w_curve: 0.0                 # weight to enforce minimum_turning_radius
+      w_dist: 10.0                   # weight to bind path to original as optional replacement for cost weight
+      w_smooth: 2000.0           # weight to maximize smoothness of path
       w_cost: 0.015                 # weight to steer robot away from collision and cost
 
       # Parameters used to improve obstacle avoidance near cusps (forward/reverse movement changes)
@@ -421,7 +421,7 @@ smoother_server:
       # cost_check_points: [-0.185, 0.0, 1.0]
 
       optimizer:
-        max_iterations: 70            # max iterations of smoother
+        max_iterations: 700            # max iterations of smoother
         debug_optimizer: false        # print debug info
         gradient_tol: 5e3
         fn_tol: 1.0e-15
