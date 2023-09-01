@@ -25,6 +25,7 @@
 #include "ur_moveit_demo_msg/action/mtc.hpp"
 
 int num_of_boxes;
+std::string path_namespace;
 
 enum AMRState
 {
@@ -32,7 +33,7 @@ enum AMRState
     Approach,
     MovingApproach,
     Departure,
-    MoveingDeparture,
+    MovingDeparture,
     MovingToDrop,
     MovingToPark,
     Drop,
@@ -359,25 +360,11 @@ public:
             });
         }
 
-        std::shared_ptr<tf2_ros::TransformListener> tf_listener_{ nullptr };
-        std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
-
-        tf_buffer_ = std::make_unique<tf2_ros::Buffer>(node->get_clock());
-        tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
-        std::this_thread::sleep_for(std::chrono::seconds(1));
-
-        m_posePickup =
-            TransformToPose(tf_buffer_->lookupTransform(moveItNamespace + "/odom", moveItNamespace + "/Pickup", node->get_clock()->now()));
-        m_poseDrop =
-            TransformToPose(tf_buffer_->lookupTransform(moveItNamespace + "/odom", moveItNamespace + "/Drop", node->get_clock()->now()));
-        m_posePark =
-            TransformToPose(tf_buffer_->lookupTransform(moveItNamespace + "/odom", moveItNamespace + "/Park", node->get_clock()->now()));
-
         rclcpp::QoS qos(5);
         qos.transient_local();
 
         auto pickupPathSubscriber = node->create_subscription<nav_msgs::msg::Path>(
-            "/pickupPath",
+            path_namespace + "/pickupPath",
             qos,
             [&](nav_msgs::msg::Path path)
             {
@@ -385,7 +372,7 @@ public:
             });
 
         auto parkSubscriber = node->create_subscription<nav_msgs::msg::Path>(
-            "/parkPath",
+            path_namespace + "/parkPath",
             qos,
             [&](nav_msgs::msg::Path path)
             {
@@ -393,7 +380,7 @@ public:
             });
 
         auto dropSubscriber = node->create_subscription<nav_msgs::msg::Path>(
-            "/dropPath",
+            path_namespace + "/dropPath",
             qos,
             [&](nav_msgs::msg::Path path)
             {
@@ -401,11 +388,19 @@ public:
             });
 
         auto approachSubscriber = node->create_subscription<nav_msgs::msg::Path>(
-            "/approachPath",
+            path_namespace + "/approachPath",
             qos,
             [&](nav_msgs::msg::Path path)
             {
                 m_approachPath = path;
+            });
+
+        auto departureSubscriber = node->create_subscription<nav_msgs::msg::Path>(
+            path_namespace + "/departurePath",
+            qos,
+            [&](nav_msgs::msg::Path path)
+            {
+                m_departurePath = path;
             });
 
         std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -441,6 +436,14 @@ public:
                                     m_approachPath.poses,
                                     std::bind(&StationOrchestrator::notifyAMR, this, AMRState::Pickup, m_amrController.amrNamespace));
                             }
+                            if (m_amrController.state == AMRState::Departure)
+                            {
+                                m_amrController.state = AMRState::MovingToDrop;
+                                m_moveItController.state = MoveItState::Ready;
+                                m_amrController.client->send_goal(
+                                    m_dropPath,
+                                    std::bind(&StationOrchestrator::notifyAMR, this, AMRState::Drop, m_amrController.amrNamespace));
+                            }
                         }
                         if (m_moveItController.state == MoveItState::BeforeLoad)
                         {
@@ -465,11 +468,13 @@ public:
                                 auto& m_amrController = m_amrControllers[i];
                                 if (m_amrController.state == AMRState::Pickup)
                                 {
-                                    m_amrController.state = AMRState::MovingToDrop;
-                                    m_moveItController.state = MoveItState::Ready;
-                                    m_amrController.client->send_goal(
-                                        m_dropPath,
-                                        std::bind(&StationOrchestrator::notifyAMR, this, AMRState::Drop, m_amrController.amrNamespace));
+                                    m_amrController.state = AMRState::MovingDeparture;
+                                    m_amrController.followPathClient->send_goal(
+                                        0.1,
+                                        true,
+                                        m_departurePath.poses,
+                                        std::bind(
+                                            &StationOrchestrator::notifyAMR, this, AMRState::Departure, m_amrController.amrNamespace));
                                     break;
                                 }
                             }
@@ -522,14 +527,11 @@ private:
     MoveItController m_moveItController;
     std::vector<AMRController> m_amrControllers;
 
-    geometry_msgs::msg::PoseStamped m_posePickup;
-    geometry_msgs::msg::PoseStamped m_poseDrop;
-    geometry_msgs::msg::PoseStamped m_posePark;
-
     nav_msgs::msg::Path m_pickupPath;
     nav_msgs::msg::Path m_dropPath;
     nav_msgs::msg::Path m_parkPath;
     nav_msgs::msg::Path m_approachPath;
+    nav_msgs::msg::Path m_departurePath;
 
     std::mutex m_lock;
     std::mutex m_notifyLock;
@@ -556,6 +558,11 @@ int main(int argc, char** argv)
     auto ur_ns = node->get_parameter("ur_namespace").as_string();
     auto amr_namespaces = node->get_parameter("amr_namespaces").as_string_array();
     num_of_boxes = node->get_parameter("number_of_boxes").as_int();
+    path_namespace = node->get_parameter("path_namespace").as_string();
+    if (!path_namespace.empty())
+    {
+        path_namespace = "/" + path_namespace;
+    }
 
     StationOrchestrator stationOrchestrator(node, ur_ns, amr_namespaces);
     stationOrchestrator.start();

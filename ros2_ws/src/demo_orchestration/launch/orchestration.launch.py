@@ -12,6 +12,7 @@ def launch_setup(context, *args, **kwargs):
     ur_namespace = LaunchConfiguration("ur_namespace")
     amr_namespaces = LaunchConfiguration("amr_namespaces")
     num_of_boxes = LaunchConfiguration("number_of_boxes")
+    path_namespace = LaunchConfiguration("path_namespace")
 
     nodes_to_start = []
 
@@ -36,7 +37,8 @@ def launch_setup(context, *args, **kwargs):
             {"use_sim_time": True},
             {"ur_namespace": ur_namespace},
             {"amr_namespaces": amr_namespaces},
-            {"number_of_boxes": num_of_boxes}
+            {"number_of_boxes": num_of_boxes},
+            {"path_namespace": path_namespace}
         ],
     )
 
@@ -62,8 +64,15 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "amr_namespaces",
             default_value=[],
-            
             description="Namespace for the amr, useful for running multiple instances.",
+        )
+    )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "path_namespace",
+            default_value='""',
+            description="Namespace for the paths for the AMRs",
         )
     )
 
