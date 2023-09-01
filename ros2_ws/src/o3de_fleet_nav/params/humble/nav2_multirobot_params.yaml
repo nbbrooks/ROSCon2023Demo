@@ -142,7 +142,7 @@ controller_server:
     # Goal checker parameters
     goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.5
+      xy_goal_tolerance: 0.6
       yaw_goal_tolerance: 0.025
       stateful: True
     # FollowPath:
@@ -443,7 +443,7 @@ behavior_server:
       plugin: "nav2_behaviors/Wait"
     global_frame: <robot_namespace>/odom
     robot_base_frame: "<robot_namespace>/base_link"
-    transform_tolerance: 0.1
+    transform_tolerance: 0.5
     use_sim_time: true
     simulate_ahead_time: 2.0
     max_rotational_vel: 1.0
