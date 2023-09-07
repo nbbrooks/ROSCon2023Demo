@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(ur_moveit_demo_msg)
+project(blind_path_follower_msgs)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -10,8 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
-rosidl_generate_interfaces(${PROJECT_NAME}
-  "action/Mtc.action"
+rosidl_generate_interfaces(blind_path_follower_msgs
   "action/FollowPath.action"
   DEPENDENCIES builtin_interfaces geometry_msgs std_msgs
 )
@@ -31,5 +30,6 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
 
 ament_package()
