@@ -6,7 +6,7 @@
  *
  */
 
-#include "LanesService.h"
+#include "LanesServiceComponent.h"
 
 #include <AzCore/Component/ComponentApplicationBus.h>
 #include <AzCore/Component/Entity.h>
@@ -21,31 +21,31 @@
 namespace ROS2::Demo
 {
 
-    void LanesService::Reflect(AZ::ReflectContext* context)
+    void LanesServiceComponent::Reflect(AZ::ReflectContext* context)
     {
         if (AZ::SerializeContext* serialize = azrtti_cast<AZ::SerializeContext*>(context))
         {
-            serialize->Class<LanesService>()
+            serialize->Class<LanesServiceComponent>()
                 ->Version(1)
-                ->Field("LanesInWarehouse", &LanesService::m_lanesEntities)
-                ->Field("GlobalFrame", &LanesService::m_globalFrame);
+                ->Field("LanesInWarehouse", &LanesServiceComponent::m_tracks)
+                ->Field("GlobalFrame", &LanesServiceComponent::m_globalFrame);
             if (AZ::EditContext* ec = serialize->GetEditContext())
             {
-                ec->Class<LanesService>("LanesService", "LanesService")
+                ec->Class<LanesServiceComponent>("LanesServiceComponent", "LanesServiceComponent")
                     ->ClassElement(AZ::Edit::ClassElements::EditorData, "")
                     ->Attribute(AZ::Edit::Attributes::Category, "ROS2::Demo")
                     ->Attribute(AZ::Edit::Attributes::AppearsInAddComponentMenu, AZ_CRC_CE("Game"))
                     ->DataElement(
                         AZ::Edit::UIHandlers::Default,
-                        &LanesService::m_lanesEntities,
-                        "Set of lanes in the warehouse",
-                        "Set of lanes in the warehouse")
-                    ->DataElement(AZ::Edit::UIHandlers::Default, &LanesService::m_globalFrame, "Global Frame", "Global Frame");
+                        &LanesServiceComponent::m_tracks,
+                        "Set of lanes",
+                        "Set of lanes")
+                    ->DataElement(AZ::Edit::UIHandlers::Default, &LanesServiceComponent::m_globalFrame, "Global Frame", "Global Frame");
             }
         }
     }
 
-    void LanesService::Activate()
+    void LanesServiceComponent::Activate()
     {
         auto ros2Node = ROS2Interface::Get()->GetNode();
 
@@ -57,18 +57,18 @@ namespace ROS2::Demo
             });
     }
 
-    void LanesService::Deactivate()
+    void LanesServiceComponent::Deactivate()
     {
         m_listTracksService.reset();
     }
 
-    void LanesService::ListTracks(const ListTracksRequest request, const ListTracksResponse response)
+    void LanesServiceComponent::ListTracks(const ListTracksRequest request, const ListTracksResponse response)
     {
         AZStd::string requestedLaneName(request->lane_name.c_str());
 
         if (requestedLaneName == "")
         {
-            for (const auto entityId : m_lanesEntities)
+            for (const auto entityId : m_tracks)
             {
                 AZ::Entity* entity = nullptr;
                 AZ::ComponentApplicationBus::BroadcastResult(entity, &AZ::ComponentApplicationRequests::FindEntity, entityId);
@@ -80,7 +80,7 @@ namespace ROS2::Demo
         }
         else
         {
-            for (const auto entityId : m_lanesEntities)
+            for (const auto entityId : m_tracks)
             {
                 AZ::Entity* entity = nullptr;
                 AZ::ComponentApplicationBus::BroadcastResult(entity, &AZ::ComponentApplicationRequests::FindEntity, entityId);
