@@ -30,16 +30,16 @@ class TaskUtils
 public:
     static bool IsTaskBlind(const std::string& taskKey)
     {
-        static const std::set<std::string> blindTasks = {
-            "ApproachPickup", "EvacuateFromPickup", "DoWrapping", "ApproachUnload", "EvacuateFromUnload", "ApproachWrapperGlobal"
-        };
+        static const std::set<std::string> blindTasks = { "ApproachPickup",       "EvacuateFromPickup",       "DoWrapping",
+                                                          "ApproachUnloadGlobal", "EvacuateFromUnloadGlobal", "ApproachWrappingGlobal" };
         return blindTasks.count(taskKey) == 1;
     }
 
     static RobotCargoStatus GetCargoStatus(const std::string& taskKey)
     {
-        static const std::set<std::string> cargoTasks = { "WaitLoad",   "EvacuateFromPickup", "GoToWrapping",   "DoWrapping",
-                                                          "ApproachUnload",     "ApproachPickup" };
+        static const std::set<std::string> cargoTasks = { "WaitLoad",           "EvacuateFromPickup",    "GoToWrapping",
+                                                          "DoWrapping",         "ApproachPickup",        "ApproachWrappingGlobal",
+                                                          "GoToWrappingGlobal", "GoToUnloadExactGlobal", "GoToUnload" };
         return cargoTasks.count(taskKey) == 1 ? RobotCargoStatus::CARGO_LOADED : RobotCargoStatus::CARGO_EMPTY;
     }
 
@@ -54,10 +54,14 @@ public:
             { "GoToWrapping", RobotTaskStatus::GO_TO_WRAPPING },
             { "DoWrapping", RobotTaskStatus::DO_WRAPPING },
             { "GoToUnload", RobotTaskStatus::GO_TO_UNLOAD },
-            { "ApproachUnload", RobotTaskStatus::APPROACH_UNLOAD },
+            { "ApproachUnloadGlobal", RobotTaskStatus::APPROACH_UNLOAD },
             { "WaitUnload", RobotTaskStatus::WAIT_LOAD },
-            { "EvacuateFromUnload", RobotTaskStatus::EVACUATE_FROM_UNLOAD },
-            { "ApproachWrapperGlobal", RobotTaskStatus::GO_TO_WRAPPING_GLOBAL },
+            { "EvacuateFromUnloadGlobal", RobotTaskStatus::EVACUATE_FROM_UNLOAD },
+            { "GoToUnloadExactGlobal", RobotTaskStatus::GO_TO_UNLOAD_EXACT_GLOBAL },
+            { "ApproachWrappingGlobal", RobotTaskStatus::APPROACH_WRAPPING_GLOBAL },
+            { "GoToWrappingGlobal", RobotTaskStatus::GO_TO_WRAPPING_GLOBAL },
+            { "LeaveUnloadLeft", RobotTaskStatus::LEAVE_UNLOAD },
+            { "LeaveUnloadRight", RobotTaskStatus::LEAVE_UNLOAD },
         };
         if (taskStatuses.find(taskKey) == taskStatuses.end())
         {
@@ -72,11 +76,15 @@ public:
         return taskKey.find(key) != std::string::npos ? true : false;
     }
 
-        static bool GetLifter(const std::string& taskKey)
+    static bool GetLifter(const std::string& taskKey)
     {
-        static const std::set<std::string> blindTasks = {
-            "ApproachPickup", "EvacuateFromPickup"
-        };
+        static const std::set<std::string> blindTasks = { "ApproachPickup", "EvacuateFromPickup" };
         return blindTasks.count(taskKey) == 1;
+    }
+
+    static bool GetNonLocking(const std::string& taskKey)
+    {
+        static const std::set<std::string> nonLockingTasks = { "LeaveUnload", "GoToUnload", "LeaveUnloadLeft", "LeaveUnloadRight", "idle" };
+        return nonLockingTasks.count(taskKey) == 1;
     }
 };

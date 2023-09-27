@@ -63,6 +63,7 @@ void OttoAutonomy::Update()
         if (currentTask.m_requiredCargoStatus != m_robotStatus.m_cargoStatus)
         {
             // Waiting for load/unload
+            std::cerr << "Wrong cargo status" << std::endl;
             return;
         }
 
@@ -72,6 +73,7 @@ void OttoAutonomy::Update()
             {
                 if (!SendLockRequest(m_tasks[1].m_taskKey, true))
                 {
+                    std::cerr << "Could not aquire lock" << std::endl;
                     return;
                 }
             }
@@ -80,6 +82,7 @@ void OttoAutonomy::Update()
         {
             if (!SendLockRequest(currentTask.m_taskKey, false))
             {
+                std::cerr << "Could not un lock" << std::endl;
                 return;
             }
         }

@@ -42,7 +42,7 @@ public:
         std::string lane_track_service = m_node->declare_parameter<std::string>("lane_track_service", "/get_lanes_and_paths");
         m_node->get_parameter<std::string>("lane_track_service", lane_track_service);
         auto laneTracksClient = m_node->create_client<lane_provider_msgs::srv::ListTracks>(lane_track_service);
-        if (!laneTracksClient->wait_for_service(std::chrono::seconds(2)))
+        if (!laneTracksClient->wait_for_service(std::chrono::seconds(10)))
         {
             RCLCPP_ERROR(m_node->get_logger(), "Lane track service named %s not available", lane_track_service.c_str());
             return false;
@@ -111,7 +111,7 @@ private:
         t.m_goalTaskStatus = TaskUtils::GetTaskStatus(path_name);
         t.m_requiredCargoStatus = TaskUtils::GetCargoStatus(path_name);
         t.m_reverse = TaskUtils::GetReverse(path_name);
-        t.m_requiresLock = true;
+        t.m_requiresLock = !TaskUtils::GetNonLocking(path_name);
         t.m_lifterUp = TaskUtils::GetLifter(path_name);
 
         return t;
