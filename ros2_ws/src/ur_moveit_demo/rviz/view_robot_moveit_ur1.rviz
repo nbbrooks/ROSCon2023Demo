@@ -76,8 +76,6 @@ Visualization Manager:
       Markers:
         All at once?: false
         Move down: true
-        Move up: true
-        Place position: true
         Value: true
         ik frame: true
         target frame: true
@@ -192,6 +190,7 @@ Visualization Manager:
       Visibility:
         Camera: true
         Grid: true
+        MarkerArray: true
         Motion Planning Tasks: true
         Value: true
       Zoom Factor: 1
@@ -211,9 +210,23 @@ Visualization Manager:
       Visibility:
         Camera: true
         Grid: true
+        MarkerArray: true
         Motion Planning Tasks: true
         Value: true
       Zoom Factor: 1
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: MarkerArray
+      Namespaces:
+        Arrow: true
+        Cuboid: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /rviz_visual_tools
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -275,10 +288,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.9697983264923096
+      Pitch: 0.8197979927062988
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.860455274581909
+      Yaw: 2.82545804977417
     Saved: ~
 Window Geometry:
   Camera:

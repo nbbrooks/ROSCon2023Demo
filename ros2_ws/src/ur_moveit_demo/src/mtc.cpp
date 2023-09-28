@@ -117,6 +117,33 @@ private:
 
     void execute()
     {
+        const Eigen::Vector3d BoxDimension{ 0.3, 0.3, 0.2 };
+        const Eigen::Vector3d PalletDimensions{ 1.2, 0.769, 2.0*0.111 };
+
+        using moveit::planning_interface::MoveGroupInterface;
+        MoveGroupInterface::Options options(m_ns + "/ur_manipulator", "robot_description", "/" + m_ns);
+        auto move_group_interface = MoveGroupInterface(m_node, options);
+
+        auto moveit_visual_tools = moveit_visual_tools::MoveItVisualTools{
+            m_node, m_ns + "/base_link", rviz_visual_tools::RVIZ_MARKER_TOPIC, move_group_interface.getRobotModel()
+        };
+
+        auto palletPose = m_visionSystem->getObjectPose("/EuroPallet");
+
+        // visualize pallet and boxes
+        moveit_visual_tools.publishCuboid(
+            *palletPose, PalletDimensions.x(), PalletDimensions.y(), PalletDimensions.z(), rviz_visual_tools::BROWN);
+
+        for (auto& p : Pattern)
+        {
+            constexpr float DropRise = 1.2f;
+            auto targetPose  = Utils::getBoxTargetPose(p + DropRise * Eigen::Vector3f::UnitZ(), *palletPose, BoxDimension);
+            moveit_visual_tools.publishCuboid(targetPose, BoxDimension.x(), BoxDimension.y(), BoxDimension.z(), rviz_visual_tools::YELLOW);
+
+            moveit_visual_tools.publishArrow(targetPose, rviz_visual_tools::RED, rviz_visual_tools::XLARGE);
+        }
+        moveit_visual_tools.trigger();
+
         moveit::planning_interface::PlanningSceneInterface planning_scene_interface("/" + m_ns);
         planning_scene_interface.removeCollisionObjects(planning_scene_interface.getKnownObjectNames());
 
