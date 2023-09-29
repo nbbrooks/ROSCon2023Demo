@@ -58,6 +58,126 @@
         }
     },
     "Entities": {
+        "Entity_[109392596197464]": {
+            "Id": "Entity_[109392596197464]",
+            "Name": "Otto600Stand",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 2914096358374266972,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{FD36E6DC-8520-54C1-AEA8-AD79EB1EB5BF}",
+                                    "subId": 279996510
+                                },
+                                "assetHint": "prefabs/otto600-stand/otto600stand.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 1251686254904437041,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.0,
+                            -0.6000000238418579,
+                            0.0
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                1.0,
+                                0.10000000149011612,
+                                1.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 8083411231243397331
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15206516822549097174
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 276564161055786014
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9481484293226687298
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9394653195512664225
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 14890071444858313616,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 198258592
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{32FF7EC5-07A0-5FC0-9D84-0B04CB7B7E73}"
+                                            },
+                                            "assetHint": "prefabs/otto600-stand/otto600stand_stand.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4167930903097567298
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 14317158995471406362
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 15818103515179669299
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 16787298800068436534
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 17235665106479876521,
+                    "Parent Entity": "Entity_[3813459119862]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.5920801162719727,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[1183842649220968]": {
             "Id": "Entity_[1183842649220968]",
             "Name": "Paths",
@@ -260,7 +380,8 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 4722026316006952863,
                     "Child Entity Order": [
-                        "Entity_[3817754087158]"
+                        "Entity_[3817754087158]",
+                        "Entity_[109392596197464]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -314,45 +435,37 @@
                         }
                     }
                 },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 8083411231243397331,
-                    "DisabledComponents": {
-                        "EditorMeshColliderComponent": {
-                            "$type": "EditorMeshColliderComponent",
-                            "Id": 7719347654338345666,
-                            "ColliderConfiguration": {
-                                "MaterialSlots": {
-                                    "Slots": [
-                                        {
-                                            "Name": "DefaultMaterial"
-                                        }
-                                    ]
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 1251686254904437041,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.0,
+                            -0.6000000238418579,
+                            0.0
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
                                 }
-                            },
-                            "ShapeConfiguration": {
-                                "PhysicsAsset": {
-                                    "Asset": {
-                                        "assetId": {
-                                            "guid": "{7B7D5796-CB49-5733-B743-4C004C289E3C}",
-                                            "subId": 2874233289
-                                        },
-                                        "assetHint": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                                    },
-                                    "Configuration": {
-                                        "PhysicsAsset": {
-                                            "assetId": {
-                                                "guid": "{7B7D5796-CB49-5733-B743-4C004C289E3C}",
-                                                "subId": 2874233289
-                                            },
-                                            "loadBehavior": "QueueLoad",
-                                            "assetHint": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                                        }
-                                    }
-                                }
-                            }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                1.0,
+                                0.10000000149011612,
+                                1.0
+                            ]
                         }
                     }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 8083411231243397331
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",

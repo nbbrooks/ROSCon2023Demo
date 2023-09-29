@@ -113,19 +113,21 @@
             "Id": "Entity_[145815584809625]",
             "Name": "ViewCamera",
             "Components": {
-                "EditorCameraComponent": {
-                    "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
-                    "Id": 7817666522892801884,
-                    "Controller": {
-                        "Configuration": {
-                            "Field of View": 60.0,
-                            "MakeActiveViewOnActivation": false
-                        }
-                    }
-                },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 1896804121312090052
+                    "Id": 1896804121312090052,
+                    "DisabledComponents": {
+                        "EditorCameraComponent": {
+                            "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
+                            "Id": 7817666522892801884,
+                            "Controller": {
+                                "Configuration": {
+                                    "Field of View": 60.0,
+                                    "MakeActiveViewOnActivation": false
+                                }
+                            }
+                        }
+                    }
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
