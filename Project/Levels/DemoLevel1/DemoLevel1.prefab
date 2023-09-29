@@ -30,7 +30,7 @@
                     "Entity_[157997884966234]",
                     "Entity_[167575368069534]",
                     "Instance_[2387492465947421]/ContainerEntity",
-                    "Entity_[421450726761993]"
+                    "Entity_[1842731393655449]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -200,7 +200,8 @@
                     "Id": 16880285896855930892,
                     "Controller": {
                         "Configuration": {
-                            "Field of View": 60.0
+                            "Field of View": 60.0,
+                            "MakeActiveViewOnActivation": false
                         }
                     }
                 },
@@ -218,14 +219,14 @@
                     "Parent Entity": "Entity_[1176639161715]",
                     "Transform Data": {
                         "Translate": [
-                            -21.13116455078125,
-                            3.481198787689209,
-                            1.0196276903152466
+                            -6.647343635559082,
+                            22.694849014282227,
+                            4.559874534606934
                         ],
                         "Rotate": [
-                            -37.05149841308594,
-                            1.2345643043518066,
-                            -1.6364997625350952
+                            3.6876628398895264,
+                            -13.671339988708496,
+                            105.24775695800781
                         ]
                     }
                 },
@@ -301,6 +302,7 @@
                     "Id": 5855590796136709437,
                     "Child Entity Order": [
                         "Entity_[1163754259827]",
+                        "Entity_[146313801015961]",
                         "Entity_[193920347134167]"
                     ]
                 },
@@ -490,6 +492,126 @@
                             16.64771270751953,
                             0.04450559616088867
                         ]
+                    }
+                }
+            }
+        },
+        "Entity_[146313801015961]": {
+            "Id": "Entity_[146313801015961]",
+            "Name": "CameraFollow",
+            "Components": {
+                "AZ::Render::EditorBloomComponent": {
+                    "$type": "AZ::Render::EditorBloomComponent",
+                    "Id": 9072099036731173943,
+                    "Controller": {
+                        "Configuration": {
+                            "Enabled": true,
+                            "Intensity": 0.20000000298023224
+                        }
+                    }
+                },
+                "AZ::Render::EditorDeferredFogComponent": {
+                    "$type": "AZ::Render::EditorDeferredFogComponent",
+                    "Id": 4108467057968610525,
+                    "Controller": {
+                        "Configuration": {
+                            "FogColor": [
+                                0.45000380277633667,
+                                0.5125047564506531,
+                                0.6000000238418579
+                            ],
+                            "FogStartDistance": 30.0,
+                            "FogEndDistance": 1000.0
+                        }
+                    }
+                },
+                "AZ::Render::EditorPostFxLayerComponent": {
+                    "$type": "AZ::Render::EditorPostFxLayerComponent",
+                    "Id": 14480801625505005526
+                },
+                "AZ::Render::EditorSsaoComponent": {
+                    "$type": "AZ::Render::EditorSsaoComponent",
+                    "Id": 7386665190117786251,
+                    "Controller": {
+                        "Configuration": {
+                            "Strength": 1.5,
+                            "SamplingRadius": 0.029999999329447746
+                        }
+                    }
+                },
+                "Component_[11895140916889160460]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11895140916889160460
+                },
+                "Component_[16880285896855930892]": {
+                    "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
+                    "Id": 16880285896855930892,
+                    "Controller": {
+                        "Configuration": {
+                            "Field of View": 60.0
+                        }
+                    }
+                },
+                "Component_[17187464423780271193]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17187464423780271193
+                },
+                "Component_[17495696818315413311]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17495696818315413311
+                },
+                "Component_[18086214374043522055]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18086214374043522055,
+                    "Parent Entity": "Entity_[1176639161715]",
+                    "Transform Data": {
+                        "Translate": [
+                            -22.558902740478516,
+                            3.4124300479888916,
+                            3.2855358123779297
+                        ],
+                        "Rotate": [
+                            -25.682575225830078,
+                            27.702125549316406,
+                            -44.03150177001953
+                        ]
+                    }
+                },
+                "Component_[2654521436129313160]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 2654521436129313160
+                },
+                "Component_[5265045084611556958]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 5265045084611556958
+                },
+                "Component_[7169798125182238623]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 7169798125182238623
+                },
+                "Component_[8866210352157164042]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8866210352157164042
+                },
+                "Component_[9129253381063760879]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9129253381063760879
+                },
+                "FollowingCameraComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 16109908629982538072,
+                    "m_template": {
+                        "$type": "FollowingCameraComponent",
+                        "FollowingCameraConfiguration": {
+                            "PredefinedViews": [
+                                "Instance_[56976823276367]/Instance_[8954793939791]/Entity_[145815584809625]",
+                                "Instance_[58530183018853]/Instance_[8954793939791]/Entity_[145815584809625]",
+                                "Instance_[58586017593701]/Instance_[8954793939791]/Entity_[145815584809625]",
+                                "Instance_[146117451086181]/Instance_[8954793939791]/Entity_[145815584809625]",
+                                "Entity_[713601671406233]",
+                                "Entity_[1842718508753561]"
+                            ]
+                        }
                     }
                 }
             }
@@ -1096,6 +1218,171 @@
                             0.0
                         ]
                     }
+                }
+            }
+        },
+        "Entity_[1842714213786265]": {
+            "Id": "Entity_[1842714213786265]",
+            "Name": "ViewPortCameraRotCenterBack",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12308662412142318004
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17676874130614213360
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13303832648543546574,
+                    "Child Entity Order": [
+                        "Entity_[1842718508753561]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 13751297003540910578
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 12299583777147818250
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 7370564999629214668
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 6136532371983928008
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7106351298277685437
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12494759802968219677,
+                    "Parent Entity": "Entity_[1842731393655449]",
+                    "Transform Data": {
+                        "Translate": [
+                            -87.20000457763672,
+                            15.0,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[1842718508753561]": {
+            "Id": "Entity_[1842718508753561]",
+            "Name": "ViewPortCamera",
+            "Components": {
+                "EditorCameraComponent": {
+                    "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
+                    "Id": 2564913955527403705,
+                    "Controller": {
+                        "Configuration": {
+                            "Field of View": 60.0,
+                            "MakeActiveViewOnActivation": false
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 11273561685568306312
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 13826331475266004017
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16193640518868727221
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 10899876578113868930
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17729403814717777446
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 2580251101361217219
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 14213645406654182830
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12881960053302099474
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 16049772781278361537,
+                    "Parent Entity": "Entity_[1842714213786265]",
+                    "Transform Data": {
+                        "Translate": [
+                            9.420291900634766,
+                            -3.627161979675293,
+                            2.659229278564453
+                        ],
+                        "Rotate": [
+                            -7.841319561004639,
+                            -18.246225357055664,
+                            66.2576675415039
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[1842731393655449]": {
+            "Id": "Entity_[1842731393655449]",
+            "Name": "ViewCameras",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1324621408164223413
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 9834001047826932055
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8159358814457886375,
+                    "Child Entity Order": [
+                        "Entity_[976810152207001]",
+                        "Entity_[1842714213786265]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 10873017039107565022
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 4239289742832740526
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 10947508833545509146
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17215165012696301327
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4091797550502352152
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18179739078575988939,
+                    "Parent Entity": "Entity_[1146574390643]"
                 }
             }
         },
@@ -3011,65 +3298,6 @@
                 }
             }
         },
-        "Entity_[421450726761993]": {
-            "Id": "Entity_[421450726761993]",
-            "Name": "Entity1",
-            "Components": {
-                "AZ::Render::EditorHDRiSkyboxComponent": {
-                    "$type": "AZ::Render::EditorHDRiSkyboxComponent",
-                    "Id": 3354924468159567969,
-                    "Controller": {
-                        "Configuration": {
-                            "CubemapAsset": {
-                                "assetId": {
-                                    "guid": "{40D2CCBC-1372-59E5-BF36-D2EA46C10195}",
-                                    "subId": 2000
-                                },
-                                "assetHint": "lightingpresets/lowcontrast/champagne_castle_1_4k_iblskyboxcm_iblspecular.exr.streamingimage"
-                            },
-                            "Exposure": -4.300000190734863
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 15474577136015268507
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 4861386131153274404
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 2592463746888001719
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 10275771723377030611
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 4761414428984908312
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 16929732466920659865
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 10480473312613455220
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 2955282756687151344
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 17725456675919049663,
-                    "Parent Entity": "Entity_[1146574390643]"
-                }
-            }
-        },
         "Entity_[469859373056537]": {
             "Id": "Entity_[469859373056537]",
             "Name": "OTTOs600",
@@ -3642,6 +3870,71 @@
                 }
             }
         },
+        "Entity_[713601671406233]": {
+            "Id": "Entity_[713601671406233]",
+            "Name": "ViewPortCamera",
+            "Components": {
+                "EditorCameraComponent": {
+                    "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
+                    "Id": 2564913955527403705,
+                    "Controller": {
+                        "Configuration": {
+                            "Field of View": 60.0,
+                            "MakeActiveViewOnActivation": false
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 11273561685568306312
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 13826331475266004017
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16193640518868727221
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 10899876578113868930
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17729403814717777446
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 2580251101361217219
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 14213645406654182830
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12881960053302099474
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 16049772781278361537,
+                    "Parent Entity": "Entity_[976810152207001]",
+                    "Transform Data": {
+                        "Translate": [
+                            1.41351318359375,
+                            -9.205706596374512,
+                            4.844695568084717
+                        ],
+                        "Rotate": [
+                            -25.357498168945313,
+                            -11.300626754760742,
+                            22.46393585205078
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[747642609611035]": {
             "Id": "Entity_[747642609611035]",
             "Name": "SpawnBox",
@@ -4008,6 +4301,59 @@
                 }
             }
         },
+        "Entity_[976810152207001]": {
+            "Id": "Entity_[976810152207001]",
+            "Name": "ViewPortCameraRotCenterFront",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12308662412142318004
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17676874130614213360
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13303832648543546574,
+                    "Child Entity Order": [
+                        "Entity_[713601671406233]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 13751297003540910578
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 12299583777147818250
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 7370564999629214668
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 6136532371983928008
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7106351298277685437
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12494759802968219677,
+                    "Parent Entity": "Entity_[1842731393655449]",
+                    "Transform Data": {
+                        "Translate": [
+                            -22.299999237060547,
+                            15.0,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[9769530803792]": {
             "Id": "Entity_[9769530803792]",
             "Name": "Line1",
@@ -4258,11 +4604,6 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[15289328081690]"
-                },
-                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[11561839088463]"
@@ -4281,6 +4622,16 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
                     "value": "ur4"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[15289328081690]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
                 }
             ]
         },
@@ -4647,26 +4998,6 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
-                    "op": "add",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[11561839088463]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/2",
-                    "value": "Entity_[10251874063183]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
-                    "value": 3
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur1"
-                },
-                {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[9769530803792]"
@@ -4675,32 +5006,42 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.25
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[145815584809625]/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -4.503896713256836
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[145815584809625]/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 4.015179634094238
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[145815584809625]/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 2.9218802452087402
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[145815584809625]/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 21.634700775146484
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[145815584809625]/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": 19.312097549438477
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[145815584809625]/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -140.17825317382813
                 }
             ]
         },
         "Instance_[58530183018853]": {
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[10251874063183]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/2",
-                    "value": "Entity_[11561839088463]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
-                    "value": 3
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur2"
-                },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
@@ -4716,11 +5057,6 @@
         "Instance_[58586017593701]": {
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[15293623048986]"
-                },
                 {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
@@ -4740,6 +5076,16 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
                     "value": "ur3"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[15293623048986]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
                 }
             ]
         },
