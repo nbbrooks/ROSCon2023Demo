@@ -202,8 +202,10 @@ private:
         const float bearingError = GetAngle(tangentRobot, tangentGoal);
 
         geometry_msgs::msg::Twist cmd;
+
         if (!m_robotPassedStart)
         {
+            // if robot is not close to the start, adjust to the first point of spline
             double closeness = (poses_[0].translation() - poseBaseLink.translation()).norm();
             double adjustableBearingGain = BearingGain * std::min(1., closeness * 0.25);
             double adjustableCrossTrackGain = CrossTrackGain * std::max(1.5, 0.25 / closeness);
@@ -211,10 +213,17 @@ private:
         }
         else
         {
+            // if robot is on the spline, adjust to the spline
             cmd.angular.z = bearingError * BearingGain + crossTrackError * CrossTrackGain;
         }
+
+        // limit angular speed
         cmd.angular.z = std::max(std::min(cmd.angular.z, MaxAngularSpeed), -MaxAngularSpeed);
+
+        // adjust linear speed to the position on the spline of the virtual robot
         double requestedLinearVelocity = DesiredLinearVelocity + alongTrackError * AlongTrackGain;
+
+        // if the bearing error is too large, stop linear movement
         if (std::abs(bearingError) > MaxBearingError)
         {
             requestedLinearVelocity = 0.0;
@@ -225,17 +234,26 @@ private:
                 (MaxBearingError - std::abs(m_robotPassedStart ? (bearingError) : (bearingError + crossTrackError))) / MaxBearingError);
         }
 
+        // if the sharp turn is detected in the future, adapt the linear speed
         auto futureAngle = std::abs(GetAngle(interpolatePath(pFuture, poses_).rotation().col(0), tangentRobot));
 
         if (futureAngle > MaxBearingError && m_robotPassedStart)
         {
-            requestedLinearVelocity /= 2;
+            requestedLinearVelocity /= 2.0; // slow down if we are going to turn
         }
 
-        cmd.linear.x = requestedLinearVelocity;
+        if (!m_robotPassedStart)
+        {
+            // if the robot is not close to the start, slowly move to the start
+            cmd.linear.x = DesiredLinearVelocity * 0.5;
+        }else{
+            // if the robot is on the spline, move with the requested speed
+            cmd.linear.x = requestedLinearVelocity;
+        }
+
         if (reverse_)
         {
-            cmd.linear.x *= -1;
+            cmd.linear.x *= -1.0;
         }
 
         auto feedback = std::make_shared<FlwPthAction::Feedback>();
