@@ -154,7 +154,7 @@ private:
         const double MaxVirtualDistance = 0.3; //!< Distance between a the virtual robot and the real robot before slowdown.
         const int LookupTime = 100; //!< Multiplier to detect sharp turns
         const double CrossTrackGain = 0.5; //!< How much to correct angular velocity for cross track error (distance to track)
-        const double StartTolerance = 0.2; //!< Distance between virtual robot and real robot before start
+        const double StartTolerance = 0.3; //!< Distance between virtual robot and real robot before start
         const double AlongTrackGain = 0.5; //!< How much to correct linear velocity for along track error (distance along track)
         const double BearingGain = 1.75; //!< How much to correct angular velocity for bearing error (angle to track)
         const double MaxAngularSpeed = 0.6;
@@ -246,7 +246,9 @@ private:
         {
             // if the robot is not close to the start, slowly move to the start
             cmd.linear.x = DesiredLinearVelocity * 0.5;
-        }else{
+        }
+        else
+        {
             // if the robot is on the spline, move with the requested speed
             cmd.linear.x = requestedLinearVelocity;
         }
@@ -274,12 +276,11 @@ private:
         cmd_publisher_->publish(cmd);
         if (m_robotPassedStart)
         {
-            if (std::abs(bearingError) > MaxBearingError ||
-                (idealGoal.translation() - poseBaseLink.translation()).norm() > MaxVirtualDistance)
+            if (std::abs(bearingError) > MaxBearingError)
             {
                 path_elapsed_ += LoopTimeSec / 10;
             }
-            else if (futureAngle > MaxBearingError)
+            else if (futureAngle > MaxBearingError || (idealGoal.translation() - poseBaseLink.translation()).norm() > MaxVirtualDistance)
             {
                 path_elapsed_ += LoopTimeSec / 2;
             }
