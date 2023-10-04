@@ -627,7 +627,7 @@
                                 "Entity_[184836301672834]",
                                 "Entity_[297428869337474]",
                                 "Entity_[297441754239362]",
-                                "Entity_[713601671406233]",
+                                "",
                                 "Entity_[1842718508753561]"
                             ]
                         }
@@ -691,7 +691,7 @@
                             {
                                 "EntityId": "Instance_[223413337178641]/Entity_[1183889893861224]",
                                 "OrderNumber": 1,
-                                "PoseCount": 20
+                                "PoseCount": 30
                             },
                             {
                                 "EntityId": "Instance_[223413337178641]/Entity_[1184100347258728]",
@@ -812,7 +812,7 @@
                             {
                                 "EntityId": "Instance_[28318742725137]/Entity_[1183889893861224]",
                                 "OrderNumber": 1,
-                                "PoseCount": 20
+                                "PoseCount": 30
                             },
                             {
                                 "EntityId": "Instance_[28318742725137]/Entity_[1184100347258728]",
@@ -3787,7 +3787,7 @@
                             {
                                 "EntityId": "Instance_[23912791405281]/Entity_[1183889893861224]",
                                 "OrderNumber": 1,
-                                "PoseCount": 20
+                                "PoseCount": 30
                             },
                             {
                                 "EntityId": "Instance_[23912791405281]/Entity_[1184100347258728]",
@@ -4321,7 +4321,7 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 13303832648543546574,
                     "Child Entity Order": [
-                        "Entity_[713601671406233]"
+                        ""
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -4414,7 +4414,7 @@
                             {
                                 "EntityId": "Instance_[1183795404580712]/Entity_[1183889893861224]",
                                 "OrderNumber": 1,
-                                "PoseCount": 20
+                                "PoseCount": 30
                             },
                             {
                                 "EntityId": "Instance_[1183795404580712]/Entity_[1184100347258728]",

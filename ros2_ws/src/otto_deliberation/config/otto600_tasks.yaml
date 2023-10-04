@@ -8,6 +8,7 @@
     dummy_tasks: ["Idle",  "WaitUnload", "DoWrapping", "WaitUnload", "WaitLoad"]
     blind_tasks: ["ApproachPickup", "EvacuateFromPickup", "ApproachWrappingGlobal", "ApproachUnloadGlobal", "EvacuateFromUnloadGlobal", "QueueUnload" ]
     blind_tasks_reverse: ["EvacuateFromPickup", "EvacuateFromUnloadGlobal"]
+    blind_tasks_high_speed: ["QueueUnload"]
     cargo_load_tasks: ["WaitLoad"]
     cargo_unload_tasks: ["WaitUnload"]
     task_acquire_lock: ["GoToPickup", "GoToWrapping", "GoToWrappingGlobal", "GoToUnloadExactGlobal"]
