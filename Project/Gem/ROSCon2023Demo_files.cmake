@@ -3,6 +3,7 @@
 
 set(FILES
     Include/ROSCon2023Demo/ROSCon2023DemoBus.h
+    Source/ROSCon2023DemoModule.cpp
     Include/ROSCon2023Demo/Navigation/PathInfo.h
     Source/Navigation/LaneComponent.cpp
     Source/Navigation/LaneComponent.h
@@ -42,5 +43,7 @@ set(FILES
     Source/Vision/IdealVisionSystem.h
     Source/Vision/IdealVisionSystemConfiguration.cpp
     Source/Vision/IdealVisionSystemConfiguration.h
+    Source/LevelSpawning/EnvironmentSprawnerComponent.cpp
+    Source/LevelSpawning/EnvironmentSprawnerComponent.h
     enabled_gems.cmake
 )

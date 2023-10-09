@@ -2,5 +2,5 @@
 # time a registration happens.
 
 set(FILES
-    Source/ROSCon2023DemoModule.cpp
+    Source/ROSCon2023DemoModuleInterface.h
 )

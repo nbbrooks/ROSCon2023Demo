@@ -1,68 +1,24 @@
+/*
+ * Copyright (c) Contributors to the Open 3D Engine Project.
+ * For complete copyright and license terms please see the LICENSE at the root of this distribution.
+ *
+ * SPDX-License-Identifier: Apache-2.0 OR MIT
+ *
+ */
 
-#include <AzCore/Memory/SystemAllocator.h>
-#include <AzCore/Module/Module.h>
-
-#include "Navigation/LaneComponent.h"
-#include "Navigation/LanesServiceComponent.h"
-#include "Navigation/SplinePosesPublisher.h"
-#include "ROSCon2023DemoSystemComponent.h"
-#include "Scripting/BoxSpawner.h"
-#include "Scripting/LifterController.h"
-#include "Scripting/ObjectDetectionComponent.h"
-#include "Scripting/PayloadDespawnerComponent.h"
-#include "Scripting/ScriptSpawnLevelComponent.h"
-#include "Vision/IdealVisionSystem.h"
-#include <HumanNpc/AnimGraphInputProviderComponent.h>
-#include <HumanNpc/NavigationMeshOrchestratorComponent.h>
-#include <HumanNpc/NpcNavigatorComponent.h>
-#include <HumanNpc/WaypointComponent.h>
-#include <HumanNpc/WaypointSelectorComponent.h>
-#include <Scripting/FoilWrapperController.h>
+#include <ROSCon2023DemoModuleInterface.h>
+#include <ROSCon2023DemoSystemComponent.h>
 
 namespace ROSCon2023Demo
 {
-    class ROSCon2023DemoModule : public AZ::Module
+    class ROSCon2023DemoModule : public ROSCon2023DemoModuleInterface
     {
     public:
-        AZ_RTTI(ROSCon2023DemoModule, "{C1A10E6E-069C-4D2D-97AD-73198D467101}", AZ::Module);
-        AZ_CLASS_ALLOCATOR(ROSCon2023DemoModule, AZ::SystemAllocator, 0);
-
-        ROSCon2023DemoModule()
-            : AZ::Module()
-        {
-            // Push results of [MyComponent]::CreateDescriptor() into m_descriptors here.
-            m_descriptors.insert(
-                m_descriptors.end(),
-                {
-                    ROSCon2023DemoSystemComponent::CreateDescriptor(),
-                    ROS2::Demo::IdealVisionSystem::CreateDescriptor(),
-                    ROS2::Demo::BoxSpawner::CreateDescriptor(),
-                    ROS2::Demo::SplinePosesPublisher::CreateDescriptor(),
-                    ROS2::Demo::LaneComponent::CreateDescriptor(),
-                    ROS2::Demo::LanesServiceComponent::CreateDescriptor(),
-                    ROS2::Demo::AnimGraphInputProviderComponent::CreateDescriptor(),
-                    ROS2::Demo::NpcNavigatorComponent::CreateDescriptor(),
-                    ROS2::Demo::NavigationMeshOrchestratorComponent::CreateDescriptor(),
-                    ROS2::Demo::WaypointComponent::CreateDescriptor(),
-                    ROS2::Demo::WaypointSelectorComponent::CreateDescriptor(),
-                    ROS2::Demo::FoilWrapper::CreateDescriptor(),
-                    ROS2::Demo::ScriptSpawnLevelComponent::CreateDescriptor(),
-                    ROS2::Demo::LifterControllerComponent::CreateDescriptor(),
-                    ROS2::Demo::PayloadDespawnerComponent::CreateDescriptor(),
-                    ROS2::Demo::ObjectDetectionComponent::CreateDescriptor(),
-                });
-        }
-
-        /**
-         * Add required SystemComponents to the SystemEntity.
-         */
-        AZ::ComponentTypeList GetRequiredSystemComponents() const override
-        {
-            return AZ::ComponentTypeList{
-                azrtti_typeid<ROSCon2023DemoSystemComponent>(),
-            };
-        }
+        AZ_RTTI(ROSCon2023DemoModule, "{e23a1379-787c-481e-ad83-c0e04a3d06fe}", ROSCon2023DemoModuleInterface);
+        AZ_CLASS_ALLOCATOR(ROSCon2023DemoModule, AZ::SystemAllocator);
     };
-} // namespace ROSCon2023Demo
+} // namespace ROS2
 
 AZ_DECLARE_MODULE_CLASS(Gem_ROSCon2023Demo, ROSCon2023Demo::ROSCon2023DemoModule)
+
+

@@ -89,9 +89,60 @@ ly_add_target(
 target_depends_on_ros2_packages(${gem_name}.Private.Object  vision_msgs lane_provider_msgs)
 target_depends_on_ros2_packages(${gem_name} vision_msgs lane_provider_msgs)
 
+
+if(PAL_TRAIT_BUILD_HOST_TOOLS)
+
+    ly_add_target(
+        NAME ${gem_name}.Editor.Static STATIC
+        NAMESPACE Gem
+        AUTOMOC
+        AUTORCC
+        FILES_CMAKE
+            ROSCon2023Demo_editor_files.cmake
+        INCLUDE_DIRECTORIES
+            PRIVATE
+                Source
+                Source/RobotImporter
+            PUBLIC
+                Include
+        BUILD_DEPENDENCIES
+            PUBLIC
+                Gem::ImGui.Static
+                Gem::ROS2.Static
+                AZ::AzToolsFramework
+                Gem::AtomLyIntegration_CommonFeatures.Editor.Static
+                Gem::LmbrCentral.API
+                Gem::RecastNavigation.API
+                Gem::EMotionFX.Static
+            PRIVATE
+                ${gem_name}.Private.Object
+    )
+
+    ly_add_target(
+        NAME ${gem_name}.Editor GEM_MODULE
+        NAMESPACE Gem
+        FILES_CMAKE
+            ROSCon2023Demo_editor_shared_files.cmake
+        INCLUDE_DIRECTORIES
+            PRIVATE
+                Source
+            PUBLIC
+                Include
+        BUILD_DEPENDENCIES
+            PUBLIC
+                ${gem_name}.Editor.Static
+                Gem::Atom_Feature_Common.Static
+    )
+
+    target_depends_on_ros2_packages(${gem_name}.Editor.Static   vision_msgs lane_provider_msgs)
+    target_depends_on_ros2_packages(${gem_name}.Editor  vision_msgs lane_provider_msgs)
+
+
+    ly_create_alias(NAME ${gem_name}.Builders NAMESPACE Gem TARGETS Gem::${gem_name}.Editor)
+    ly_create_alias(NAME ${gem_name}.Tools    NAMESPACE Gem TARGETS Gem::${gem_name}.Editor)
+
+endif()
 # if enabled, ${gem_name} is used by all kinds of applications
-ly_create_alias(NAME ${gem_name}.Builders NAMESPACE Gem TARGETS Gem::${gem_name})
-ly_create_alias(NAME ${gem_name}.Tools    NAMESPACE Gem TARGETS Gem::${gem_name})
 ly_create_alias(NAME ${gem_name}.Clients  NAMESPACE Gem TARGETS Gem::${gem_name})
 ly_create_alias(NAME ${gem_name}.Servers  NAMESPACE Gem TARGETS Gem::${gem_name})
 ly_create_alias(NAME ${gem_name}.Unified  NAMESPACE Gem TARGETS Gem::${gem_name})
