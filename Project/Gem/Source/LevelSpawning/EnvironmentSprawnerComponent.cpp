@@ -1,12 +1,3 @@
-/*
- * Copyright (c) Contributors to the Open 3D Engine Project.
- * For complete copyright and license terms please see the LICENSE at the root
- * of this distribution.
- *
- * SPDX-License-Identifier: Apache-2.0 OR MIT
- *
- */
-
 #include "EnvironmentSprawnerComponent.h"
 
 #include <AzCore/Asset/AssetSerializer.h>
@@ -18,13 +9,14 @@
 #include <ImGuiBus.h>
 #include <LmbrCentral/Shape/BoxShapeComponentBus.h>
 #include <imgui/imgui.h>
-
+#include <AzCore/std/smart_ptr/make_shared.h>
 namespace ROS2::Demo
 {
 
-    EnvironmentSpawnerComponent::EnvironmentSpawnerComponent(const AZ::Data::Asset<AzFramework::Spawnable>& spawnable)
+    EnvironmentSpawnerComponent::EnvironmentSpawnerComponent(const AZ::Data::Asset<AzFramework::Spawnable>& spawnable, AZStd::shared_ptr<AzFramework::EntitySpawnTicket> spawnTicket):
+        m_spawnable(spawnable),
+        m_spawnTicket(spawnTicket)
     {
-        SetSpawnable(spawnable);
     }
 
     void EnvironmentSpawnerComponent::Reflect(AZ::ReflectContext* context)
@@ -52,12 +44,16 @@ namespace ROS2::Demo
 
     void EnvironmentSpawnerComponent::Deactivate()
     {
+        m_spawnTicket.reset();
         AZ::TickBus::Handler::BusDisconnect();
     }
 
     void EnvironmentSpawnerComponent::OnTick(float deltaTime, AZ::ScriptTimePoint time)
     {
-        //SpawnEntity();
+       if (m_spawnTicket == nullptr)
+       {
+            SpawnEntity();
+       }
         AZ::TickBus::Handler::BusDisconnect();
     }
     void EnvironmentSpawnerComponent::SpawnEntity()
@@ -65,13 +61,13 @@ namespace ROS2::Demo
         const auto parentId = m_entity->GetId();
         auto m_currentTransform = AZ::Transform::CreateIdentity();
         AZ::TransformBus::EventResult(m_currentTransform, parentId, &AZ::TransformBus::Events::GetWorldTM);
-        auto transform = AZ::Transform::CreateIdentity();
+
         auto spawner = AZ::Interface<AzFramework::SpawnableEntitiesDefinition>::Get();
         AZ_Assert(spawner, "Unable to get spawnable entities definition");
         AzFramework::SpawnAllEntitiesOptionalArgs optionalArgs;
-        AzFramework::EntitySpawnTicket ticket(m_spawnable);
+        m_spawnTicket = AZStd::make_shared<AzFramework::EntitySpawnTicket>(m_spawnable);
         // Set the pre-spawn callback to set the name of the root entity to the name of the spawnable
-        optionalArgs.m_preInsertionCallback = [transform, parentId](auto id, auto view)
+        optionalArgs.m_preInsertionCallback = [m_currentTransform](auto id, auto view)
         {
             if (view.empty())
             {
@@ -87,11 +83,11 @@ namespace ROS2::Demo
            }
 
             auto* transformInterface = root->FindComponent<AzFramework::TransformComponent>();
-            transformInterface->SetWorldTM(transform);
-            if (parentId.IsValid())
+            if (transformInterface)
             {
-                transformInterface->SetParent(parentId);
+               transformInterface->SetWorldTM(m_currentTransform);
             }
+
         };
 
        optionalArgs.m_completionCallback = [](auto ticket, auto result)
@@ -100,9 +96,8 @@ namespace ROS2::Demo
        };
 
         optionalArgs.m_priority = AzFramework::SpawnablePriority_Highest;
-        spawner->SpawnAllEntities(ticket, optionalArgs);
-        AZStd::swap(m_spawnTicket, ticket);
-        AZ_Printf("EnvironmentSpawnerEditorComponent", "spawn ticked  : %d", m_spawnTicket.GetId());
+        spawner->SpawnAllEntities(*m_spawnTicket, optionalArgs);
+        AZ_Printf("EnvironmentSpawnerEditorComponent", "spawn ticked  : %d", m_spawnTicket->GetId());
     }
 
     void EnvironmentSpawnerComponent::SetSpawnable(const AZ::Data::Asset<AzFramework::Spawnable>& spawnable)

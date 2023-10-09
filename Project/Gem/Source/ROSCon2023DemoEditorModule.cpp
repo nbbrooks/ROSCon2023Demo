@@ -19,7 +19,7 @@ namespace ROSCon2023Demo
             // This happens through the [MyComponent]::Reflect() function.
             m_descriptors.insert(m_descriptors.end(), {
                 ROSCon2023DemoEditorSystemComponent::CreateDescriptor(),
-                //ROS2::Demo::EnvironmentSpawnerEditorComponent::CreateDescriptor(),
+                ROS2::Demo::EnvironmentSpawnerEditorComponent::CreateDescriptor(),
             });
         }
 

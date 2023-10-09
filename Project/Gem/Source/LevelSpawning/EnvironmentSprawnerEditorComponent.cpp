@@ -4,6 +4,8 @@
 #include <AzCore/Asset/AssetSerializer.h>
 #include <AzFramework/Components/TransformComponent.h>
 #include "EnvironmentSprawnerComponent.h"
+#include <AzCore/std/smart_ptr/make_shared.h>
+
 namespace ROS2::Demo
 {
     EnvironmentSpawnerEditorComponent::EnvironmentSpawnerEditorComponent()
@@ -46,7 +48,6 @@ namespace ROS2::Demo
 
        AZ_Printf("EnvironmentSpawnerEditorComponent", "Deactivate");
 
-
    }
 
    void EnvironmentSpawnerEditorComponent::GetRequiredServices(AZ::ComponentDescriptor::DependencyArrayType& required)
@@ -65,59 +66,58 @@ namespace ROS2::Demo
    void EnvironmentSpawnerEditorComponent::BuildGameEntity(AZ::Entity* gameEntity)
    {
        AZ_Printf("EnvironmentSpawnerEditorComponent", "BuildGameEntity");
-       gameEntity->CreateComponent<EnvironmentSpawnerComponent>(m_spawnable);
+       gameEntity->CreateComponent<EnvironmentSpawnerComponent>(m_spawnable, m_spawnTicket);
 
    }
 
    void EnvironmentSpawnerEditorComponent::OnSpawnableChanged()
    {
        AZ_Printf("EnvironmentSpawnerEditorComponent", "OnSpawnableChanged");
-       SpawnEntity();
+//       SpawnEntity();
    }
 
    void EnvironmentSpawnerEditorComponent::SpawnEntity()
    {
-//       const auto parentId = m_entity->GetId();
-//       auto m_currentTransform = AZ::Transform::CreateIdentity();
-//       AZ::TransformBus::EventResult(m_currentTransform, parentId, &AZ::TransformBus::Events::GetWorldTM);
-//       auto transform = AZ::Transform::CreateIdentity();
-//       auto spawner = AZ::Interface<AzFramework::SpawnableEntitiesDefinition>::Get();
-//       AZ_Assert(spawner, "Unable to get spawnable entities definition");
-//       AzFramework::SpawnAllEntitiesOptionalArgs optionalArgs;
-//       AzFramework::EntitySpawnTicket ticket(m_spawnable);
-//       // Set the pre-spawn callback to set the name of the root entity to the name of the spawnable
-//       optionalArgs.m_preInsertionCallback = [transform, parentId](auto id, auto view)
-//       {
-//           if (view.empty())
+       const auto parentId = m_entity->GetId();
+       auto m_currentTransform = AZ::Transform::CreateIdentity();
+       AZ::TransformBus::EventResult(m_currentTransform, parentId, &AZ::TransformBus::Events::GetWorldTM);
+       auto transform = AZ::Transform::CreateIdentity();
+       auto spawner = AZ::Interface<AzFramework::SpawnableEntitiesDefinition>::Get();
+       AZ_Assert(spawner, "Unable to get spawnable entities definition");
+       AzFramework::SpawnAllEntitiesOptionalArgs optionalArgs;
+       m_spawnTicket = AZStd::make_shared<AzFramework::EntitySpawnTicket>(m_spawnable);
+       // Set the pre-spawn callback to set the name of the root entity to the name of the spawnable
+       optionalArgs.m_preInsertionCallback = [transform, parentId](auto id, auto view)
+       {
+           if (view.empty())
+           {
+               return;
+           }
+           AZ::Entity* root = *view.begin();
+           AZ_Assert(root, "Invalid root entity");
+           // update the name each child entity
+//           for (auto childIterator = view.begin() + 1; childIterator != view.end(); ++childIterator)
 //           {
-//               return;
+//               auto* childEntity = *childIterator;
+//               AZ_Assert(childEntity, "Invalid child entity");
 //           }
-//           AZ::Entity* root = *view.begin();
-//           AZ_Assert(root, "Invalid root entity");
-//           // update the name each child entity
-////           for (auto childIterator = view.begin() + 1; childIterator != view.end(); ++childIterator)
-////           {
-////               auto* childEntity = *childIterator;
-////               AZ_Assert(childEntity, "Invalid child entity");
-////           }
-//
-//           auto* transformInterface = root->FindComponent<AzFramework::TransformComponent>();
-//           transformInterface->SetWorldTM(transform);
-//           if (parentId.IsValid())
-//           {
-//               transformInterface->SetParent(parentId);
-//           }
-//       };
-//
-//       optionalArgs.m_completionCallback = [](auto ticket, auto result)
-//       {
-//           AZ_Printf("EnvironmentSpawnerEditorComponent", "Spawn completed %d", result);
-//       };
-//
-//       optionalArgs.m_priority = AzFramework::SpawnablePriority_Highest;
-//       spawner->SpawnAllEntities(ticket, optionalArgs);
-//       m_spawnTicket = ticket;
-//       AZ_Printf("EnvironmentSpawnerEditorComponent", "spawn ticked  : %d", m_spawnTicket.GetId());
+
+           auto* transformInterface = root->FindComponent<AzFramework::TransformComponent>();
+           transformInterface->SetWorldTM(transform);
+           if (parentId.IsValid())
+           {
+               transformInterface->SetParent(parentId);
+           }
+       };
+
+       optionalArgs.m_completionCallback = [](auto ticket, auto result)
+       {
+           AZ_Printf("EnvironmentSpawnerEditorComponent", "Spawn completed %d", result);
+       };
+
+       optionalArgs.m_priority = AzFramework::SpawnablePriority_Highest;
+       spawner->SpawnAllEntities(*m_spawnTicket, optionalArgs);
+       AZ_Printf("EnvironmentSpawnerEditorComponent", "spawn ticked  : %d", m_spawnTicket->GetId());
 
    }
 } // namespace ROS2

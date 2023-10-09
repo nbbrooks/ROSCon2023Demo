@@ -1,11 +1,3 @@
-/*
-* Copyright (c) Contributors to the Open 3D Engine Project.
-* For complete copyright and license terms please see the LICENSE at the root
-* of this distribution.
-*
-* SPDX-License-Identifier: Apache-2.0 OR MIT
-*
-*/
 #pragma once
 
 #include <AzCore/Component/Component.h>
@@ -22,7 +14,7 @@ namespace ROS2::Demo
        AZ_COMPONENT(EnvironmentSpawnerComponent, { "4a7c02c1-4fe0-4899-a41c-8f72235d2cbe" });
 
        EnvironmentSpawnerComponent() = default;
-       EnvironmentSpawnerComponent(const AZ::Data::Asset<AzFramework::Spawnable>& spawnable);
+       EnvironmentSpawnerComponent(const AZ::Data::Asset<AzFramework::Spawnable>& spawnable, AZStd::shared_ptr<AzFramework::EntitySpawnTicket> spawnTicket);
 
        ~EnvironmentSpawnerComponent() = default;
 
@@ -34,7 +26,7 @@ namespace ROS2::Demo
        void OnTick(float deltaTime, AZ::ScriptTimePoint time) override;
    private:
        AZ::Data::Asset<AzFramework::Spawnable> m_spawnable;
-       AzFramework::EntitySpawnTicket m_spawnTicket;
+       AZStd::shared_ptr<AzFramework::EntitySpawnTicket> m_spawnTicket;
        void SpawnEntity();
    };
 } // namespace ROS2::Demo

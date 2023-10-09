@@ -31,7 +31,7 @@ namespace ROS2::Demo
 
    private:
        AZ::Data::Asset<AzFramework::Spawnable> m_spawnable;
-       AzFramework::EntitySpawnTicket m_spawnTicket;
+       AZStd::shared_ptr<AzFramework::EntitySpawnTicket> m_spawnTicket;
        void OnSpawnableChanged();
        void SpawnEntity();
 
