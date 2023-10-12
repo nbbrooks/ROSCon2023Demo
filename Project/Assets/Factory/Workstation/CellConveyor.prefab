@@ -50,14 +50,19 @@
         }
     },
     "Entities": {
-        "Entity_[285494584193745]": {
-            "Id": "Entity_[285494584193745]",
-            "Name": "Cheating",
+        "Entity_[240384405385024]": {
+            "Id": "Entity_[240384405385024]",
+            "Name": "Belt_physics",
             "Components": {
                 "EditorColliderComponent": {
                     "$type": "EditorColliderComponent",
-                    "Id": 6934358898151100766,
+                    "Id": 3791896087066034156,
                     "ColliderConfiguration": {
+                        "Position": [
+                            0.0,
+                            0.0,
+                            -0.5
+                        ],
                         "MaterialSlots": {
                             "Slots": [
                                 {
@@ -67,16 +72,145 @@
                         }
                     },
                     "ShapeConfiguration": {
-                        "ShapeType": 2,
-                        "Capsule": {
-                            "Height": 0.6000000238418579,
-                            "Radius": 0.10000000149011612
-                        }
+                        "ShapeType": 1
                     }
                 },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 17724883815269578259
+                    "Id": 6864514547464178004,
+                    "DisabledComponents": {
+                        "EditorSplineComponent": {
+                            "$type": "EditorSplineComponent",
+                            "Id": 7212543440270658430,
+                            "Configuration": {
+                                "Spline": {
+                                    "Vertices": {
+                                        "Vertices": [
+                                            [
+                                                -4.378795623779297,
+                                                0.0,
+                                                0.0
+                                            ],
+                                            [
+                                                0.7997194528579712,
+                                                0.0,
+                                                0.0
+                                            ],
+                                            [
+                                                0.7260297536849976,
+                                                0.0,
+                                                -0.39727258682250977
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 4409312113002988858
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2925861930386681608
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9717751819668223799
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 3567248860881569391
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 5983672591185832960
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 11645201705226960086,
+                    "PendingComponents": {
+                        "ConveyorBeltComponent": {
+                            "$type": "GenericComponentWrapper",
+                            "Id": 214906227116801806,
+                            "m_template": {
+                                "$type": "ConveyorBeltComponent",
+                                "Configuration": {
+                                    "BeltEntityId": "Entity_[33362039324431]",
+                                    "Speed": 0.800000011920929,
+                                    "BeltWidth": 0.6000000238418579,
+                                    "SegmentSize": 0.09000000357627869,
+                                    "TextureScale": -0.8519999980926514,
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{1F0D2FB2-DA15-5F7F-B6D4-9DD98818C1C2}",
+                                            "subId": 1
+                                        },
+                                        "assetHint": "assets/belt_material_roscon2023.physicsmaterial"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 16027095305406308868
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 16444787839977273097
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 3264013501087369681,
+                    "Parent Entity": "Entity_[33387809128207]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            0.458644300699234
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            90.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[285494584193745]": {
+            "Id": "Entity_[285494584193745]",
+            "Name": "Cheating",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 17724883815269578259,
+                    "DisabledComponents": {
+                        "EditorColliderComponent": {
+                            "$type": "EditorColliderComponent",
+                            "Id": 6934358898151100766,
+                            "ColliderConfiguration": {
+                                "MaterialSlots": {
+                                    "Slots": [
+                                        {
+                                            "Name": "Entire object"
+                                        }
+                                    ]
+                                }
+                            },
+                            "ShapeConfiguration": {
+                                "ShapeType": 2,
+                                "Capsule": {
+                                    "Height": 0.6000000238418579,
+                                    "Radius": 0.10000000149011612
+                                }
+                            }
+                        }
+                    }
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
@@ -665,583 +799,6 @@
                 }
             }
         },
-        "Entity_[33370629259023]": {
-            "Id": "Entity_[33370629259023]",
-            "Name": "Belt_physics",
-            "Components": {
-                "ConveyorBeltComponent": {
-                    "$type": "GenericComponentWrapper",
-                    "Id": 214906227116801806,
-                    "m_template": {
-                        "$type": "ConveyorBeltComponent",
-                        "Configuration": {
-                            "BeltEntityId": "Entity_[33362039324431]",
-                            "Speed": 0.800000011920929,
-                            "BeltWidth": 0.6000000238418579,
-                            "SegmentSize": 0.09000000357627869,
-                            "TextureScale": -0.8519999980926514,
-                            "MaterialAsset": {
-                                "assetId": {
-                                    "guid": "{1F0D2FB2-DA15-5F7F-B6D4-9DD98818C1C2}",
-                                    "subId": 1
-                                },
-                                "assetHint": "assets/belt_material_roscon2023.physicsmaterial"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 6864514547464178004
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 4409312113002988858
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 2925861930386681608
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 9717751819668223799
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 3567248860881569391
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 5983672591185832960
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 11645201705226960086
-                },
-                "EditorSplineComponent": {
-                    "$type": "EditorSplineComponent",
-                    "Id": 7212543440270658430,
-                    "Configuration": {
-                        "Spline": {
-                            "Vertices": {
-                                "Vertices": [
-                                    [
-                                        -11.812530517578125,
-                                        0.0,
-                                        0.0
-                                    ],
-                                    [
-                                        0.7997194528579712,
-                                        0.0,
-                                        0.0
-                                    ],
-                                    [
-                                        0.7260297536849976,
-                                        0.0,
-                                        -0.39727258682250977
-                                    ]
-                                ]
-                            }
-                        }
-                    }
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 16444787839977273097
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 3264013501087369681,
-                    "Parent Entity": "Entity_[33387809128207]",
-                    "Transform Data": {
-                        "Translate": [
-                            0.0,
-                            0.0,
-                            0.458644300699234
-                        ],
-                        "Rotate": [
-                            0.0,
-                            0.0,
-                            90.0
-                        ]
-                    }
-                }
-            }
-        },
-        "Entity_[33374924226319]": {
-            "Id": "Entity_[33374924226319]",
-            "Name": "Axel",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 7491693849226225526,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{8A2E7A82-D7C3-5E9C-A56C-6EDA70876347}",
-                                    "subId": 268721130
-                                },
-                                "assetHint": "materialeditor/viewportmodels/cylinder.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 8191822263318266309
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 10168062905476401970
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 14610004192135783556
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 16302429540095237228
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 12264390206564439234
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 1835789628597811249,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 1803671422
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{970148AC-7258-5EC8-9CE7-F4EF93164D93}"
-                                            },
-                                            "assetHint": "materials/presets/pbr/metal_iron_matte.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                "EditorNonUniformScaleComponent": {
-                    "$type": "EditorNonUniformScaleComponent",
-                    "Id": 12394114221372064653,
-                    "NonUniformScale": [
-                        1.0,
-                        1.0,
-                        4.0
-                    ]
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 1790048122131912966
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 3000280039237989758
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 18247346022907989309
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 10069884748123752645,
-                    "Parent Entity": "Entity_[33383514160911]",
-                    "Transform Data": {
-                        "Translate": [
-                            0.0,
-                            -0.000001430511474609375,
-                            0.004785895347595215
-                        ],
-                        "UniformScale": 0.030000003054738045
-                    }
-                }
-            }
-        },
-        "Entity_[33383514160911]": {
-            "Id": "Entity_[33383514160911]",
-            "Name": "Alignment_bar",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 11864974877664747488,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{74EC05D4-E5A2-56E6-B48D-92EF29604325}",
-                                    "subId": 280594513
-                                },
-                                "assetHint": "factory/conveyorline/default_conveyorbelt_effector_20c8b702_36c3_59f4_8ff7_e610cdda9f11_.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorColliderComponent": {
-                    "$type": "EditorColliderComponent",
-                    "Id": 10493330990372424311,
-                    "ColliderConfiguration": {
-                        "Position": [
-                            -0.05938149243593216,
-                            -0.21238388121128082,
-                            0.061392396688461304
-                        ],
-                        "Rotation": [
-                            0.0,
-                            0.0,
-                            -0.08204659819602966,
-                            0.9966285228729248
-                        ],
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "Entire object",
-                                    "MaterialAsset": {
-                                        "assetId": {
-                                            "guid": "{BD1F8235-FAD1-569F-993A-7F30323C92FA}",
-                                            "subId": 1
-                                        },
-                                        "assetHint": "factory/conveyorelements/physics/conveyor_barriers.physicsmaterial"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "ShapeType": 1,
-                        "Box": {
-                            "Scale": [
-                                0.800000011920929,
-                                0.800000011920929,
-                                0.800000011920929
-                            ],
-                            "Configuration": [
-                                0.010561764240264893,
-                                0.1499987244606018,
-                                0.12128281593322754
-                            ]
-                        }
-                    }
-                },
-                "EditorColliderComponent_2": {
-                    "$type": "EditorColliderComponent",
-                    "Id": 11336767273456035004,
-                    "ColliderConfiguration": {
-                        "Position": [
-                            -0.06049775332212448,
-                            -0.5122600793838501,
-                            0.0613924004137516
-                        ],
-                        "Rotation": [
-                            0.0,
-                            0.0,
-                            0.07245030999183655,
-                            0.997372031211853
-                        ],
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "Entire object",
-                                    "MaterialAsset": {
-                                        "assetId": {
-                                            "guid": "{BD1F8235-FAD1-569F-993A-7F30323C92FA}",
-                                            "subId": 1
-                                        },
-                                        "assetHint": "factory/conveyorelements/physics/conveyor_barriers.physicsmaterial"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "ShapeType": 1,
-                        "Box": {
-                            "Scale": [
-                                0.800000011920929,
-                                0.800000011920929,
-                                0.800000011920929
-                            ],
-                            "Configuration": [
-                                0.010561799630522728,
-                                0.14999869465827942,
-                                0.12128280103206635
-                            ]
-                        }
-                    }
-                },
-                "EditorColliderComponent_3": {
-                    "$type": "EditorColliderComponent",
-                    "Id": 3063718856867016350,
-                    "ColliderConfiguration": {
-                        "Position": [
-                            -0.07108332216739655,
-                            -0.3624451458454132,
-                            0.0613924004137516
-                        ],
-                        "Rotation": [
-                            0.0,
-                            0.0,
-                            -0.00038623809814453125,
-                            1.0
-                        ],
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "Entire object",
-                                    "MaterialAsset": {
-                                        "assetId": {
-                                            "guid": "{BD1F8235-FAD1-569F-993A-7F30323C92FA}",
-                                            "subId": 1
-                                        },
-                                        "assetHint": "factory/conveyorelements/physics/conveyor_barriers.physicsmaterial"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "ShapeType": 1,
-                        "Box": {
-                            "Scale": [
-                                0.800000011920929,
-                                0.800000011920929,
-                                0.800000011920929
-                            ],
-                            "Configuration": [
-                                0.010561799630522728,
-                                0.14999869465827942,
-                                0.12128280103206635
-                            ]
-                        }
-                    }
-                },
-                "EditorColliderComponent_4": {
-                    "$type": "EditorColliderComponent",
-                    "Id": 14374153890209585970,
-                    "ColliderConfiguration": {
-                        "Position": [
-                            -0.025573300197720528,
-                            -0.6597500443458557,
-                            0.0613924004137516
-                        ],
-                        "Rotation": [
-                            0.0,
-                            0.0,
-                            0.15149669349193573,
-                            0.9884577989578247
-                        ],
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "Entire object",
-                                    "MaterialAsset": {
-                                        "assetId": {
-                                            "guid": "{BD1F8235-FAD1-569F-993A-7F30323C92FA}",
-                                            "subId": 1
-                                        },
-                                        "assetHint": "factory/conveyorelements/physics/conveyor_barriers.physicsmaterial"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "ShapeType": 1,
-                        "Box": {
-                            "Scale": [
-                                0.800000011920929,
-                                0.800000011920929,
-                                0.800000011920929
-                            ],
-                            "Configuration": [
-                                0.010561799630522728,
-                                0.14999869465827942,
-                                0.12128280103206635
-                            ]
-                        }
-                    }
-                },
-                "EditorColliderComponent_5": {
-                    "$type": "EditorColliderComponent",
-                    "Id": 15366105893125683113,
-                    "ColliderConfiguration": {
-                        "Position": [
-                            -0.025573300197720528,
-                            -0.06703650206327438,
-                            0.0613924004137516
-                        ],
-                        "Rotation": [
-                            0.0,
-                            0.0,
-                            -0.14700070023536682,
-                            0.9891363978385925
-                        ],
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "Entire object",
-                                    "MaterialAsset": {
-                                        "assetId": {
-                                            "guid": "{BD1F8235-FAD1-569F-993A-7F30323C92FA}",
-                                            "subId": 1
-                                        },
-                                        "assetHint": "factory/conveyorelements/physics/conveyor_barriers.physicsmaterial"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "ShapeType": 1,
-                        "Box": {
-                            "Scale": [
-                                0.800000011920929,
-                                0.800000011920929,
-                                0.800000011920929
-                            ],
-                            "Configuration": [
-                                0.010561799630522728,
-                                0.14999869465827942,
-                                0.12128280103206635
-                            ]
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 1526911113350178604
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 3066607796419867815
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 2180347715972664189,
-                    "Child Entity Order": [
-                        "Entity_[33374924226319]"
-                    ]
-                },
-                "EditorHingeJointComponent": {
-                    "$type": "EditorHingeJointComponent",
-                    "Id": 13876802949819543457,
-                    "Configuration": {
-                        "Local Rotation": [
-                            0.0,
-                            90.0,
-                            0.0
-                        ],
-                        "Parent Entity": "",
-                        "Child Entity": "Entity_[33383514160911]"
-                    },
-                    "Angular Limit": {
-                        "Standard Limit Configuration": {
-                            "Is Soft Limit": true,
-                            "Damping": 5.0
-                        },
-                        "Positive Limit": 1.0,
-                        "Negative Limit": 0.0
-                    },
-                    "Motor": {
-                        "ForceLimit": 5.0
-                    }
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 17456920185953320810
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 15136532437149168424
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 14974553855541802789,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 3850801320
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{549D26B8-881D-569F-AF05-961F36A43F4F}"
-                                            },
-                                            "assetHint": "materials/presets/pbr/metal_aluminum_matte.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 5964924433154819862
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 11328899035442399644
-                },
-                "EditorRigidBodyComponent": {
-                    "$type": "EditorRigidBodyComponent",
-                    "Id": 10234545285221682948,
-                    "Configuration": {
-                        "entityId": "",
-                        "Compute Mass": false,
-                        "Mass": 0.49188581109046936,
-                        "Centre of mass offset": [
-                            -0.0387374609708786,
-                            -0.29022017121315,
-                            0.0491139180958271
-                        ],
-                        "Inertia tensor": [
-                            0.014840544201433659,
-                            0.0,
-                            0.0,
-                            0.0,
-                            0.0005296904710121453,
-                            0.0,
-                            0.0,
-                            0.0,
-                            0.014598461799323559
-                        ]
-                    }
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 8138062543857271955
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 12832051830324863571,
-                    "Parent Entity": "Entity_[33387809128207]",
-                    "Transform Data": {
-                        "Translate": [
-                            -0.2588768005371094,
-                            -0.024860382080078125,
-                            0.4701264202594757
-                        ],
-                        "Rotate": [
-                            0.8269170522689819,
-                            -2.057497501373291,
-                            160.10182189941406
-                        ],
-                        "UniformScale": 0.800000011920929
-                    }
-                }
-            }
-        },
         "Entity_[33387809128207]": {
             "Id": "Entity_[33387809128207]",
             "Name": "ConveyorSegments_End",
@@ -1258,11 +815,10 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 2206064640289862012,
                     "Child Entity Order": [
-                        "Entity_[33383514160911]",
                         "Entity_[33362039324431]",
                         "Entity_[33400694030095]",
                         "Entity_[33353449389839]",
-                        "Entity_[33370629259023]",
+                        "Entity_[240384405385024]",
                         "Entity_[285494584193745]"
                     ]
                 },

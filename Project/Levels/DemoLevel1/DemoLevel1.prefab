@@ -1966,7 +1966,7 @@
                                 },
                                 "assetHint": "assets/factory/box2.spawnable"
                             },
-                            "MaxBoxCount": 4,
+                            "MaxBoxCount": 1,
                             "BoxSpawnInterval": 3.0,
                             "BarrierRegionEntityId": "Entity_[193890544419353]",
                             "DespawnRegionEntityId": "Entity_[1035527589276214]"
@@ -2046,9 +2046,9 @@
                     "Parent Entity": "Entity_[6888547663069]",
                     "Transform Data": {
                         "Translate": [
-                            5.0,
-                            -0.005530357360839844,
-                            0.4857635498046875
+                            1.2000000476837158,
+                            0.0,
+                            0.10000000149011612
                         ]
                     }
                 }
@@ -3214,7 +3214,7 @@
                                 },
                                 "assetHint": "assets/factory/box2.spawnable"
                             },
-                            "MaxBoxCount": 6,
+                            "MaxBoxCount": 1,
                             "BarrierRegionEntityId": "Entity_[288031725117877]",
                             "DespawnRegionEntityId": "Entity_[1035527589276214]"
                         }
@@ -3293,9 +3293,9 @@
                     "Parent Entity": "Entity_[9769530803792]",
                     "Transform Data": {
                         "Translate": [
-                            5.0,
-                            0.12914562225341797,
-                            0.4857635498046875
+                            1.2000000476837158,
+                            0.0,
+                            0.10000000149011612
                         ]
                     }
                 }
@@ -4121,7 +4121,7 @@
                                 },
                                 "assetHint": "assets/factory/box2.spawnable"
                             },
-                            "MaxBoxCount": 4,
+                            "MaxBoxCount": 1,
                             "BoxSpawnInterval": 3.0,
                             "BarrierRegionEntityId": "Entity_[747646904578331]",
                             "DespawnRegionEntityId": "Entity_[1035527589276214]"
@@ -4201,9 +4201,9 @@
                     "Parent Entity": "Entity_[15293623048986]",
                     "Transform Data": {
                         "Translate": [
-                            5.0,
-                            -0.016815185546875,
-                            0.4857635498046875
+                            1.2000000476837158,
+                            0.0,
+                            0.10000000149011612
                         ]
                     }
                 }
@@ -4305,7 +4305,7 @@
                                 },
                                 "assetHint": "assets/factory/box2.spawnable"
                             },
-                            "MaxBoxCount": 4,
+                            "MaxBoxCount": 1,
                             "BoxSpawnInterval": 3.0,
                             "BarrierRegionEntityId": "Entity_[747668379414811]",
                             "DespawnRegionEntityId": "Entity_[1035527589276214]"
@@ -4385,9 +4385,9 @@
                     "Parent Entity": "Entity_[15289328081690]",
                     "Transform Data": {
                         "Translate": [
-                            5.0,
-                            -0.00152587890625,
-                            0.4857635498046875
+                            1.2000000476837158,
+                            0.0,
+                            0.10000000149011612
                         ]
                     }
                 }
@@ -5480,16 +5480,6 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[30903547613653]/Instances/Instance_[30860597940693]/Entities/Entity_[589069902483484]/Components/EditorHingeJointComponent/Angular Limit/Standard Limit Configuration/Stiffness",
                     "value": 50.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[33370629259023]/Components/EditorSplineComponent/Configuration/Spline/Vertices/Vertices/1/0",
-                    "value": 0.8244751691818237
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[33370629259023]/Components/EditorSplineComponent/Configuration/Spline/Vertices/Vertices/2/0",
-                    "value": 0.8323283195495605
                 }
             ]
         },
