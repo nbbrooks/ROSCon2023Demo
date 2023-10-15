@@ -62,7 +62,12 @@
                         "cameraRigidBody": "Entity_[48000280632059]",
                         "cameraGimbalEntityId": "Entity_[48004575599355]",
                         "cameraSpeed": 5.0,
-                        "gimbalSpeed": 0.4000000059604645
+                        "gimbalSpeed": 0.4000000059604645,
+                        "hideEntities": [
+                            "",
+                            "",
+                            ""
+                        ]
                     }
                 },
                 "EditorDisabledCompositionComponent": {
@@ -132,7 +137,7 @@
         },
         "Entity_[48004575599355]": {
             "Id": "Entity_[48004575599355]",
-            "Name": "CameraFollow",
+            "Name": "DroneCamera",
             "Components": {
                 "AZ::Render::EditorBloomComponent": {
                     "$type": "AZ::Render::EditorBloomComponent",

@@ -7439,6 +7439,21 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 2.7580623626708984
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[48000280632059]/Components/CameraJoystick/m_template/hideEntities/0",
+                    "value": "../Instance_[116977520753928]/Instance_[2335530734628]/Entity_[11194386466065]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[48000280632059]/Components/CameraJoystick/m_template/hideEntities/1",
+                    "value": "../Instance_[116977520753928]/Instance_[251113644375304]/Entity_[11194386466065]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[48000280632059]/Components/CameraJoystick/m_template/hideEntities/2",
+                    "value": "../Instance_[116977520753928]/Instance_[251126529277192]/Entity_[11194386466065]"
                 }
             ]
         },
@@ -7542,11 +7557,6 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
                     "path": "/Entities/Entity_[9892748690028]/Components/TransformComponent/Transform Data/Translate/0",
                     "value": -32.153602600097656
                 },
@@ -7554,6 +7564,11 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[9892748690028]/Components/TransformComponent/Transform Data/Translate/1",
                     "value": 12.963687896728516
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
                 }
             ]
         }
