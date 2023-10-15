@@ -33,7 +33,8 @@
                     "Entity_[1842731393655449]",
                     "Instance_[116977520753928]/ContainerEntity",
                     "Instance_[574610897631168]/ContainerEntity",
-                    "Entity_[1059499352435586]"
+                    "Entity_[1059499352435586]",
+                    "Instance_[65156630806722]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -7413,6 +7414,31 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.25
+                }
+            ]
+        },
+        "Instance_[65156630806722]": {
+            "Source": "Prefabs/Features/CameraJoystick.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -32.08974838256836
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 1.7058610916137695
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 2.7580623626708984
                 }
             ]
         },
