@@ -17,6 +17,8 @@
 #include <ROS2/Frame/ROS2FrameComponent.h>
 #include <ROS2/ROS2Bus.h>
 #include <ROS2/Utilities/ROS2Names.h>
+#include <AtomLyIntegration/CommonFeatures/Mesh/MeshComponentBus.h>
+
 namespace ROS2::Demo
 {
 
@@ -35,7 +37,8 @@ namespace ROS2::Demo
                 ->Field("cameraRigidBody", &CameraJoystick::m_cameraRigidBody)
                 ->Field("cameraGimbalEntityId", &CameraJoystick::m_cameraGimbalEntityId)
                 ->Field("cameraSpeed", &CameraJoystick::m_cameraSpeed)
-                ->Field("gimbalSpeed", &CameraJoystick::m_gimbalSpeed);
+                ->Field("gimbalSpeed", &CameraJoystick::m_gimbalSpeed)
+                ->Field("hideEntities", &CameraJoystick::m_hideEntities);
 
             if (AZ::EditContext* ec = serialize->GetEditContext())
             {
@@ -51,7 +54,9 @@ namespace ROS2::Demo
                         "cameraGimbalEntityId",
                         "cameraGimbalEntityId")
                     ->DataElement(AZ::Edit::UIHandlers::Default, &CameraJoystick::m_cameraSpeed, "cameraSpeed", "cameraSpeed")
-                    ->DataElement(AZ::Edit::UIHandlers::Default, &CameraJoystick::m_gimbalSpeed, "gimbalSpeed", "gimbalSpeed");
+                    ->DataElement(AZ::Edit::UIHandlers::Default, &CameraJoystick::m_gimbalSpeed, "gimbalSpeed", "gimbalSpeed")
+                    ->DataElement(AZ::Edit::UIHandlers::Default, &CameraJoystick::m_hideEntities, "hideEntities", "hideEntities");
+
             }
         }
     }
@@ -81,6 +86,16 @@ namespace ROS2::Demo
                 float throttle = Expo(GetDeadzoned(msg.axes[AXIS_THROTTLE], 0.05),expo);
                 m_cameraAngularVelocity = { 0.0f, 0.0f, -m_gimbalAxis1 };
                 m_cameraLinearVelocity = { -pitchSpeed, -aileronSpeed, throttle };
+
+                float hideAxis = msg.axes[AXIS_HIDE];
+                if (hideAxis>0)
+                {
+                    m_hide = true;
+                }
+                else if (hideAxis<0)
+                {
+                    m_hide = false;
+                }
             });
 
         AZ::TickBus::Handler::BusConnect();
@@ -110,5 +125,15 @@ namespace ROS2::Demo
 
         transform.SetRotation(transform.GetRotation() * updateLocal);
         AZ::TransformBus::Event(m_cameraGimbalEntityId, &AZ::TransformBus::Events::SetWorldTM, transform);
+
+        if (m_hide!=m_hideOld)
+        {
+            for (auto& entityId : m_hideEntities)
+            {
+                AZ::Render::MeshComponentRequestBus::Event(entityId, &AZ::Render::MeshComponentRequests::SetVisibility, !m_hide);
+
+            }
+        }
+        m_hideOld = m_hide;
     }
 } // namespace ROS2::Demo

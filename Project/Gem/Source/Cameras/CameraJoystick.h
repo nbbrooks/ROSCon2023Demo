@@ -26,6 +26,7 @@ namespace ROS2::Demo
        const unsigned int AXIS_THROTTLE = 2;
        const unsigned int AXIS_CAM1     = 3;
        const unsigned int AXIS_CAM2     = 4;
+       const unsigned int AXIS_HIDE     = 6;
 
 
    public:
@@ -46,6 +47,8 @@ namespace ROS2::Demo
        ROS2::TopicConfiguration m_joystickTopicConfiguration;
        AZ::EntityId m_cameraRigidBody {AZ::EntityId::InvalidEntityId};
        AZ::EntityId m_cameraGimbalEntityId {AZ::EntityId::InvalidEntityId};
+       AZStd::vector<AZ::EntityId> m_hideEntities;
+
        float m_cameraSpeed = 10.0f;
        float m_gimbalSpeed = 0.1f;
 
@@ -59,6 +62,8 @@ namespace ROS2::Demo
         AZ::Vector3 m_cameraAngularVelocity = AZ::Vector3::CreateZero();
         float m_gimbalAxis1 = 0.0f;
         float m_gimbalAxis2 = 0.0f;
+        bool m_hide = false;
+        bool m_hideOld = false;
 
    };
 } // namespace ROS2::Demo
