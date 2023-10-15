@@ -56,9 +56,9 @@ namespace ROS2::Demo
         }
     }
 
-    float GetDeadzoned(float v)
+    float GetDeadzoned(float v, float d = 0.005f)
     {
-        return AZStd::abs(v) < 0.2f ? 0.0f : v;
+        return AZStd::abs(v) < d ? 0.0f : v;
     }
     float Expo(float value, float exponent)
     {
@@ -73,12 +73,12 @@ namespace ROS2::Demo
             m_joystickTopicConfiguration.GetQoS(),
             [&](sensor_msgs::msg::Joy msg)
             {
-                const float expo = 1.0f;
+                const float expo = 0.0f;
                 m_gimbalAxis1 = Expo(-GetDeadzoned(msg.axes[AXIS_CAM1]),expo);
                 m_gimbalAxis2 = Expo(-GetDeadzoned(msg.axes[AXIS_CAM2]),expo);
                 float pitchSpeed = Expo(GetDeadzoned(msg.axes[AXIS_PITCH]), expo);
                 float aileronSpeed = Expo(-GetDeadzoned(msg.axes[AXIS_ALEIRON]), expo);
-                float throttle = Expo(GetDeadzoned(msg.axes[AXIS_THROTTLE]),expo);
+                float throttle = Expo(GetDeadzoned(msg.axes[AXIS_THROTTLE], 0.05),expo);
                 m_cameraAngularVelocity = { 0.0f, 0.0f, -m_gimbalAxis1 };
                 m_cameraLinearVelocity = { -pitchSpeed, -aileronSpeed, throttle };
             });
