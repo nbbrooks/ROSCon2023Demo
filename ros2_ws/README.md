@@ -99,4 +99,14 @@ To change task modify or adding the ```src/otto_deliberation/config/<nameoftasks
 ## Warning: demo code
 Code quality is "demo", so be careful when using it for building serious projects. This codebase was only meant to enable demonstration of O3DE capabilities. 
 
-
+## Using large scene
+Please note that large scene with total number of 36 robots can saturate ROS 2 even locally. 
+We recommend batching start using custom bash scripts.
+This commend start a MoveIt2, palletization code, path locker service and spawns all robots
+```bash
+./src/roscon2023_demo/bash/spawn.sh
+``` 
+And this commend start one by one fleet navigation making separation in `screen` sessions:
+```bash
+./src/roscon2023_demo/bash/start_fleet.sh
+```
