@@ -43,6 +43,9 @@ private:
     //! Main loop of the node
     void TimerCallback();
 
+    void Recover(std::shared_ptr<Palletization::RoboticArmController> robotArmController,
+                 std::shared_ptr<Gripper::GripperController> gripperController);
+
     //! Sends robots command to create box pattern
     //! @param robotArmController - Robotic arm controller
     //! @param gripperController - Gripper controller

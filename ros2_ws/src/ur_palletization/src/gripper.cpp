@@ -1,4 +1,7 @@
 #include "gripper.h"
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 namespace Gripper
 {
@@ -20,7 +23,20 @@ namespace Gripper
 
         auto result_future = m_client_ptr->async_get_result(goal_handle);
 
-        result_future.wait();
+        std::future_status status;
+        do {
+          switch (status = result_future.wait_for(5s); status) {
+          case std::future_status::deferred:
+            std::cout << "deferred\n";
+            break;
+          case std::future_status::timeout:
+            std::cout << "timeout\n";
+            break;
+          case std::future_status::ready:
+            std::cout << "ready!\n";
+            break;
+          }
+        } while (status != std::future_status::ready);
 
         auto result = result_future.get().result;
 
