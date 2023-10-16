@@ -100,7 +100,6 @@
                     "m_template": {
                         "$type": "ROS2Lidar2DSensorComponent",
                         "SensorConfiguration": {
-                            "Visualize": false,
                             "Publishers": {
                                 "sensor_msgs::msg::LaserScan": {
                                     "Type": "sensor_msgs::msg::LaserScan",
@@ -110,7 +109,7 @@
                         },
                         "lidarCore": {
                             "lidarConfiguration": {
-                                "lidarImplementation": "RobotecGPULidar",
+                                "lidarImplementation": "Scene Queries",
                                 "LidarParameters": {
                                     "Points per layer": 128,
                                     "Max horizontal angle": 90.0,
@@ -374,7 +373,7 @@
                         },
                         "lidarCore": {
                             "lidarConfiguration": {
-                                "lidarImplementation": "RobotecGPULidar",
+                                "lidarImplementation": "Scene Queries",
                                 "LidarParameters": {
                                     "Points per layer": 128,
                                     "Max horizontal angle": 90.0,
