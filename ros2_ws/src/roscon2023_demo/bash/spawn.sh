@@ -1,8 +1,13 @@
 #! /bin/sh
+SCRIPT=$(readlink -f $0)
+SCRIPTPATH=`dirname $SCRIPT`
 
 echo Starting MoveIt stacks and deliberation locks
 
-screen -S MOVEIT_LOCKS -dm ros2 launch roscon2023_demo ROSCon2023Demo.launch.py ROS2Con2023Config:=/home/michalpelka/github/ROSCon2023Demo/ros2_ws/src/roscon2023_demo/config/ROSCon2023Config_900.yaml > /tmp/moveit.log
+# ros2 service call /spawn_entity gazebo_msgs/srv/SpawnEntity "{name: 'otto600', robot_namespace: 'otto_1', initial_pose: {position: {x: -32.0 , y: 2, z: 0.1}}}"
+
+
+screen -S MOVEIT_LOCKS -dm ros2 launch roscon2023_demo ROSCon2023Demo.launch.py ROS2Con2023Config:=${SCRIPTPATH}/../config/ROSCon2023Config_900.yaml
 
 
 ros2 service call /spawn_entity gazebo_msgs/srv/SpawnEntity "{name: 'otto600', robot_namespace: 'otto_1', initial_pose: {position: {x: -32.0 , y: 2, z: 0.1}}}"
@@ -35,4 +40,3 @@ ros2 service call /spawn_entity gazebo_msgs/srv/SpawnEntity "{name: 'otto600', r
 ros2 service call /spawn_entity gazebo_msgs/srv/SpawnEntity "{name: 'otto600', robot_namespace: 'otto_36', initial_pose: {position: {x: -30.0 , y: 87, z: 0.1}}}"
 ros2 service call /spawn_entity gazebo_msgs/srv/SpawnEntity "{name: 'otto600', robot_namespace: 'otto_37', initial_pose: {position: {x: -28.0 , y: 87, z: 0.1}}}"
 ros2 service call /spawn_entity gazebo_msgs/srv/SpawnEntity "{name: 'otto600', robot_namespace: 'otto_38', initial_pose: {position: {x: -26.0 , y: 87, z: 0.1}}}"
-
