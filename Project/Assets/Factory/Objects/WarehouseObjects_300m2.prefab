@@ -5956,24 +5956,92 @@
                     "value": 1.343654990196228
                 },
                 {
-                    "op": "add",
-                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/13",
+                    "op": "replace",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[3487639160617222]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/3",
+                    "value": "Entity_[3487583326042374]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/4",
+                    "value": "Entity_[3487609095846150]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/5",
+                    "value": "Entity_[3487626275715334]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/6",
+                    "value": "Entity_[3487634865649926]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/7",
+                    "value": "Instance_[2990698559568134]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/8",
+                    "value": "Instance_[160359099156161]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/9",
+                    "value": "Instance_[160346214254273]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/10",
+                    "value": "Instance_[160333329352385]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/11",
                     "value": "Instance_[628116669736867]/ContainerEntity"
                 },
                 {
-                    "op": "add",
-                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/14",
+                    "op": "replace",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/12",
                     "value": "Instance_[627974935816099]/ContainerEntity"
                 },
                 {
                     "op": "add",
-                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/15",
+                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/13",
                     "value": "Instance_[628090899933091]/ContainerEntity"
                 },
                 {
-                    "op": "add",
-                    "path": "/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/16",
-                    "value": "Instance_[628103784834979]/ContainerEntity"
+                    "op": "remove",
+                    "path": "/Entities/Entity_[3487613390813446]"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[3487621980748038]"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[1493859507239174]"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[1493863802206470]"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[1493868097173766]"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[160320444450497]"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[628103784834979]"
                 }
             ]
         },

@@ -106,71 +106,83 @@
             "Id": "Entity_[115154568365761]",
             "Name": "collision",
             "Components": {
-                "EditorColliderComponent": {
-                    "$type": "EditorColliderComponent",
-                    "Id": 7562754670353522558,
-                    "ColliderConfiguration": {
-                        "Position": [
-                            -0.0011165738105773926,
-                            -0.29600512981414795,
-                            0.601061224937439
-                        ],
-                        "Rotation": [
-                            0.0,
-                            0.0,
-                            -0.7071067094802856,
-                            0.7071068286895752
-                        ],
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "Entire object"
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "ShapeType": 1,
-                        "Box": {
-                            "Configuration": [
-                                0.7287954092025757,
-                                0.1162945032119751,
-                                1.2290351390838623
-                            ]
-                        }
-                    }
-                },
-                "EditorColliderComponent_2": {
-                    "$type": "EditorColliderComponent",
-                    "Id": 2343335884708645088,
-                    "ColliderConfiguration": {
-                        "Position": [
-                            0.29964450001716614,
-                            -0.0004689999914262444,
-                            0.601061224937439
-                        ],
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "Entire object"
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "ShapeType": 1,
-                        "Box": {
-                            "Configuration": [
-                                0.7287954092025757,
-                                0.1162945032119751,
-                                1.2290351390838623
-                            ]
-                        }
-                    }
-                },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 15941019103193989543
+                    "Id": 15941019103193989543,
+                    "DisabledComponents": {
+                        "EditorColliderComponent": {
+                            "$type": "EditorColliderComponent",
+                            "Id": 7562754670353522558,
+                            "ColliderConfiguration": {
+                                "Position": [
+                                    -0.0011165738105773926,
+                                    -0.29600512981414795,
+                                    0.601061224937439
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    0.0,
+                                    -0.7071067094802856,
+                                    0.7071068286895752
+                                ],
+                                "MaterialSlots": {
+                                    "Slots": [
+                                        {
+                                            "Name": "Entire object"
+                                        }
+                                    ]
+                                }
+                            },
+                            "ShapeConfiguration": {
+                                "ShapeType": 1,
+                                "Box": {
+                                    "Scale": [
+                                        0.6000000238418579,
+                                        0.6000000238418579,
+                                        0.6000000238418579
+                                    ],
+                                    "Configuration": [
+                                        0.7287954092025757,
+                                        0.1162945032119751,
+                                        1.2290351390838623
+                                    ]
+                                }
+                            }
+                        },
+                        "EditorColliderComponent_2": {
+                            "$type": "EditorColliderComponent",
+                            "Id": 2343335884708645088,
+                            "ColliderConfiguration": {
+                                "Position": [
+                                    0.29964450001716614,
+                                    -0.0004689999914262444,
+                                    0.601061224937439
+                                ],
+                                "MaterialSlots": {
+                                    "Slots": [
+                                        {
+                                            "Name": "Entire object"
+                                        }
+                                    ]
+                                }
+                            },
+                            "ShapeConfiguration": {
+                                "ShapeType": 1,
+                                "Box": {
+                                    "Scale": [
+                                        0.6000000238418579,
+                                        0.6000000238418579,
+                                        0.6000000238418579
+                                    ],
+                                    "Configuration": [
+                                        0.7287954092025757,
+                                        0.1162945032119751,
+                                        1.2290351390838623
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",

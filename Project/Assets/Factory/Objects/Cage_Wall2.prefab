@@ -187,37 +187,39 @@
             "Id": "Entity_[386227441219849]",
             "Name": "Physics",
             "Components": {
-                "EditorColliderComponent": {
-                    "$type": "EditorColliderComponent",
-                    "Id": 6043720439848881901,
-                    "ColliderConfiguration": {
-                        "Position": [
-                            -0.0003577768802642822,
-                            0.0006720125675201416,
-                            1.0535383224487305
-                        ],
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "Entire object"
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "ShapeType": 1,
-                        "Box": {
-                            "Configuration": [
-                                0.6714767813682556,
-                                0.04384797811508179,
-                                1.8907091617584229
-                            ]
-                        }
-                    }
-                },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 2401750889863937764
+                    "Id": 2401750889863937764,
+                    "DisabledComponents": {
+                        "EditorColliderComponent": {
+                            "$type": "EditorColliderComponent",
+                            "Id": 6043720439848881901,
+                            "ColliderConfiguration": {
+                                "Position": [
+                                    -0.0003577768802642822,
+                                    0.0006720125675201416,
+                                    1.0535383224487305
+                                ],
+                                "MaterialSlots": {
+                                    "Slots": [
+                                        {
+                                            "Name": "Entire object"
+                                        }
+                                    ]
+                                }
+                            },
+                            "ShapeConfiguration": {
+                                "ShapeType": 1,
+                                "Box": {
+                                    "Configuration": [
+                                        0.6714767813682556,
+                                        0.04384797811508179,
+                                        1.8907091617584229
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
