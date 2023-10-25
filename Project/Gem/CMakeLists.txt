@@ -65,6 +65,7 @@ ly_add_target(
             Gem::ROS2.Static
             Gem::RecastNavigation.API
             Gem::EMotionFX.Static
+            Gem::LmbrCentral.Static
 )
 
 ly_add_target(
@@ -84,6 +85,7 @@ ly_add_target(
             AZ::AzCore
             Gem::RecastNavigation.API
             Gem::ROS2.Static
+            Gem::LmbrCentral.API
 )
 
 target_depends_on_ros2_packages(${gem_name}.Private.Object  vision_msgs lane_provider_msgs)

@@ -46,5 +46,7 @@ set(FILES
     Source/Vision/IdealVisionSystem.h
     Source/Vision/IdealVisionSystemConfiguration.cpp
     Source/Vision/IdealVisionSystemConfiguration.h
+    Source/Cameras/SplineCameraAnimation.h
+    Source/Cameras/SplineCameraAnimation.cpp
     enabled_gems.cmake
 )

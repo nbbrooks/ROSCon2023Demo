@@ -166,11 +166,6 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[415091819019]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "prefabs/otto600/otto600.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/Entities/Entity_[427976720907]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
                 },

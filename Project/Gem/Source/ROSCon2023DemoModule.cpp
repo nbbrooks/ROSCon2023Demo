@@ -20,6 +20,7 @@
 #include <Scripting/FoilWrapperController.h>
 #include <Lights/LightController.h>
 #include "Cameras/CameraJoystick.h"
+#include <Cameras/SplineCameraAnimation.h>
 namespace ROSCon2023Demo
 {
     class ROSCon2023DemoModule : public AZ::Module
@@ -53,6 +54,7 @@ namespace ROSCon2023Demo
                     ROS2::Demo::ObjectDetectionComponent::CreateDescriptor(),
                     ROS2::Demo::LightController::CreateDescriptor(),
                     ROS2::Demo::CameraJoystick::CreateDescriptor(),
+                    ROS2::Demo::SplineCameraAnimation::CreateDescriptor(),
                 });
         }
 

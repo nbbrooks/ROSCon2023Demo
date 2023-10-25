@@ -1,0 +1,624 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "OTTO600WithPallet",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 12727569115176505938
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 14109177156296796594
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 14322905060755875305,
+                "Child Entity Order": [
+                    "Entity_[156945617978714]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 5077636504335810227
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 3050179699344646339
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 4587785729521849325
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 5943798472021775489
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 3178893501281144677
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 12625183757952683859
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 16022557838582034458,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[156945617978714]": {
+            "Id": "Entity_[156945617978714]",
+            "Name": "Otto600WithPallet",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 15811960078920301199
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 1379409371780734256
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 12605694293692559810,
+                    "Child Entity Order": [
+                        "Instance_[351923866075673]/ContainerEntity",
+                        "Instance_[521974506226201]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4135877308919212879,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 6006678947118575772
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6435634080078711512
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 13335659403231022288
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 15430549919622229460
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8046963728856240952
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6006678947118575772,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    },
+    "Instances": {
+        "Instance_[351923866075673]": {
+            "Source": "Prefabs/OTTO600/OTTO600.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Name",
+                    "value": "otto_1"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[156945617978714]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.10000000149011612
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 89.99994659423828
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[187685058540532]/Components/ROS2Lidar2DSensorComponent/m_template/SensorConfiguration/Visualize",
+                    "value": false
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[363552211467]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[385027047947]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[406501884427]/Components/EditorPrismaticJointComponent/Linear Limit/Upper Limit",
+                    "value": 0.10000000149011612
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[406501884427]/Components/LifterControllerComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 14464864923481250071,
+                        "m_template": {
+                            "$type": "LifterControllerComponent",
+                            "Id": 0,
+                            "TopicConfiguration": {
+                                "Type": "std_msgs::msg::Empty",
+                                "Topic": "lifter",
+                                "QoS": {
+                                    "Reliability": 2,
+                                    "Durability": 2,
+                                    "Depth": 5
+                                }
+                            },
+                            "MotorSetpoint": 0.44999998807907104
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[427976720907]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[436566655499]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[458041491979]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[483811295755]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[1089556810462679]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[479516328459]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[402206917131]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/3",
+                    "value": "Entity_[449451557387]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/4",
+                    "value": "Entity_[389322015243]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/5",
+                    "value": "Entity_[462336459275]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/6",
+                    "value": "Entity_[372142146059]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/7",
+                    "value": "Entity_[415091819019]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/8",
+                    "value": "Entity_[367847178763]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/9",
+                    "value": "Entity_[24172719660011]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/10",
+                    "value": "Entity_[73839592638613]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorTagComponent/Id",
+                    "value": 7864192969969983559
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
+                    "value": 3
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
+                    "value": "otto_1"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/ROS2OdometrySensorComponent/m_template/SensorConfiguration/Publishers/nav_msgs::msg::Odometry/QoS/Reliability",
+                    "value": 1
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/SkidSteeringModelComponent/m_template/ManualControl",
+                    "value": false
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[73839592638613]",
+                    "value": {
+                        "Id": "Entity_[73839592638613]",
+                        "Name": "LidarFont",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 4422044273628475462,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 8875154084264919973,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 7476730090870835438,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 14354033588409176408,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 12286023037443644427,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 12759857378734701439,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 4601217696299340811,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 10732755782870928078,
+                                "VisibilityFlag": true
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 17938559804587789931,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "front",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "ROS2LidarSensorComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 14876645393516776311,
+                                "m_template": {
+                                    "$type": "ROS2LidarSensorComponent",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualize": false,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "sensor_msgs::msg::PointCloud2": {
+                                                "Type": "sensor_msgs::msg::PointCloud2",
+                                                "Topic": "pc1",
+                                                "QoS": {
+                                                    "Reliability": 2,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "lidarCore": {
+                                        "lidarConfiguration": {
+                                            "lidarModelName": "Velodyne Puck (VLP-16)",
+                                            "lidarImplementation": "RobotecGPULidar",
+                                            "LidarParameters": {
+                                                "Name": "Velodyne Puck (VLP-16)",
+                                                "Layers": 16,
+                                                "Points per layer": 1800,
+                                                "Min horizontal angle": -180.0,
+                                                "Max horizontal angle": 180.0,
+                                                "Min vertical angle": 15.0,
+                                                "Max vertical angle": -15.0,
+                                                "Min range": 1.0,
+                                                "Max range": 100.0,
+                                                "Enable Noise": true,
+                                                "Noise Parameters": {
+                                                    "Angular noise standard deviation": 0.0,
+                                                    "Distance noise standard deviation base": 0.029999999329447746,
+                                                    "Distance noise standard deviation slope": 0.0010000000474974513
+                                                }
+                                            },
+                                            "IgnoredLayerIndices": [],
+                                            "ExcludedEntities": [],
+                                            "PointsAtMax": false
+                                        }
+                                    }
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 15306239862880906614,
+                                "Parent Entity": "Entity_[376437113355]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        0.6000022888183594,
+                                        0.0,
+                                        0.15000000596046448
+                                    ],
+                                    "Rotate": [
+                                        0.0,
+                                        0.0,
+                                        0.0
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[1089556810462679]",
+                    "value": {
+                        "Id": "Entity_[1089556810462679]",
+                        "Name": "LidarBack",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 12849272674628396593,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 3023702119349725714,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 1553244710213294710,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 17418320945952289777,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 5497252576687593365,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 12547012863061037855,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 3548708201296494848,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 16163654871969320720,
+                                "VisibilityFlag": true
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 12221837972940879528,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "back",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "ROS2LidarSensorComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 4556114959994993485,
+                                "m_template": {
+                                    "$type": "ROS2LidarSensorComponent",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualize": false,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "sensor_msgs::msg::PointCloud2": {
+                                                "Type": "sensor_msgs::msg::PointCloud2",
+                                                "Topic": "pc2",
+                                                "QoS": {
+                                                    "Reliability": 2,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "lidarCore": {
+                                        "lidarConfiguration": {
+                                            "lidarModelName": "Velodyne Puck (VLP-16)",
+                                            "lidarImplementation": "RobotecGPULidar",
+                                            "LidarParameters": {
+                                                "Name": "Velodyne Puck (VLP-16)",
+                                                "Layers": 16,
+                                                "Points per layer": 1800,
+                                                "Min horizontal angle": -180.0,
+                                                "Max horizontal angle": 180.0,
+                                                "Min vertical angle": 15.0,
+                                                "Max vertical angle": -15.0,
+                                                "Min range": 0.0,
+                                                "Max range": 100.0,
+                                                "Enable Noise": true,
+                                                "Noise Parameters": {
+                                                    "Angular noise standard deviation": 0.0,
+                                                    "Distance noise standard deviation base": 0.029999999329447746,
+                                                    "Distance noise standard deviation slope": 0.0010000000474974513
+                                                }
+                                            },
+                                            "IgnoredLayerIndices": [],
+                                            "ExcludedEntities": [],
+                                            "PointsAtMax": false
+                                        }
+                                    }
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 14771233073935972333,
+                                "Parent Entity": "Entity_[376437113355]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        -0.699999988079071,
+                                        0.0,
+                                        0.15000009536743164
+                                    ],
+                                    "Rotate": [
+                                        0.0,
+                                        0.0,
+                                        0.0
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
+                }
+            ]
+        },
+        "Instance_[521974506226201]": {
+            "Source": "Assets/Factory/EuroPallet.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[156945617978714]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.5
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 89.99999237060547
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorFixedJointComponent",
+                    "value": {
+                        "$type": "EditorFixedJointComponent",
+                        "Id": 9552086105796279727,
+                        "Configuration": {
+                            "Local Position": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ],
+                            "Local Rotation": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ],
+                            "Fix Joint Location": false,
+                            "Parent Entity": "../Instance_[351923866075673]/Entity_[406501884427]",
+                            "Child Entity": "Entity_[7675435439647121]",
+                            "Breakable": false,
+                            "Maximum Force": 1.0,
+                            "Maximum Torque": 1.0,
+                            "Display Debug": "Selected",
+                            "Select Lead on Snap": true,
+                            "Self Collide": false
+                        },
+                        "Component Mode": {}
+                    }
+                }
+            ]
+        }
+    }
+}
