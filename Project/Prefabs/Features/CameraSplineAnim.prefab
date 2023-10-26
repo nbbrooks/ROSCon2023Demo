@@ -1,0 +1,1017 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "CameraSplineAnim",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 13840918082585684100
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 4289498754674243548
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 5513351705344364772,
+                "Child Entity Order": [
+                    "Entity_[73689364529268]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 8381833782769564790
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 1256414613947204408
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 406454571684097677
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 14598910719181361502
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 9599842896420339004
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 1133269755671132774
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 17620165454492423360,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[73680774594676]": {
+            "Id": "Entity_[73680774594676]",
+            "Name": "POI",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 6879714879333132520
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5685592907244357271
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2634999643497006586
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 227619197738715008
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15774070122908496084
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16926983359344937742
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 15871957415641811993
+                },
+                "EditorSphereShapeComponent": {
+                    "$type": "EditorSphereShapeComponent",
+                    "Id": 12241935712472974044,
+                    "GameView": true,
+                    "ShapeColor": [
+                        1.0,
+                        0.7799954414367676,
+                        0.7799954414367676,
+                        1.0
+                    ],
+                    "SphereShape": {
+                        "Configuration": {
+                            "DrawColor": [
+                                1.0,
+                                0.7799954414367676,
+                                0.7799954414367676
+                            ]
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 2983896449281178708
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 5079200271598529202,
+                    "Parent Entity": "Entity_[73693659496564]"
+                }
+            }
+        },
+        "Entity_[73685069561972]": {
+            "Id": "Entity_[73685069561972]",
+            "Name": "CameraSpline",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 5167126161269436688
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 8753952732120189252
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16572156001233518454,
+                    "Child Entity Order": [
+                        "Entity_[73697954463860]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9024601693033790787,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 13842655080237788651
+                        },
+                        {
+                            "ComponentId": 7970073910824345620,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 14253006865825649673,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 631964250371834716
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 5409857891987004611
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3978266793688172328
+                },
+                "EditorSplineComponent": {
+                    "$type": "EditorSplineComponent",
+                    "Id": 7970073910824345620,
+                    "Configuration": {
+                        "Spline Type": 2612576363626472641,
+                        "Spline": {
+                            "$type": "BezierSpline",
+                            "Vertices": {
+                                "Vertices": [
+                                    [
+                                        -5.080562591552734,
+                                        -0.8023687601089478,
+                                        -1.4569928646087646
+                                    ],
+                                    [
+                                        14.750015258789063,
+                                        3.2451353073120117,
+                                        -1.915198802947998
+                                    ],
+                                    [
+                                        15.846146583557129,
+                                        24.556142807006836,
+                                        -4.493724822998047
+                                    ],
+                                    [
+                                        16.639156341552734,
+                                        61.132484436035156,
+                                        -4.092504501342773
+                                    ],
+                                    [
+                                        14.935578346252441,
+                                        75.39543914794922,
+                                        -3.2598888874053955
+                                    ],
+                                    [
+                                        2.4997825622558594,
+                                        75.3069839477539,
+                                        -1.688647747039795
+                                    ],
+                                    [
+                                        -17.550912857055664,
+                                        75.38917541503906,
+                                        -2.191742420196533
+                                    ],
+                                    [
+                                        -36.17610549926758,
+                                        75.47679901123047,
+                                        -1.8810369968414307
+                                    ],
+                                    [
+                                        -46.304080963134766,
+                                        72.28227996826172,
+                                        -1.9936609268188477
+                                    ],
+                                    [
+                                        -47.6049919128418,
+                                        57.487518310546875,
+                                        -2.3722763061523438
+                                    ],
+                                    [
+                                        -48.29804229736328,
+                                        26.502477645874023,
+                                        -2.902172803878784
+                                    ],
+                                    [
+                                        -47.628639221191406,
+                                        2.929161548614502,
+                                        -3.755859375
+                                    ],
+                                    [
+                                        -34.443809509277344,
+                                        -0.22865067422389984,
+                                        -3.189894199371338
+                                    ],
+                                    [
+                                        -27.649085998535156,
+                                        -3.5417943000793457,
+                                        7.559401512145996
+                                    ],
+                                    [
+                                        -9.624940872192383,
+                                        -14.710943222045898,
+                                        25.265220642089844
+                                    ]
+                                ]
+                            },
+                            "Bezier Data": [
+                                {
+                                    "Forward": [
+                                        1.64937162399292,
+                                        -1.2935703992843628,
+                                        -1.38670814037323
+                                    ],
+                                    "Back": [
+                                        -5.080562591552734,
+                                        -0.8023687601089478,
+                                        -1.4569928646087646
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        19.291015625,
+                                        8.74781608581543,
+                                        -2.574155807495117
+                                    ],
+                                    "Back": [
+                                        10.473053932189941,
+                                        -1.9375896453857422,
+                                        -1.2945572137832642
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        16.2436580657959,
+                                        36.73676300048828,
+                                        -4.951871871948242
+                                    ],
+                                    "Back": [
+                                        15.612614631652832,
+                                        17.40020751953125,
+                                        -4.224570274353027
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        16.553293228149414,
+                                        65.92645263671875,
+                                        -3.9761581420898438
+                                    ],
+                                    "Back": [
+                                        16.85749053955078,
+                                        48.942317962646484,
+                                        -4.388351917266846
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        12.005765914916992,
+                                        78.33252716064453,
+                                        -2.761786937713623
+                                    ],
+                                    "Back": [
+                                        18.298603057861328,
+                                        72.02406311035156,
+                                        -3.831641912460327
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -4.182331562042236,
+                                        75.30569458007813,
+                                        -1.4689418077468872
+                                    ],
+                                    "Back": [
+                                        6.675851821899414,
+                                        75.30779266357422,
+                                        -1.8259556293487549
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -23.760107040405273,
+                                        75.41643524169922,
+                                        -2.2226293087005615
+                                    ],
+                                    "Back": [
+                                        -10.865335464477539,
+                                        75.35981750488281,
+                                        -2.1584856510162354
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -39.6956787109375,
+                                        75.09649658203125,
+                                        -1.856790542602539
+                                    ],
+                                    "Back": [
+                                        -30.002853393554688,
+                                        76.14384460449219,
+                                        -1.9235646724700928
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -48.958988189697266,
+                                        68.10340881347656,
+                                        -2.1077747344970703
+                                    ],
+                                    "Back": [
+                                        -44.40619659423828,
+                                        75.26958465576172,
+                                        -1.9120855331420898
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -48.05451202392578,
+                                        47.166893005371094,
+                                        -2.577091693878174
+                                    ],
+                                    "Back": [
+                                        -47.38954162597656,
+                                        62.434078216552734,
+                                        -2.2741105556488037
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -48.301448822021484,
+                                        18.638917922973633,
+                                        -3.101590156555176
+                                    ],
+                                    "Back": [
+                                        -48.29356384277344,
+                                        36.83159637451172,
+                                        -2.6402294635772705
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -45.547393798828125,
+                                        -1.0865120887756348,
+                                        -3.7990822792053223
+                                    ],
+                                    "Back": [
+                                        -51.24806213378906,
+                                        9.912676811218262,
+                                        -3.680692195892334
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -30.775123596191406,
+                                        -1.416860580444336,
+                                        -1.1121633052825928
+                                    ],
+                                    "Back": [
+                                        -38.2320556640625,
+                                        0.9982820749282837,
+                                        -5.335336685180664
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -21.997854232788086,
+                                        -6.839397430419922,
+                                        14.038601875305176
+                                    ],
+                                    "Back": [
+                                        -30.33742904663086,
+                                        -1.973093867301941,
+                                        4.4771857261657715
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -9.624940872192383,
+                                        -14.710943222045898,
+                                        25.265220642089844
+                                    ],
+                                    "Back": [
+                                        -15.79391860961914,
+                                        -10.786290168762207,
+                                        19.667770385742188
+                                    ]
+                                }
+                            ],
+                            "Granularity": 64
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7691749288060554050
+                },
+                "SplineCameraAnimation": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 14253006865825649673,
+                    "m_template": {
+                        "$type": "SplineCameraAnimation",
+                        "trackSpeed": 0.05000000074505806,
+                        "entityToAnimate": "Entity_[73697954463860]",
+                        "localRotatio": {
+                            "Rotation": [
+                                0.0,
+                                0.0,
+                                0.7071068286895752,
+                                -0.7071067094802856
+                            ]
+                        },
+                        "hideTimeOffset": 0.8799999952316284,
+                        "hideEntities": [
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "joystickTopicConfiguration": {
+                            "Topic": "joy"
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 13842655080237788651,
+                    "Parent Entity": "Entity_[73689364529268]",
+                    "Transform Data": {
+                        "Translate": [
+                            -38.93301010131836,
+                            3.307394027709961,
+                            6.868746757507324
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[73689364529268]": {
+            "Id": "Entity_[73689364529268]",
+            "Name": "CameraSplineAnimation",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 18035089092162601383
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 12115422067291682742
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8724585067620493780,
+                    "Child Entity Order": [
+                        "Entity_[73685069561972]",
+                        "Entity_[73693659496564]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 1813070634542538580,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 5940141948381129107
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 7658077391647006561
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 11871323118418599004
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17390368616926971361
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 6831867171215938930
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 5940141948381129107,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        },
+        "Entity_[73693659496564]": {
+            "Id": "Entity_[73693659496564]",
+            "Name": "LookAtSpline",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 5167126161269436688
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 8753952732120189252
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16572156001233518454,
+                    "Child Entity Order": [
+                        "Entity_[73680774594676]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9024601693033790787,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 13842655080237788651
+                        },
+                        {
+                            "ComponentId": 7970073910824345620,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 14253006865825649673,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 631964250371834716
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 5409857891987004611
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3978266793688172328
+                },
+                "EditorSplineComponent": {
+                    "$type": "EditorSplineComponent",
+                    "Id": 7970073910824345620,
+                    "Configuration": {
+                        "Spline Type": 2612576363626472641,
+                        "Spline": {
+                            "$type": "BezierSpline",
+                            "Vertices": {
+                                "Vertices": [
+                                    [
+                                        -5.080562591552734,
+                                        -0.8023687601089478,
+                                        -1.8271899223327637
+                                    ],
+                                    [
+                                        14.687170028686523,
+                                        1.883744239807129,
+                                        -4.228921890258789
+                                    ],
+                                    [
+                                        24.590482711791992,
+                                        27.388349533081055,
+                                        -4.493724822998047
+                                    ],
+                                    [
+                                        22.60426902770996,
+                                        61.17670440673828,
+                                        -4.092504501342773
+                                    ],
+                                    [
+                                        14.935578346252441,
+                                        76.29876708984375,
+                                        -3.2598888874053955
+                                    ],
+                                    [
+                                        2.4997825622558594,
+                                        75.7015151977539,
+                                        -3.2685585021972656
+                                    ],
+                                    [
+                                        -18.67927360534668,
+                                        75.38917541503906,
+                                        -3.3672726154327393
+                                    ],
+                                    [
+                                        -37.28269958496094,
+                                        75.47679901123047,
+                                        -3.50691556930542
+                                    ],
+                                    [
+                                        -47.146400451660156,
+                                        72.28227996826172,
+                                        -3.619539499282837
+                                    ],
+                                    [
+                                        -53.79113006591797,
+                                        61.85405349731445,
+                                        -3.7977287769317627
+                                    ],
+                                    [
+                                        -53.47685623168945,
+                                        29.557315826416016,
+                                        -3.8076164722442627
+                                    ],
+                                    [
+                                        -48.990447998046875,
+                                        2.7627224922180176,
+                                        -3.755859375
+                                    ],
+                                    [
+                                        -36.791412353515625,
+                                        -0.5406008958816528,
+                                        -3.2345752716064453
+                                    ],
+                                    [
+                                        -18.759017944335938,
+                                        2.8566339015960693,
+                                        -3.1342153549194336
+                                    ],
+                                    [
+                                        -10.811655044555664,
+                                        8.81165885925293,
+                                        -3.0454838275909424
+                                    ],
+                                    [
+                                        -9.515802383422852,
+                                        18.337522506713867,
+                                        -2.9271039962768555
+                                    ]
+                                ]
+                            },
+                            "Bezier Data": [
+                                {
+                                    "Forward": [
+                                        1.5066132545471191,
+                                        -1.6488206386566162,
+                                        -2.695164203643799
+                                    ],
+                                    "Back": [
+                                        -5.080562591552734,
+                                        -0.8023687601089478,
+                                        -1.8271899223327637
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        21.28508758544922,
+                                        8.152482986450195,
+                                        -4.821876525878906
+                                    ],
+                                    "Back": [
+                                        9.841793060302734,
+                                        -2.71989107131958,
+                                        -3.7934682369232178
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        26.083791732788086,
+                                        38.57208251953125,
+                                        -4.467994213104248
+                                    ],
+                                    "Back": [
+                                        23.383399963378906,
+                                        18.348234176635742,
+                                        -4.514523506164551
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        21.508743286132813,
+                                        66.72648620605469,
+                                        -3.952503204345703
+                                    ],
+                                    "Back": [
+                                        24.788700103759766,
+                                        50.110679626464844,
+                                        -4.3716607093811035
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        11.573468208312988,
+                                        78.72777557373047,
+                                        -3.122098922729492
+                                    ],
+                                    "Back": [
+                                        19.51983642578125,
+                                        72.9867935180664,
+                                        -3.4477663040161133
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -4.558128356933594,
+                                        75.51053619384766,
+                                        -3.291105270385742
+                                    ],
+                                    "Back": [
+                                        6.648287296295166,
+                                        75.81377410888672,
+                                        -3.2553060054779053
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -24.880449295043945,
+                                        75.3541488647461,
+                                        -3.4044270515441895
+                                    ],
+                                    "Back": [
+                                        -11.618982315063477,
+                                        75.4290542602539,
+                                        -3.3249707221984863
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -40.71840286254883,
+                                        75.1018295288086,
+                                        -3.5373616218566895
+                                    ],
+                                    "Back": [
+                                        -31.118160247802734,
+                                        76.14959716796875,
+                                        -3.452287435531616
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -50.32554244995117,
+                                        69.65885162353516,
+                                        -3.6755433082580566
+                                    ],
+                                    "Back": [
+                                        -44.480857849121094,
+                                        74.48188781738281,
+                                        -3.5725831985473633
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -55.36907196044922,
+                                        51.20433044433594,
+                                        -3.844609260559082
+                                    ],
+                                    "Back": [
+                                        -53.18695831298828,
+                                        65.93168640136719,
+                                        -3.7797789573669434
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -52.74355697631836,
+                                        20.53117561340332,
+                                        -3.8012208938598633
+                                    ],
+                                    "Back": [
+                                        -54.34864044189453,
+                                        40.288047790527344,
+                                        -3.8152198791503906
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -46.946414947509766,
+                                        -0.9243900775909424,
+                                        -3.685659646987915
+                                    ],
+                                    "Back": [
+                                        -53.38059997558594,
+                                        10.681864738464355,
+                                        -3.9066338539123535
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -30.676103591918945,
+                                        -0.5216041803359985,
+                                        -3.1088271141052246
+                                    ],
+                                    "Back": [
+                                        -41.006874084472656,
+                                        -0.5536958575248718,
+                                        -3.3212571144104004
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -15.644328117370605,
+                                        3.97786808013916,
+                                        -3.1115453243255615
+                                    ],
+                                    "Back": [
+                                        -24.513975143432617,
+                                        0.784949541091919,
+                                        -3.17610239982605
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -9.168846130371094,
+                                        11.56309700012207,
+                                        -3.008673667907715
+                                    ],
+                                    "Back": [
+                                        -12.508625030517578,
+                                        5.969508647918701,
+                                        -3.083507537841797
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        -9.515802383422852,
+                                        18.337522506713867,
+                                        -2.9271039962768555
+                                    ],
+                                    "Back": [
+                                        -9.35189437866211,
+                                        15.13717269897461,
+                                        -2.9656388759613037
+                                    ]
+                                }
+                            ],
+                            "Granularity": 64
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7691749288060554050
+                },
+                "SplineCameraAnimation": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 14253006865825649673,
+                    "m_template": {
+                        "$type": "SplineCameraAnimation",
+                        "trackSpeed": 0.05000000074505806,
+                        "entityToAnimate": "Entity_[73680774594676]",
+                        "localRotatio": {
+                            "Rotation": [
+                                0.0,
+                                0.0,
+                                -0.7071068286895752,
+                                0.7071067690849304
+                            ]
+                        },
+                        "phaseShift": 0.05000000074505806,
+                        "hideTimeOffset": 0.8500000238418579
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 13842655080237788651,
+                    "Parent Entity": "Entity_[73689364529268]",
+                    "Transform Data": {
+                        "Translate": [
+                            -38.93301010131836,
+                            3.307394027709961,
+                            4.664422988891602
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[73697954463860]": {
+            "Id": "Entity_[73697954463860]",
+            "Name": "SplineCamera",
+            "Components": {
+                "AZ::Render::EditorBloomComponent": {
+                    "$type": "AZ::Render::EditorBloomComponent",
+                    "Id": 9072099036731173943,
+                    "Controller": {
+                        "Configuration": {
+                            "Enabled": true,
+                            "Intensity": 0.20000000298023224
+                        }
+                    }
+                },
+                "AZ::Render::EditorDeferredFogComponent": {
+                    "$type": "AZ::Render::EditorDeferredFogComponent",
+                    "Id": 4108467057968610525,
+                    "Controller": {
+                        "Configuration": {
+                            "FogColor": [
+                                0.45000380277633667,
+                                0.5125047564506531,
+                                0.6000000238418579
+                            ],
+                            "FogStartDistance": 30.0,
+                            "FogEndDistance": 1000.0
+                        }
+                    }
+                },
+                "AZ::Render::EditorPostFxLayerComponent": {
+                    "$type": "AZ::Render::EditorPostFxLayerComponent",
+                    "Id": 14480801625505005526
+                },
+                "AZ::Render::EditorSsaoComponent": {
+                    "$type": "AZ::Render::EditorSsaoComponent",
+                    "Id": 7386665190117786251,
+                    "Controller": {
+                        "Configuration": {
+                            "Strength": 1.5,
+                            "SamplingRadius": 0.029999999329447746
+                        }
+                    }
+                },
+                "Component_[11895140916889160460]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11895140916889160460
+                },
+                "Component_[16880285896855930892]": {
+                    "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
+                    "Id": 16880285896855930892,
+                    "Controller": {
+                        "Configuration": {
+                            "Field of View": 60.0
+                        }
+                    }
+                },
+                "Component_[17187464423780271193]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17187464423780271193
+                },
+                "Component_[17495696818315413311]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17495696818315413311
+                },
+                "Component_[18086214374043522055]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18086214374043522055,
+                    "Parent Entity": "Entity_[73685069561972]",
+                    "Transform Data": {
+                        "Translate": [
+                            6.84326171875,
+                            -0.31376218795776367,
+                            -6.388302803039551
+                        ],
+                        "Rotate": [
+                            1.6023638248443604,
+                            31.37818145751953,
+                            86.92472839355469
+                        ]
+                    }
+                },
+                "Component_[2654521436129313160]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 2654521436129313160
+                },
+                "Component_[5265045084611556958]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 5265045084611556958
+                },
+                "Component_[7169798125182238623]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 7169798125182238623
+                },
+                "Component_[8866210352157164042]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8866210352157164042
+                },
+                "Component_[9129253381063760879]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9129253381063760879
+                },
+                "EditorLookAtComponent": {
+                    "$type": "EditorLookAtComponent",
+                    "Id": 404743087274058281,
+                    "Target": "Entity_[73680774594676]",
+                    "ForwardAxis": 2
+                }
+            }
+        }
+    }
+}
