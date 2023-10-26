@@ -1,0 +1,609 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "CameraSplineAnim2",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 15607578375595953076
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 8002305052942072577
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 13855741730503144002,
+                "Child Entity Order": [
+                    "Entity_[4355596859906324]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 12881140719503361134
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 17409932281019580363
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 10118804157190710613
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 6029650606841880125
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 15809597153026820199
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 5967527896279709944
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 16925400058103344740,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[4355579680037140]": {
+            "Id": "Entity_[4355579680037140]",
+            "Name": "SplineCamera",
+            "Components": {
+                "AZ::Render::EditorBloomComponent": {
+                    "$type": "AZ::Render::EditorBloomComponent",
+                    "Id": 9072099036731173943,
+                    "Controller": {
+                        "Configuration": {
+                            "Enabled": true,
+                            "Threshold": 3.0,
+                            "Intensity": 0.20000000298023224
+                        }
+                    }
+                },
+                "AZ::Render::EditorDeferredFogComponent": {
+                    "$type": "AZ::Render::EditorDeferredFogComponent",
+                    "Id": 4108467057968610525,
+                    "Controller": {
+                        "Configuration": {
+                            "FogColor": [
+                                0.45000380277633667,
+                                0.5125047564506531,
+                                0.6000000238418579
+                            ],
+                            "FogStartDistance": 30.0,
+                            "FogEndDistance": 1000.0
+                        }
+                    }
+                },
+                "AZ::Render::EditorDepthOfFieldComponent": {
+                    "$type": "AZ::Render::EditorDepthOfFieldComponent",
+                    "Id": 15744421203265303055,
+                    "Controller": {
+                        "Configuration": {
+                            "CameraEntityId": "Entity_[4355579680037140]",
+                            "Enabled": true,
+                            "ApertureF": 0.20000000298023224,
+                            "FNumber": 0.5988770723342896,
+                            "AutoFocusSpeed": 0.05000000074505806,
+                            "AutoFocusDelay": 1.0
+                        }
+                    }
+                },
+                "AZ::Render::EditorPostFxLayerComponent": {
+                    "$type": "AZ::Render::EditorPostFxLayerComponent",
+                    "Id": 14480801625505005526
+                },
+                "AZ::Render::EditorSsaoComponent": {
+                    "$type": "AZ::Render::EditorSsaoComponent",
+                    "Id": 7386665190117786251,
+                    "Controller": {
+                        "Configuration": {
+                            "Strength": 1.5,
+                            "SamplingRadius": 0.029999999329447746
+                        }
+                    }
+                },
+                "Component_[11895140916889160460]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11895140916889160460
+                },
+                "Component_[16880285896855930892]": {
+                    "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
+                    "Id": 16880285896855930892
+                },
+                "Component_[17187464423780271193]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17187464423780271193
+                },
+                "Component_[17495696818315413311]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17495696818315413311
+                },
+                "Component_[18086214374043522055]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18086214374043522055,
+                    "Parent Entity": "Entity_[4355592564939028]",
+                    "Transform Data": {
+                        "Rotate": [
+                            0.629135251045227,
+                            -13.122964859008789,
+                            92.76895904541016
+                        ]
+                    }
+                },
+                "Component_[2654521436129313160]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 2654521436129313160
+                },
+                "Component_[5265045084611556958]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 5265045084611556958
+                },
+                "Component_[7169798125182238623]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 7169798125182238623
+                },
+                "Component_[8866210352157164042]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8866210352157164042,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 18086214374043522055
+                        },
+                        {
+                            "ComponentId": 14480801625505005526,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 9072099036731173943,
+                            "SortIndex": 2
+                        },
+                        {
+                            "ComponentId": 7386665190117786251,
+                            "SortIndex": 3
+                        },
+                        {
+                            "ComponentId": 4108467057968610525,
+                            "SortIndex": 4
+                        },
+                        {
+                            "ComponentId": 404743087274058281,
+                            "SortIndex": 5
+                        },
+                        {
+                            "ComponentId": 16880285896855930892,
+                            "SortIndex": 6
+                        },
+                        {
+                            "ComponentId": 15744421203265303055,
+                            "SortIndex": 7
+                        }
+                    ]
+                },
+                "Component_[9129253381063760879]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9129253381063760879
+                },
+                "EditorLookAtComponent": {
+                    "$type": "EditorLookAtComponent",
+                    "Id": 404743087274058281,
+                    "Target": "Entity_[4355588269971732]",
+                    "ForwardAxis": 2
+                }
+            }
+        },
+        "Entity_[4355583975004436]": {
+            "Id": "Entity_[4355583975004436]",
+            "Name": "LookAtSpline",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1214605220190463478
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15482308328464586426
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 1114029212415693550,
+                    "Child Entity Order": [
+                        "Entity_[4355588269971732]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16628480848189598989,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 17804211149136962472
+                        },
+                        {
+                            "ComponentId": 4577513798339109599,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 13206976099732005533,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 7729998484689133488
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4461268242814267513
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4117215746243501650
+                },
+                "EditorSplineComponent": {
+                    "$type": "EditorSplineComponent",
+                    "Id": 4577513798339109599,
+                    "Configuration": {
+                        "Spline Type": 2612576363626472641,
+                        "Spline": {
+                            "$type": "BezierSpline",
+                            "Vertices": {
+                                "Vertices": [
+                                    [
+                                        -3.0,
+                                        0.0,
+                                        0.0
+                                    ],
+                                    [
+                                        1.0,
+                                        0.0,
+                                        0.7212955951690674
+                                    ],
+                                    [
+                                        8.177802085876465,
+                                        1.2258189916610718,
+                                        2.623244047164917
+                                    ]
+                                ]
+                            },
+                            "Bezier Data": [
+                                {
+                                    "Forward": [
+                                        -1.6627765893936157,
+                                        -0.07154111564159393,
+                                        0.2056715190410614
+                                    ],
+                                    "Back": [
+                                        -3.0,
+                                        0.0,
+                                        0.0
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        3.428514003753662,
+                                        0.26632413268089294,
+                                        1.2912273406982422
+                                    ],
+                                    "Back": [
+                                        -0.3115478754043579,
+                                        -0.1438315212726593,
+                                        0.4134971499443054
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        8.177802085876465,
+                                        1.2258189916610718,
+                                        2.623244047164917
+                                    ],
+                                    "Back": [
+                                        5.806777000427246,
+                                        0.7468026876449585,
+                                        1.9582507610321045
+                                    ]
+                                }
+                            ],
+                            "Granularity": 64
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 873571571659159958
+                },
+                "SplineCameraAnimation": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 13206976099732005533,
+                    "m_template": {
+                        "$type": "SplineCameraAnimation",
+                        "trackSpeed": 0.05000000074505806,
+                        "entityToAnimate": "Entity_[4355588269971732]",
+                        "localRotatio": {
+                            "Rotation": [
+                                0.0,
+                                0.0,
+                                -0.7071068286895752,
+                                0.7071068286895752
+                            ]
+                        },
+                        "phaseShift": 0.05000000074505806,
+                        "hideTimeOffset": 0.8500000238418579
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 17804211149136962472,
+                    "Parent Entity": "Entity_[4355592564939028]",
+                    "Transform Data": {
+                        "Translate": [
+                            -2.073976516723633,
+                            -0.09768295288085938,
+                            -0.4846076965332031
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[4355588269971732]": {
+            "Id": "Entity_[4355588269971732]",
+            "Name": "POI",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 18515909257963337
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 4561929337079002865
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5874074722049200608
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 14098870200063036996,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 12790098736396405027
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 4895526707933570785
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 189093930579430431
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13824648096133645095
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17959345240636069297
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12790098736396405027,
+                    "Parent Entity": "Entity_[4355583975004436]"
+                }
+            }
+        },
+        "Entity_[4355592564939028]": {
+            "Id": "Entity_[4355592564939028]",
+            "Name": "CameraSpline",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1214605220190463478
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15482308328464586426
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 1114029212415693550,
+                    "Child Entity Order": [
+                        "Entity_[4355583975004436]",
+                        "Entity_[4355579680037140]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16628480848189598989,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 17804211149136962472
+                        },
+                        {
+                            "ComponentId": 4577513798339109599,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 13436974539295172625,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 7729998484689133488
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4461268242814267513
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4117215746243501650
+                },
+                "EditorSplineComponent": {
+                    "$type": "EditorSplineComponent",
+                    "Id": 4577513798339109599,
+                    "Configuration": {
+                        "Spline Type": 2612576363626472641,
+                        "Spline": {
+                            "$type": "BezierSpline",
+                            "Vertices": {
+                                "Vertices": [
+                                    [
+                                        -2.535487651824951,
+                                        0.0,
+                                        0.0
+                                    ],
+                                    [
+                                        2.5637803077697754,
+                                        0.0,
+                                        0.7212955951690674
+                                    ],
+                                    [
+                                        7.826899528503418,
+                                        2.4769275188446045,
+                                        3.197176933288574
+                                    ]
+                                ]
+                            },
+                            "Bezier Data": [
+                                {
+                                    "Forward": [
+                                        -0.8325216770172119,
+                                        -0.18598654866218567,
+                                        0.11087856441736221
+                                    ],
+                                    "Back": [
+                                        -2.535487651824951,
+                                        0.0,
+                                        0.0
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        4.526839256286621,
+                                        0.46923109889030457,
+                                        1.3269712924957275
+                                    ],
+                                    "Back": [
+                                        0.9645910263061523,
+                                        -0.3822551965713501,
+                                        0.22788694500923157
+                                    ]
+                                },
+                                {
+                                    "Forward": [
+                                        7.826899528503418,
+                                        2.4769275188446045,
+                                        3.197176933288574
+                                    ],
+                                    "Back": [
+                                        6.206539154052734,
+                                        1.4911296367645264,
+                                        2.27888822555542
+                                    ]
+                                }
+                            ],
+                            "Granularity": 64
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 873571571659159958
+                },
+                "SplineCameraAnimation": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 13436974539295172625,
+                    "m_template": {
+                        "$type": "SplineCameraAnimation",
+                        "trackSpeed": 0.05000000074505806,
+                        "entityToAnimate": "Entity_[4355579680037140]",
+                        "localRotatio": {
+                            "Rotation": [
+                                0.0,
+                                0.0,
+                                0.7071068286895752,
+                                -0.7071067094802856
+                            ]
+                        },
+                        "hideTimeOffset": 0.8799999952316284,
+                        "joystickTopicConfiguration": {
+                            "Topic": "joy"
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 17804211149136962472,
+                    "Parent Entity": "Entity_[4355596859906324]",
+                    "Transform Data": {
+                        "Translate": [
+                            -14.793264389038086,
+                            42.1890983581543,
+                            1.5155267715454102
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[4355596859906324]": {
+            "Id": "Entity_[4355596859906324]",
+            "Name": "CameraSplineAnim2",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 15989184895288147089
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 2337141493533953407
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 3730519475981629768,
+                    "Child Entity Order": [
+                        "Entity_[4355592564939028]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 1256989277913184093,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 1422061939808774006
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 14731376447663545871
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 5689378894919173834
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5694646917997592963
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 10156606759848503069
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 1422061939808774006,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    }
+}
