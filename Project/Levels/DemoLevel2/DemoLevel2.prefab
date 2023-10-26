@@ -34,7 +34,7 @@
                     "Instance_[116977520753928]/ContainerEntity",
                     "Instance_[574610897631168]/ContainerEntity",
                     "Entity_[1059499352435586]",
-                    "Instance_[65156630806722]/ContainerEntity"
+                    "Instance_[73693060153840]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -1036,6 +1036,13 @@
                                         "subId": 1911613189
                                     },
                                     "assetHint": "prefabs/otto600/otto600withpallet.spawnable"
+                                },
+                                "otto600rgl": {
+                                    "assetId": {
+                                        "guid": "{F02C9E26-619C-58A7-BCFE-946263AA6F77}",
+                                        "subId": 354961195
+                                    },
+                                    "assetHint": "prefabs/otto600/otto600withpallet_rgl.spawnable"
                                 }
                             },
                             "Default spawn pose": {
@@ -7418,46 +7425,6 @@
                 }
             ]
         },
-        "Instance_[65156630806722]": {
-            "Source": "Prefabs/Features/CameraJoystick.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -32.08974838256836
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 1.7058610916137695
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 2.7580623626708984
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[48000280632059]/Components/CameraJoystick/m_template/hideEntities/0",
-                    "value": "../Instance_[116977520753928]/Instance_[2335530734628]/Entity_[11194386466065]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[48000280632059]/Components/CameraJoystick/m_template/hideEntities/1",
-                    "value": "../Instance_[116977520753928]/Instance_[251113644375304]/Entity_[11194386466065]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[48000280632059]/Components/CameraJoystick/m_template/hideEntities/2",
-                    "value": "../Instance_[116977520753928]/Instance_[251126529277192]/Entity_[11194386466065]"
-                }
-            ]
-        },
         "Instance_[65433934755776]": {
             "Source": "Assets/Wrapper/Wrapper_with_cage.prefab",
             "Patches": [
@@ -7500,6 +7467,51 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 1.344290018081665
+                }
+            ]
+        },
+        "Instance_[73693060153840]": {
+            "Source": "Prefabs/Features/CameraSplineAnim.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[73697954463860]/Components/Component_[18086214374043522055]/Transform Data/Translate/1",
+                    "value": -0.31376171112060547
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[73697954463860]/Components/Component_[18086214374043522055]/Transform Data/Rotate/0",
+                    "value": 1.6023637056350708
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[73697954463860]/Components/Component_[18086214374043522055]/Transform Data/Rotate/1",
+                    "value": 31.378173828125
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[73685069561972]/Components/SplineCameraAnimation/m_template/hideEntities/0",
+                    "value": "../Instance_[116977520753928]/Instance_[2335530734628]/Entity_[11194386466065]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[73685069561972]/Components/SplineCameraAnimation/m_template/hideEntities/1",
+                    "value": "../Instance_[116977520753928]/Instance_[251113644375304]/Entity_[11194386466065]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[73685069561972]/Components/SplineCameraAnimation/m_template/hideEntities/2",
+                    "value": "../Instance_[116977520753928]/Instance_[251126529277192]/Entity_[11194386466065]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[73685069561972]/Components/SplineCameraAnimation/m_template/hideEntities/3",
+                    "value": "../Instance_[116977520753928]/Entity_[117072010034440]"
                 }
             ]
         },
